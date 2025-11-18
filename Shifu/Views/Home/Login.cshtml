@@ -1,0 +1,47 @@
+@model UserData
+
+@{
+    ViewData["Title"] = "Login Page";
+    Layout = "_Layout";
+}
+
+<div class="text-center">
+    <h1 class="display-4 fw-bold">Log In</h1>
+    <div id="spacer"></div>
+    <div>
+        @if (!ViewData.ModelState.IsValid)
+        {
+            <div class="alert alert-danger" role="alert">
+                @foreach (var key in ViewData.ModelState.Keys)
+                {
+                    var errors = ViewData.ModelState[key].Errors;
+                    if (errors.Count > 0)
+                    {
+                        @foreach (var error in errors)
+                        {
+                            <p class="mb-0">@Html.Raw(error.ErrorMessage)</p>
+                        }
+                    }
+                }
+            </div>
+        }
+        <form asp-action="Login" method="post">
+            <div class="justify-content-center align-content-center">
+                <div class="col-md-4 mx-auto">
+                    <label for="email" class="form-label">Email address: </label>
+                    <input asp-for="Email" type="text" id="email" required="required" class="form-control">
+                </div>
+                <div class="col-md-4 mx-auto">
+                    <label for="password" class="form-label">Password: </label>
+                    <input asp-for="Password" type="password" id="password" required="required" class="form-control">
+                </div>
+            </div>
+            
+
+
+            <button type="submit" class="btn btn-primary mt-3">Log in</button>
+        </form>
+
+    </div>
+    
+</div>
