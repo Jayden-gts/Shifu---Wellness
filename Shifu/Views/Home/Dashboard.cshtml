@@ -1,0 +1,27 @@
+@model UserData
+@{
+    ViewBag.Title = "Dashboard";
+    Layout = "_Layout";
+}
+
+<div class="d-flex flex-column text-center">
+    
+    <h2 class="display-4 fw-bold">Dashboard</h2>
+    
+    <div id="spacer">
+        <p>Welcome, @Model.FirstName!</p>
+        <p>Email: @Model.Email</p>
+        
+    </div>
+    
+    <div class="flex-grow-1 d-flex justify-content-center align-items-center">
+        <a asp-controller="Home" asp-action="UserListing" class="btn btn-outline-primary btn-lg">User Listing</a>
+    </div>
+    <div id="spacer"></div>
+    <div id="spacer"></div>
+    <div id="spacer"></div>
+    <div class="container text-center">
+        <a asp-action="SignOut" class="btn btn-outline-danger">Sign Out</a>
+    </div>
+
+</div>
