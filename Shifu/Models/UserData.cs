@@ -28,4 +28,10 @@ public class UserData
     [DataType(DataType.Password)]
     [Compare("Password", ErrorMessage = "Passwords do not match")]
     public string? PasswordConfirm { get; set; }
+
+    public string? CurrentGoal { get; set; }
+
+    public int? JournalStreak { get; set; }
+
+    public int? GoalsCompleted { get; set; }
 }

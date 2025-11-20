@@ -4,24 +4,39 @@
     Layout = "_Layout";
 }
 
-<div class="d-flex flex-column text-center">
-    
-    <h2 class="display-4 fw-bold">Dashboard</h2>
-    
-    <div id="spacer">
-        <p>Welcome, @Model.FirstName!</p>
-        <p>Email: @Model.Email</p>
-        
-    </div>
-    
-    <div class="flex-grow-1 d-flex justify-content-center align-items-center">
-        <a asp-controller="Home" asp-action="UserListing" class="btn btn-outline-primary btn-lg">User Listing</a>
-    </div>
-    <div id="spacer"></div>
-    <div id="spacer"></div>
-    <div id="spacer"></div>
-    <div class="container text-center">
-        <a asp-action="SignOut" class="btn btn-outline-danger">Sign Out</a>
-    </div>
+<div class="container-fluid vh-100 p-0">
+    <div class="row g-0 vh-100 box">
 
+        <div class="col-4 box rounded d-flex flex-column align-items-center justify-content-center border h-100"
+             style="background-image: url('@Url.Content("~/bgGreen.png")'); background-size: cover; background-position: center;">
+            
+            <div class="p-3 mb-3 rounded shadow bg-white text-center" style="width: 80%;">
+                <h4>Welcome</h4>
+                <p>@Model.FirstName @Model.LastName</p>
+            </div>
+
+            <div class="p-3 mb-3 rounded shadow bg-white text-center" style="width: 80%;">
+                <h4>How's your goal coming along?</h4>
+                <p>@Model.CurrentGoal</p>
+            </div>
+
+            <div class="p-3 mb-3 rounded shadow bg-white text-center" style="width: 80%;">
+                <h4>Journal Streak</h4>
+                <p>@Model.JournalStreak</p>
+            </div>
+
+            <div class="p-3 mb-3 rounded shadow bg-white text-center" style="width: 80%;">
+                <h4>Phone Number</h4>
+                <p>@Model.PhoneNumber</p>
+            </div>
+            
+
+        </div>
+        <div class="col-8 box rounded d-flex flex-column align-items-center justify-content-center border bg-body-secondary h-100">
+            <div>Journal goes here</div>
+        </div>
+
+    </div>
 </div>
+
+
