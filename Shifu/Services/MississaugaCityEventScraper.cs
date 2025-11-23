@@ -22,13 +22,14 @@ public class MississaugaCityEventScraper
 
         await using var browser = await Puppeteer.LaunchAsync(new LaunchOptions { Headless = true });
         await using var page = await browser.NewPageAsync();
-
+        
         await page.GoToAsync("https://www.mississauga.ca/events-and-attractions/events-calendar/#/",
             WaitUntilNavigation.Networkidle0);
 
        
         await page.WaitForSelectorAsync("li.event-card");
 
+        
         
         var eventsData = await page.EvaluateExpressionAsync<string>(@"
             Array.from(document.querySelectorAll('li.event-card')).map(e => {
