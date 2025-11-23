@@ -91,6 +91,47 @@ public class HomeController : Controller
         return View(LoggedInUser);
     }
 
+    [HttpGet]
+    public IActionResult EditProfile()
+    {
+        if (LoggedInUser == null)
+            return RedirectToAction("Login");
+        return View(LoggedInUser);
+    }
+
+    [HttpPost]
+    public async Task<IActionResult> EditProfile(UserData user)
+    {
+        if (!ModelState.IsValid)
+        {
+            return View(user);
+        }
+
+        if (LoggedInUser == null)
+            return View("Login");
+        
+        LoggedInUser.FirstName = user.FirstName;
+        LoggedInUser.LastName = user.LastName;
+        LoggedInUser.Email = user.Email;
+        LoggedInUser.PhoneNumber = user.PhoneNumber;
+        
+        if (!string.IsNullOrWhiteSpace(user.Password))
+        {
+            if (user.Password != user.PasswordConfirm)
+            {
+                ModelState.AddModelError("", "Passwords do not match.");
+                return View(user);
+            }
+
+            LoggedInUser.Password = user.Password;
+        }
+        
+        await _repository.UpdateUserAsync(LoggedInUser);
+
+        TempData["Success"] = "Profile updated!";
+        return RedirectToAction("Dashboard");
+    }
+
     public IActionResult Privacy()
     {
         return View();

@@ -51,6 +51,11 @@ body {
     height: 5vh;
 }
 
+.col-3-5 {
+    flex: 0 0 auto;
+    width: 32.9%;
+}
+
 
 .vh-90{
     height: 90vh;
@@ -63,3 +68,8 @@ body {
 .mainBgColour{
     background-color: #598a57;
 }
+
+.white{
+    color: white;
+}
+

@@ -5,43 +5,53 @@
     Layout = "_Layout";
 }
 
-<div class="text-center">
-    <h1 class="display-4 fw-bold">Log In</h1>
-    <div id="spacer"></div>
-    <div>
-        @if (!ViewData.ModelState.IsValid)
-        {
-            <div class="alert alert-danger" role="alert">
-                @foreach (var key in ViewData.ModelState.Keys)
-                {
-                    var errors = ViewData.ModelState[key].Errors;
-                    if (errors.Count > 0)
+
+<div class="container-fluid vh-100 p-0">
+    <div class="row vh-100 box">
+        <div class="col-12 box rounded d-flex flex-column align-items-center justify-content-center h-100" style="background-image: url('@Url.Content("~/bgGreen.png")'); background-size: cover; background-position: center;" >
+           
+            <div class="text-center">
+                <h1 class="display-4 fw-bold" style = "color: seagreen";>Log In</h1>
+                <div id="spacer"></div>
+                <div>
+                    @if (!ViewData.ModelState.IsValid)
                     {
-                        @foreach (var error in errors)
-                        {
-                            <p class="mb-0">@Html.Raw(error.ErrorMessage)</p>
-                        }
+                        <div class="alert alert-danger" role="alert">
+                            @foreach (var key in ViewData.ModelState.Keys)
+                            {
+                                var errors = ViewData.ModelState[key].Errors;
+                                if (errors.Count > 0)
+                                {
+                                    @foreach (var error in errors)
+                                    {
+                                        <p class="mb-0">@Html.Raw(error.ErrorMessage)</p>
+                                    }
+                                }
+                            }
+                        </div>
                     }
-                }
-            </div>
-        }
-        <form asp-action="Login" method="post">
-            <div class="justify-content-center align-content-center">
-                <div class="col-md-4 mx-auto">
-                    <label for="email" class="form-label">Email address: </label>
-                    <input asp-for="Email" type="text" id="email" required="required" class="form-control">
-                </div>
-                <div class="col-md-4 mx-auto">
-                    <label for="password" class="form-label">Password: </label>
-                    <input asp-for="Password" type="password" id="password" required="required" class="form-control">
-                </div>
-            </div>
+                    <form asp-action="Login" method="post">
+                        <div class="row justify-content-center align-content-center">
+                            <div class="col-md-6 mx-auto">
+                                <label for="email" class="form-label white">Email address: </label>
+                                <input asp-for="Email" type="text" id="email" required="required" class="form-control">
+                            </div>
+                            <div class="col-md-6 mx-auto">
+                                <label for="password" class="form-label white">Password: </label>
+                                <input asp-for="Password" type="password" id="password" required="required" class="form-control">
+                            </div>
+                        </div>
             
 
 
-            <button type="submit" class="btn btn-primary mt-3">Log in</button>
-        </form>
+                        <button type="submit" class="btn btn-primary mt-3">Log in</button>
+                    </form>
 
-    </div>
+                </div>
     
+            </div>
+            
+        </div>
+    </div>
 </div>
+

@@ -17,6 +17,28 @@ public class UserDataRepository
         await _context.SaveChangesAsync();
     }
 
+    public async Task UpdateUserAsync(UserData userData)
+    {
+        var existing = await _context.Users.FindAsync(userData.Id);
+        if (existing == null)
+        {
+            throw new Exception("No user found");
+        }
+        
+        existing.FirstName = userData.FirstName;
+        existing.LastName = userData.LastName;
+        existing.Email = userData.Email;
+        existing.PhoneNumber = userData.PhoneNumber;
+
+        if (!string.IsNullOrEmpty(userData.Password))
+        {
+            existing.Password = userData.Password;
+        }
+
+        await _context.SaveChangesAsync();
+
+    }
+
     public async Task<bool> EmailExistsAsync(string email)
     {
         return await _context.Users.AnyAsync(u => u.Email == email);

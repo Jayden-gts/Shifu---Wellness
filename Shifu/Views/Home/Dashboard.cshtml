@@ -5,32 +5,57 @@
 }
 
 <div class="container-fluid vh-100 p-0">
-    <div class="row g-0 vh-100 box">
+    <div class="row column-gap-1 vh-100 box">
 
-        <div class="col-4 box rounded d-flex flex-column align-items-center justify-content-center border h-100"
-             style="background-image: url('@Url.Content("~/bgGreen.png")'); background-size: cover; background-position: center;">
+        <div class="col-3-5 box rounded d-flex flex-column align-items-center justify-content-center border h-100"
+             style="background-image: url('@Url.Content("~/bgGreen.png")'); background-size: cover; background-position: left;">
             
-            <div class="p-3 mb-3 rounded shadow bg-white text-center" style="width: 80%;">
-                <h4>Welcome</h4>
-                <p>@Model.FirstName @Model.LastName</p>
+            <div class="p-3 mb-3 rounded shadow bg-white text-center" style="width: 90%;">
+                <h5>Welcome!</h5>
+                <p>@(char.ToUpper(@Model.FirstName[0]) + Model.FirstName.Substring(1).ToLower())
+                    @(char.ToUpper(@Model.LastName[0]) + Model.LastName.Substring(1).ToLower())
+                </p>
+                <a asp-action="EditProfile" class="btn btn-outline-secondary">Edit Profile</a>
             </div>
 
-            <div class="p-3 mb-3 rounded shadow bg-white text-center" style="width: 80%;">
-                <h4>How's your goal coming along?</h4>
-                <p>@Model.CurrentGoal</p>
+            <div class="p-3 mb-3 rounded shadow bg-white text-center" style="width: 90%;">
+                <h5>How's your goal coming along?</h5>
+                @if (!string.IsNullOrWhiteSpace(Model.CurrentGoal))
+                {
+                    <p>@Model.CurrentGoal current goal</p>
+                }
+                else
+                {
+                    <p>Try setting a goal!</p>
+                }
+
             </div>
 
-            <div class="p-3 mb-3 rounded shadow bg-white text-center" style="width: 80%;">
-                <h4>Journal Streak</h4>
-                <p>@Model.JournalStreak</p>
-            </div>
-
-            <div class="p-3 mb-3 rounded shadow bg-white text-center" style="width: 80%;">
-                <h4>Phone Number</h4>
-                <p>@Model.PhoneNumber</p>
+            <div class="p-3 mb-3 rounded shadow bg-white text-center" style="width: 90%;">
+                <h5>Journal Streak</h5>
+                @if (Model.JournalStreak.HasValue && Model.JournalStreak.Value != 0)
+                {
+                    <p>@Model.JournalStreak.Value</p>
+                }
+                else
+                {
+                    <p>Try writing in your journal!</p>
+                }
             </div>
             
+            <div class="p-3 mb-3 rounded shadow bg-white text-center" style="width: 90%;">
+                <h5>Get Connected!</h5>
+                <a asp-controller="Events" asp-action="Index" class="btn btn-outline-secondary">Find local events near you</a>
+            </div>
+            
+            
+            
+            <div class="container text-center">
+                <a asp-action="SignOut" class="btn btn-outline-danger">Sign Out</a>
+            </div>
+           
 
+            
         </div>
         <div class="col-8 box rounded d-flex flex-column align-items-center justify-content-center border bg-body-secondary h-100">
             <div>Journal goes here</div>

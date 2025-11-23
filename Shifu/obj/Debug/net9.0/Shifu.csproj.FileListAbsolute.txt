@@ -7,6 +7,7 @@
 /Users/jaydenseto/PROG30000/Shifu/Shifu/bin/Debug/net9.0/Shifu.runtimeconfig.json
 /Users/jaydenseto/PROG30000/Shifu/Shifu/bin/Debug/net9.0/Shifu.dll
 /Users/jaydenseto/PROG30000/Shifu/Shifu/bin/Debug/net9.0/Shifu.pdb
+/Users/jaydenseto/PROG30000/Shifu/Shifu/bin/Debug/net9.0/HtmlAgilityPack.dll
 /Users/jaydenseto/PROG30000/Shifu/Shifu/bin/Debug/net9.0/Humanizer.dll
 /Users/jaydenseto/PROG30000/Shifu/Shifu/bin/Debug/net9.0/Microsoft.Bcl.AsyncInterfaces.dll
 /Users/jaydenseto/PROG30000/Shifu/Shifu/bin/Debug/net9.0/Microsoft.Build.Locator.dll
@@ -33,6 +34,7 @@
 /Users/jaydenseto/PROG30000/Shifu/Shifu/bin/Debug/net9.0/Microsoft.Extensions.Options.dll
 /Users/jaydenseto/PROG30000/Shifu/Shifu/bin/Debug/net9.0/Microsoft.Extensions.Primitives.dll
 /Users/jaydenseto/PROG30000/Shifu/Shifu/bin/Debug/net9.0/Mono.TextTemplating.dll
+/Users/jaydenseto/PROG30000/Shifu/Shifu/bin/Debug/net9.0/PuppeteerSharp.dll
 /Users/jaydenseto/PROG30000/Shifu/Shifu/bin/Debug/net9.0/SQLitePCLRaw.batteries_v2.dll
 /Users/jaydenseto/PROG30000/Shifu/Shifu/bin/Debug/net9.0/SQLitePCLRaw.core.dll
 /Users/jaydenseto/PROG30000/Shifu/Shifu/bin/Debug/net9.0/SQLitePCLRaw.provider.e_sqlite3.dll
@@ -145,6 +147,7 @@
 /Users/jaydenseto/PROG30000/Shifu/Shifu/obj/Debug/net9.0/scopedcss/Views/Shared/_Layout.cshtml.rz.scp.css
 /Users/jaydenseto/PROG30000/Shifu/Shifu/obj/Debug/net9.0/scopedcss/bundle/Shifu.styles.css
 /Users/jaydenseto/PROG30000/Shifu/Shifu/obj/Debug/net9.0/scopedcss/projectbundle/Shifu.bundle.scp.css
+/Users/jaydenseto/PROG30000/Shifu/Shifu/obj/Debug/net9.0/compressed/lgd0deqdny-97r9ygbgsv.gz
 /Users/jaydenseto/PROG30000/Shifu/Shifu/obj/Debug/net9.0/compressed/7iiw6g28v5-61n19gt1b8.gz
 /Users/jaydenseto/PROG30000/Shifu/Shifu/obj/Debug/net9.0/compressed/konvw2juzk-fr7q2aak1r.gz
 /Users/jaydenseto/PROG30000/Shifu/Shifu/obj/Debug/net9.0/compressed/zjmrdgyub3-bqjiyaj88i.gz
@@ -218,4 +221,3 @@
 /Users/jaydenseto/PROG30000/Shifu/Shifu/obj/Debug/net9.0/Shifu.pdb
 /Users/jaydenseto/PROG30000/Shifu/Shifu/obj/Debug/net9.0/Shifu.genruntimeconfig.cache
 /Users/jaydenseto/PROG30000/Shifu/Shifu/obj/Debug/net9.0/ref/Shifu.dll
-/Users/jaydenseto/PROG30000/Shifu/Shifu/obj/Debug/net9.0/compressed/lgd0deqdny-gif5wi6ft8.gz

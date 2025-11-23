@@ -1,5 +1,6 @@
 using Microsoft.EntityFrameworkCore;
 using Shifu.Models;
+using Shifu.Services;
 
 namespace Shifu;
 
@@ -15,7 +16,13 @@ public class Program
             options.UseSqlite(builder.Configuration.GetConnectionString("DefaultConnection")));
         builder.Services.AddScoped<UserDataRepository>();
 
-        
+        builder.Services.AddHttpClient<Shifu.Services.OakvilleCityEventScraper>();
+        // builder.Services.AddHttpClient<Shifu.Services.MississaugaCityEventScraper>();
+        builder.Services.AddScoped<MississaugaCityEventScraper>();
+
+      
+
+
         var app = builder.Build();
 
         // Configure the HTTP request pipeline.

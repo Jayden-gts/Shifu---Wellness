@@ -1,0 +1,29 @@
+@model List<Shifu.Models.CityEvent>
+
+@{
+    Layout = "_Layout";
+}
+
+<div class="d-flex justify-content-between align-items-center mb-3">
+    <span class="fw-bold fs-3">Community Events</span>
+    <a asp-controller="Home" asp-action="Dashboard" class="btn btn-outline-secondary">Back to Dashboard</a>
+</div><div class="container-fluid vh-100 p-0">
+    <div class="row column-gap-1 vh-100 box">
+        <div class=" box rounded d-flex flex-column justify-content-start align-items-center border h-100"
+             style="background-image: url('@Url.Content("~/bgGreen.png")'); overflow-y: auto; padding: 1rem; background-size: cover; background-position: left;">
+            <ul class="list-unstyled">
+                @foreach (var ev in Model)
+                {
+                    <li>
+                        <div class="p-3 mb-3 rounded shadow bg-white text-center d-flex flex-column align-items-center">
+                            <h6>@ev.Title</h6>  @ev.Location - @ev.StartDate?.ToString("dd MMM yyyy") @ev.EndTime
+                            (@ev.City)
+                            <img src="@ev.ImageUrl" style="max-width:300px; display:block; margin-bottom:5px;"/>
+                            <a href="@ev.Url" target="_blank">More info</a>
+                        </div>
+                    </li>
+                }
+            </ul>
+        </div>
+    </div>
+</div>
