@@ -1,0 +1,106 @@
+@model UserData
+@inject Shifu.Services.JournalManager JournalManager
+@{
+    ViewBag.Title = "Dashboard";
+    Layout = "_Layout";
+}
+
+<div class="container-fluid vh-100 p-0">
+    <div class="row column-gap-1 flex-nowrap vh-100 box">
+
+        <div class="col-3 box rounded d-flex flex-column align-items-center justify-content-center border h-100"
+             style="background-image: url('@Url.Content("~/bgGreen.png")'); background-size: cover; background-position: left;">
+            
+            <div class="p-3 mb-3 rounded shadow bg-white text-center" style="width: 90%;">
+                <h5>Welcome!</h5>
+                <p>@(char.ToUpper(@Model.FirstName[0]) + Model.FirstName.Substring(1).ToLower())
+                    @(char.ToUpper(@Model.LastName[0]) + Model.LastName.Substring(1).ToLower())
+                </p>
+                <a asp-action="EditProfile" class="btn btn-outline-secondary">Edit Profile</a>
+            </div>
+
+            <div class="p-3 mb-3 rounded shadow bg-white text-center" style="width: 90%;">
+                <h5>How's your goal coming along?</h5>
+                @if (!string.IsNullOrWhiteSpace(Model.CurrentGoal))
+                {
+                    <p>@Model.CurrentGoal current goal</p>
+                }
+                else
+                {
+                    <a asp-controller="Goals" asp-action="Index" class="btn btn-outline-primary">
+                        Try setting a goal!
+                    </a>
+                }
+
+            </div>
+
+            <div class="p-3 mb-3 rounded shadow bg-white text-center" style="width: 90%;">
+                <h5>Resources for you</h5>
+                <a asp-controller="Resources" asp-action="Index" class="btn btn-outline-primary">
+                    View Resources
+                </a>
+            </div>
+
+
+
+            <div class="p-3 mb-3 rounded shadow bg-white text-center" style="width: 90%;">
+                <h5>Journal Streak</h5>
+                @if (Model.JournalStreak.HasValue && Model.JournalStreak.Value != 0)
+                {
+                    <p>@Model.JournalStreak.Value</p>
+                }
+                else
+                {
+                    <p>Try writing in your journal!</p>
+                }
+            </div>
+            
+            <div class="p-3 mb-3 rounded shadow bg-white text-center" style="width: 90%;">
+                <h5>Get Connected!</h5>
+                <a asp-controller="Events" asp-action="Index" class="btn btn-outline-secondary">Find local events near you</a>
+            </div>
+            
+            
+            
+            <div class="container text-center">
+                <a asp-action="SignOut" class="btn btn-outline-danger">Sign Out</a>
+            </div>
+           
+
+            
+        </div>
+        <div class="col-9 box rounded d-flex flex-column align-items-start border bg-body-secondary h-100 overflow-auto p-3" id="journalPanel">
+            @await Html.PartialAsync("_JournalPartial", Model)
+        </div>
+
+        @section Scripts {
+            <script>
+                $(document).ready(function () {
+                    $("#journalPanel").on("submit", "#journalForm", function (e) {
+                        e.preventDefault();
+                        var form = $(this);
+                        $.ajax({
+                            type: "POST",
+                            url: "/Journal/AddEntry",
+                            data: form.serialize(),
+                            success: function (result) {
+                                
+                                $("#journalPanel").html(result);
+                            },
+                            error: function () {
+                                alert("Failed to add entry.");
+                            }
+                        });
+                    });
+                });
+            </script>
+        }
+
+
+
+        </div>
+
+    </div>
+</div>
+
+

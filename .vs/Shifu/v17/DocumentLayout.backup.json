@@ -1,0 +1,666 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\jghat\\Desktop\\Shifu---Wellness-main\\Shifu---Wellness-main\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{CB3986E5-E2C0-461A-B67E-7BC0B7190E0D}|Shifu\\Shifu.csproj|c:\\users\\jghat\\desktop\\shifu---wellness-main\\shifu---wellness-main\\shifu\\.gitignore||{3B902123-F8A7-4915-9F01-361F908088D0}",
+      "RelativeMoniker": "D:0:0:{CB3986E5-E2C0-461A-B67E-7BC0B7190E0D}|Shifu\\Shifu.csproj|solutionrelative:shifu\\.gitignore||{3B902123-F8A7-4915-9F01-361F908088D0}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{CB3986E5-E2C0-461A-B67E-7BC0B7190E0D}|Shifu\\Shifu.csproj|c:\\users\\jghat\\desktop\\shifu---wellness-main\\shifu---wellness-main\\shifu\\views\\shared\\_journalpartial.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{CB3986E5-E2C0-461A-B67E-7BC0B7190E0D}|Shifu\\Shifu.csproj|solutionrelative:shifu\\views\\shared\\_journalpartial.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{CB3986E5-E2C0-461A-B67E-7BC0B7190E0D}|Shifu\\Shifu.csproj|c:\\users\\jghat\\desktop\\shifu---wellness-main\\shifu---wellness-main\\shifu\\models\\userdatarepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{CB3986E5-E2C0-461A-B67E-7BC0B7190E0D}|Shifu\\Shifu.csproj|solutionrelative:shifu\\models\\userdatarepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{CB3986E5-E2C0-461A-B67E-7BC0B7190E0D}|Shifu\\Shifu.csproj|c:\\users\\jghat\\desktop\\shifu---wellness-main\\shifu---wellness-main\\shifu\\services\\mississaugacityeventscraper.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{CB3986E5-E2C0-461A-B67E-7BC0B7190E0D}|Shifu\\Shifu.csproj|solutionrelative:shifu\\services\\mississaugacityeventscraper.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{CB3986E5-E2C0-461A-B67E-7BC0B7190E0D}|Shifu\\Shifu.csproj|c:\\users\\jghat\\desktop\\shifu---wellness-main\\shifu---wellness-main\\shifu\\views\\journal\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{CB3986E5-E2C0-461A-B67E-7BC0B7190E0D}|Shifu\\Shifu.csproj|solutionrelative:shifu\\views\\journal\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{CB3986E5-E2C0-461A-B67E-7BC0B7190E0D}|Shifu\\Shifu.csproj|c:\\users\\jghat\\desktop\\shifu---wellness-main\\shifu---wellness-main\\shifu\\controllers\\resourcescontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{CB3986E5-E2C0-461A-B67E-7BC0B7190E0D}|Shifu\\Shifu.csproj|solutionrelative:shifu\\controllers\\resourcescontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{CB3986E5-E2C0-461A-B67E-7BC0B7190E0D}|Shifu\\Shifu.csproj|c:\\users\\jghat\\desktop\\shifu---wellness-main\\shifu---wellness-main\\shifu\\services\\resourcemanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{CB3986E5-E2C0-461A-B67E-7BC0B7190E0D}|Shifu\\Shifu.csproj|solutionrelative:shifu\\services\\resourcemanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{CB3986E5-E2C0-461A-B67E-7BC0B7190E0D}|Shifu\\Shifu.csproj|c:\\users\\jghat\\desktop\\shifu---wellness-main\\shifu---wellness-main\\shifu\\views\\resources\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{CB3986E5-E2C0-461A-B67E-7BC0B7190E0D}|Shifu\\Shifu.csproj|solutionrelative:shifu\\views\\resources\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{CB3986E5-E2C0-461A-B67E-7BC0B7190E0D}|Shifu\\Shifu.csproj|c:\\users\\jghat\\desktop\\shifu---wellness-main\\shifu---wellness-main\\shifu\\views\\goals\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{CB3986E5-E2C0-461A-B67E-7BC0B7190E0D}|Shifu\\Shifu.csproj|solutionrelative:shifu\\views\\goals\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{CB3986E5-E2C0-461A-B67E-7BC0B7190E0D}|Shifu\\Shifu.csproj|c:\\users\\jghat\\desktop\\shifu---wellness-main\\shifu---wellness-main\\shifu\\models\\resource.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{CB3986E5-E2C0-461A-B67E-7BC0B7190E0D}|Shifu\\Shifu.csproj|solutionrelative:shifu\\models\\resource.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{CB3986E5-E2C0-461A-B67E-7BC0B7190E0D}|Shifu\\Shifu.csproj|c:\\users\\jghat\\desktop\\shifu---wellness-main\\shifu---wellness-main\\shifu\\views\\home\\dashboard.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{CB3986E5-E2C0-461A-B67E-7BC0B7190E0D}|Shifu\\Shifu.csproj|solutionrelative:shifu\\views\\home\\dashboard.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{CB3986E5-E2C0-461A-B67E-7BC0B7190E0D}|Shifu\\Shifu.csproj|c:\\users\\jghat\\desktop\\shifu---wellness-main\\shifu---wellness-main\\shifu\\views\\shared\\_layout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{CB3986E5-E2C0-461A-B67E-7BC0B7190E0D}|Shifu\\Shifu.csproj|solutionrelative:shifu\\views\\shared\\_layout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{CB3986E5-E2C0-461A-B67E-7BC0B7190E0D}|Shifu\\Shifu.csproj|c:\\users\\jghat\\desktop\\shifu---wellness-main\\shifu---wellness-main\\shifu\\controllers\\journalcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{CB3986E5-E2C0-461A-B67E-7BC0B7190E0D}|Shifu\\Shifu.csproj|solutionrelative:shifu\\controllers\\journalcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{CB3986E5-E2C0-461A-B67E-7BC0B7190E0D}|Shifu\\Shifu.csproj|c:\\users\\jghat\\desktop\\shifu---wellness-main\\shifu---wellness-main\\shifu\\models\\journalentry.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{CB3986E5-E2C0-461A-B67E-7BC0B7190E0D}|Shifu\\Shifu.csproj|solutionrelative:shifu\\models\\journalentry.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{CB3986E5-E2C0-461A-B67E-7BC0B7190E0D}|Shifu\\Shifu.csproj|c:\\users\\jghat\\desktop\\shifu---wellness-main\\shifu---wellness-main\\shifu\\models\\goal.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{CB3986E5-E2C0-461A-B67E-7BC0B7190E0D}|Shifu\\Shifu.csproj|solutionrelative:shifu\\models\\goal.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{CB3986E5-E2C0-461A-B67E-7BC0B7190E0D}|Shifu\\Shifu.csproj|c:\\users\\jghat\\desktop\\shifu---wellness-main\\shifu---wellness-main\\shifu\\controllers\\goalscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{CB3986E5-E2C0-461A-B67E-7BC0B7190E0D}|Shifu\\Shifu.csproj|solutionrelative:shifu\\controllers\\goalscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{CB3986E5-E2C0-461A-B67E-7BC0B7190E0D}|Shifu\\Shifu.csproj|c:\\users\\jghat\\desktop\\shifu---wellness-main\\shifu---wellness-main\\shifu\\services\\goalmanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{CB3986E5-E2C0-461A-B67E-7BC0B7190E0D}|Shifu\\Shifu.csproj|solutionrelative:shifu\\services\\goalmanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{CB3986E5-E2C0-461A-B67E-7BC0B7190E0D}|Shifu\\Shifu.csproj|c:\\users\\jghat\\desktop\\shifu---wellness-main\\shifu---wellness-main\\shifu\\models\\appdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{CB3986E5-E2C0-461A-B67E-7BC0B7190E0D}|Shifu\\Shifu.csproj|solutionrelative:shifu\\models\\appdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{CB3986E5-E2C0-461A-B67E-7BC0B7190E0D}|Shifu\\Shifu.csproj|c:\\users\\jghat\\desktop\\shifu---wellness-main\\shifu---wellness-main\\shifu\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{CB3986E5-E2C0-461A-B67E-7BC0B7190E0D}|Shifu\\Shifu.csproj|solutionrelative:shifu\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{CB3986E5-E2C0-461A-B67E-7BC0B7190E0D}|Shifu\\Shifu.csproj|c:\\users\\jghat\\desktop\\shifu---wellness-main\\shifu---wellness-main\\shifu\\services\\journalmanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{CB3986E5-E2C0-461A-B67E-7BC0B7190E0D}|Shifu\\Shifu.csproj|solutionrelative:shifu\\services\\journalmanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{CB3986E5-E2C0-461A-B67E-7BC0B7190E0D}|Shifu\\Shifu.csproj|c:\\users\\jghat\\desktop\\shifu---wellness-main\\shifu---wellness-main\\shifu\\controllers\\homecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{CB3986E5-E2C0-461A-B67E-7BC0B7190E0D}|Shifu\\Shifu.csproj|solutionrelative:shifu\\controllers\\homecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{CB3986E5-E2C0-461A-B67E-7BC0B7190E0D}|Shifu\\Shifu.csproj|c:\\users\\jghat\\desktop\\shifu---wellness-main\\shifu---wellness-main\\shifu\\models\\userdata.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{CB3986E5-E2C0-461A-B67E-7BC0B7190E0D}|Shifu\\Shifu.csproj|solutionrelative:shifu\\models\\userdata.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{CB3986E5-E2C0-461A-B67E-7BC0B7190E0D}|Shifu\\Shifu.csproj|c:\\users\\jghat\\desktop\\shifu---wellness-main\\shifu---wellness-main\\shifu\\views\\_viewstart.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{CB3986E5-E2C0-461A-B67E-7BC0B7190E0D}|Shifu\\Shifu.csproj|solutionrelative:shifu\\views\\_viewstart.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{CB3986E5-E2C0-461A-B67E-7BC0B7190E0D}|Shifu\\Shifu.csproj|c:\\users\\jghat\\desktop\\shifu---wellness-main\\shifu---wellness-main\\shifu\\views\\_viewimports.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{CB3986E5-E2C0-461A-B67E-7BC0B7190E0D}|Shifu\\Shifu.csproj|solutionrelative:shifu\\views\\_viewimports.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{CB3986E5-E2C0-461A-B67E-7BC0B7190E0D}|Shifu\\Shifu.csproj|c:\\users\\jghat\\desktop\\shifu---wellness-main\\shifu---wellness-main\\shifu\\views\\shared\\error.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{CB3986E5-E2C0-461A-B67E-7BC0B7190E0D}|Shifu\\Shifu.csproj|solutionrelative:shifu\\views\\shared\\error.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{CB3986E5-E2C0-461A-B67E-7BC0B7190E0D}|Shifu\\Shifu.csproj|c:\\users\\jghat\\desktop\\shifu---wellness-main\\shifu---wellness-main\\shifu\\views\\shared\\_validationscriptspartial.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{CB3986E5-E2C0-461A-B67E-7BC0B7190E0D}|Shifu\\Shifu.csproj|solutionrelative:shifu\\views\\shared\\_validationscriptspartial.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{CB3986E5-E2C0-461A-B67E-7BC0B7190E0D}|Shifu\\Shifu.csproj|c:\\users\\jghat\\desktop\\shifu---wellness-main\\shifu---wellness-main\\shifu\\views\\home\\signup.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{CB3986E5-E2C0-461A-B67E-7BC0B7190E0D}|Shifu\\Shifu.csproj|solutionrelative:shifu\\views\\home\\signup.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{CB3986E5-E2C0-461A-B67E-7BC0B7190E0D}|Shifu\\Shifu.csproj|c:\\users\\jghat\\desktop\\shifu---wellness-main\\shifu---wellness-main\\shifu\\views\\home\\privacy.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{CB3986E5-E2C0-461A-B67E-7BC0B7190E0D}|Shifu\\Shifu.csproj|solutionrelative:shifu\\views\\home\\privacy.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{CB3986E5-E2C0-461A-B67E-7BC0B7190E0D}|Shifu\\Shifu.csproj|c:\\users\\jghat\\desktop\\shifu---wellness-main\\shifu---wellness-main\\shifu\\views\\home\\login.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{CB3986E5-E2C0-461A-B67E-7BC0B7190E0D}|Shifu\\Shifu.csproj|solutionrelative:shifu\\views\\home\\login.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{CB3986E5-E2C0-461A-B67E-7BC0B7190E0D}|Shifu\\Shifu.csproj|c:\\users\\jghat\\desktop\\shifu---wellness-main\\shifu---wellness-main\\shifu\\views\\home\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{CB3986E5-E2C0-461A-B67E-7BC0B7190E0D}|Shifu\\Shifu.csproj|solutionrelative:shifu\\views\\home\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{CB3986E5-E2C0-461A-B67E-7BC0B7190E0D}|Shifu\\Shifu.csproj|c:\\users\\jghat\\desktop\\shifu---wellness-main\\shifu---wellness-main\\shifu\\views\\home\\editprofile.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{CB3986E5-E2C0-461A-B67E-7BC0B7190E0D}|Shifu\\Shifu.csproj|solutionrelative:shifu\\views\\home\\editprofile.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{CB3986E5-E2C0-461A-B67E-7BC0B7190E0D}|Shifu\\Shifu.csproj|c:\\users\\jghat\\desktop\\shifu---wellness-main\\shifu---wellness-main\\shifu\\views\\events\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{CB3986E5-E2C0-461A-B67E-7BC0B7190E0D}|Shifu\\Shifu.csproj|solutionrelative:shifu\\views\\events\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{CB3986E5-E2C0-461A-B67E-7BC0B7190E0D}|Shifu\\Shifu.csproj|c:\\users\\jghat\\desktop\\shifu---wellness-main\\shifu---wellness-main\\shifu\\models\\tempevent.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{CB3986E5-E2C0-461A-B67E-7BC0B7190E0D}|Shifu\\Shifu.csproj|solutionrelative:shifu\\models\\tempevent.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{CB3986E5-E2C0-461A-B67E-7BC0B7190E0D}|Shifu\\Shifu.csproj|c:\\users\\jghat\\desktop\\shifu---wellness-main\\shifu---wellness-main\\shifu\\models\\errorviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{CB3986E5-E2C0-461A-B67E-7BC0B7190E0D}|Shifu\\Shifu.csproj|solutionrelative:shifu\\models\\errorviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{CB3986E5-E2C0-461A-B67E-7BC0B7190E0D}|Shifu\\Shifu.csproj|c:\\users\\jghat\\desktop\\shifu---wellness-main\\shifu---wellness-main\\shifu\\models\\cityevent.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{CB3986E5-E2C0-461A-B67E-7BC0B7190E0D}|Shifu\\Shifu.csproj|solutionrelative:shifu\\models\\cityevent.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{CB3986E5-E2C0-461A-B67E-7BC0B7190E0D}|Shifu\\Shifu.csproj|c:\\users\\jghat\\desktop\\shifu---wellness-main\\shifu---wellness-main\\shifu\\controllers\\eventscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{CB3986E5-E2C0-461A-B67E-7BC0B7190E0D}|Shifu\\Shifu.csproj|solutionrelative:shifu\\controllers\\eventscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{CB3986E5-E2C0-461A-B67E-7BC0B7190E0D}|Shifu\\Shifu.csproj|c:\\users\\jghat\\desktop\\shifu---wellness-main\\shifu---wellness-main\\shifu\\migrations\\20251123215720_addrecoverymodels.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{CB3986E5-E2C0-461A-B67E-7BC0B7190E0D}|Shifu\\Shifu.csproj|solutionrelative:shifu\\migrations\\20251123215720_addrecoverymodels.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 6,
+          "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{40ea2e6b-2121-4bb8-a43e-c83c04b51041}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:128:0:{116d2292-e37d-41cd-a077-ebacac4c8cc4}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{3ae79031-e1bc-11d0-8f78-00a0c9110057}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{aa2115a1-9712-457b-9047-dbb71ca2cdd2}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:128:0:{1fc202d4-d401-403c-9834-5b218574bb67}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{e506b91c-c606-466a-90a9-123d1d1e12b3}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": ".gitignore",
+              "DocumentMoniker": "C:\\Users\\jghat\\Desktop\\Shifu---Wellness-main\\Shifu---Wellness-main\\Shifu\\.gitignore",
+              "RelativeDocumentMoniker": "Shifu\\.gitignore",
+              "ToolTip": "C:\\Users\\jghat\\Desktop\\Shifu---Wellness-main\\Shifu---Wellness-main\\Shifu\\.gitignore",
+              "RelativeToolTip": "Shifu\\.gitignore",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABMAAAAEAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001001|",
+              "WhenOpened": "2025-11-24T01:32:46.883Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "_JournalPartial.cshtml",
+              "DocumentMoniker": "C:\\Users\\jghat\\Desktop\\Shifu---Wellness-main\\Shifu---Wellness-main\\Shifu\\Views\\Shared\\_JournalPartial.cshtml",
+              "RelativeDocumentMoniker": "Shifu\\Views\\Shared\\_JournalPartial.cshtml",
+              "ToolTip": "C:\\Users\\jghat\\Desktop\\Shifu---Wellness-main\\Shifu---Wellness-main\\Shifu\\Views\\Shared\\_JournalPartial.cshtml",
+              "RelativeToolTip": "Shifu\\Views\\Shared\\_JournalPartial.cshtml",
+              "ViewState": "AgIAACYAAAAAAAAAAAAMwAwAAAA0AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-11-23T22:19:10.93Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "Index.cshtml",
+              "DocumentMoniker": "C:\\Users\\jghat\\Desktop\\Shifu---Wellness-main\\Shifu---Wellness-main\\Shifu\\Views\\Resources\\Index.cshtml",
+              "RelativeDocumentMoniker": "Shifu\\Views\\Resources\\Index.cshtml",
+              "ToolTip": "C:\\Users\\jghat\\Desktop\\Shifu---Wellness-main\\Shifu---Wellness-main\\Shifu\\Views\\Resources\\Index.cshtml",
+              "RelativeToolTip": "Shifu\\Views\\Resources\\Index.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABsAAAAEAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-11-23T22:07:13.454Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "Index.cshtml",
+              "DocumentMoniker": "C:\\Users\\jghat\\Desktop\\Shifu---Wellness-main\\Shifu---Wellness-main\\Shifu\\Views\\Goals\\Index.cshtml",
+              "RelativeDocumentMoniker": "Shifu\\Views\\Goals\\Index.cshtml",
+              "ToolTip": "C:\\Users\\jghat\\Desktop\\Shifu---Wellness-main\\Shifu---Wellness-main\\Shifu\\Views\\Goals\\Index.cshtml",
+              "RelativeToolTip": "Shifu\\Views\\Goals\\Index.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAC0AAAAEAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-11-23T22:06:54.211Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "Index.cshtml",
+              "DocumentMoniker": "C:\\Users\\jghat\\Desktop\\Shifu---Wellness-main\\Shifu---Wellness-main\\Shifu\\Views\\Journal\\Index.cshtml",
+              "RelativeDocumentMoniker": "Shifu\\Views\\Journal\\Index.cshtml",
+              "ToolTip": "C:\\Users\\jghat\\Desktop\\Shifu---Wellness-main\\Shifu---Wellness-main\\Shifu\\Views\\Journal\\Index.cshtml",
+              "RelativeToolTip": "Shifu\\Views\\Journal\\Index.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABoAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-11-23T22:06:16.382Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "ResourcesController.cs",
+              "DocumentMoniker": "C:\\Users\\jghat\\Desktop\\Shifu---Wellness-main\\Shifu---Wellness-main\\Shifu\\Controllers\\ResourcesController.cs",
+              "RelativeDocumentMoniker": "Shifu\\Controllers\\ResourcesController.cs",
+              "ToolTip": "C:\\Users\\jghat\\Desktop\\Shifu---Wellness-main\\Shifu---Wellness-main\\Shifu\\Controllers\\ResourcesController.cs",
+              "RelativeToolTip": "Shifu\\Controllers\\ResourcesController.cs",
+              "ViewState": "AgIAAAMAAAAAAAAAAAAAABkAAAAcAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-23T22:04:32.014Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 15,
+              "Title": "GoalsController.cs",
+              "DocumentMoniker": "C:\\Users\\jghat\\Desktop\\Shifu---Wellness-main\\Shifu---Wellness-main\\Shifu\\Controllers\\GoalsController.cs",
+              "RelativeDocumentMoniker": "Shifu\\Controllers\\GoalsController.cs",
+              "ToolTip": "C:\\Users\\jghat\\Desktop\\Shifu---Wellness-main\\Shifu---Wellness-main\\Shifu\\Controllers\\GoalsController.cs",
+              "RelativeToolTip": "Shifu\\Controllers\\GoalsController.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAADUAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-23T22:03:54.607Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 12,
+              "Title": "JournalController.cs",
+              "DocumentMoniker": "C:\\Users\\jghat\\Desktop\\Shifu---Wellness-main\\Shifu---Wellness-main\\Shifu\\Controllers\\JournalController.cs",
+              "RelativeDocumentMoniker": "Shifu\\Controllers\\JournalController.cs",
+              "ToolTip": "C:\\Users\\jghat\\Desktop\\Shifu---Wellness-main\\Shifu---Wellness-main\\Shifu\\Controllers\\JournalController.cs",
+              "RelativeToolTip": "Shifu\\Controllers\\JournalController.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAB8AAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-23T22:02:25.324Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "ResourceManager.cs",
+              "DocumentMoniker": "C:\\Users\\jghat\\Desktop\\Shifu---Wellness-main\\Shifu---Wellness-main\\Shifu\\Services\\ResourceManager.cs",
+              "RelativeDocumentMoniker": "Shifu\\Services\\ResourceManager.cs",
+              "ToolTip": "C:\\Users\\jghat\\Desktop\\Shifu---Wellness-main\\Shifu---Wellness-main\\Shifu\\Services\\ResourceManager.cs",
+              "RelativeToolTip": "Shifu\\Services\\ResourceManager.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABQAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-23T22:01:48.244Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 16,
+              "Title": "GoalManager.cs",
+              "DocumentMoniker": "C:\\Users\\jghat\\Desktop\\Shifu---Wellness-main\\Shifu---Wellness-main\\Shifu\\Services\\GoalManager.cs",
+              "RelativeDocumentMoniker": "Shifu\\Services\\GoalManager.cs",
+              "ToolTip": "C:\\Users\\jghat\\Desktop\\Shifu---Wellness-main\\Shifu---Wellness-main\\Shifu\\Services\\GoalManager.cs",
+              "RelativeToolTip": "Shifu\\Services\\GoalManager.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABIAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-23T22:01:18.358Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 19,
+              "Title": "JournalManager.cs",
+              "DocumentMoniker": "C:\\Users\\jghat\\Desktop\\Shifu---Wellness-main\\Shifu---Wellness-main\\Shifu\\Services\\JournalManager.cs",
+              "RelativeDocumentMoniker": "Shifu\\Services\\JournalManager.cs",
+              "ToolTip": "C:\\Users\\jghat\\Desktop\\Shifu---Wellness-main\\Shifu---Wellness-main\\Shifu\\Services\\JournalManager.cs",
+              "RelativeToolTip": "Shifu\\Services\\JournalManager.cs",
+              "ViewState": "AgIAAA4AAAAAAAAAAAAAACAAAAA5AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-23T22:00:29.649Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 36,
+              "Title": "20251123215720_AddRecoveryModels.cs",
+              "DocumentMoniker": "C:\\Users\\jghat\\Desktop\\Shifu---Wellness-main\\Shifu---Wellness-main\\Shifu\\Migrations\\20251123215720_AddRecoveryModels.cs",
+              "RelativeDocumentMoniker": "Shifu\\Migrations\\20251123215720_AddRecoveryModels.cs",
+              "ToolTip": "C:\\Users\\jghat\\Desktop\\Shifu---Wellness-main\\Shifu---Wellness-main\\Shifu\\Migrations\\20251123215720_AddRecoveryModels.cs",
+              "RelativeToolTip": "Shifu\\Migrations\\20251123215720_AddRecoveryModels.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-23T21:57:20.866Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
+              "Title": "Resource.cs",
+              "DocumentMoniker": "C:\\Users\\jghat\\Desktop\\Shifu---Wellness-main\\Shifu---Wellness-main\\Shifu\\Models\\Resource.cs",
+              "RelativeDocumentMoniker": "Shifu\\Models\\Resource.cs",
+              "ToolTip": "C:\\Users\\jghat\\Desktop\\Shifu---Wellness-main\\Shifu---Wellness-main\\Shifu\\Models\\Resource.cs",
+              "RelativeToolTip": "Shifu\\Models\\Resource.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABIAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-23T21:54:49.98Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 14,
+              "Title": "Goal.cs",
+              "DocumentMoniker": "C:\\Users\\jghat\\Desktop\\Shifu---Wellness-main\\Shifu---Wellness-main\\Shifu\\Models\\Goal.cs",
+              "RelativeDocumentMoniker": "Shifu\\Models\\Goal.cs",
+              "ToolTip": "C:\\Users\\jghat\\Desktop\\Shifu---Wellness-main\\Shifu---Wellness-main\\Shifu\\Models\\Goal.cs",
+              "RelativeToolTip": "Shifu\\Models\\Goal.cs",
+              "ViewState": "AgIAAAIAAAAAAAAAAAAlwBIAAAA0AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-23T21:54:23.192Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 13,
+              "Title": "JournalEntry.cs",
+              "DocumentMoniker": "C:\\Users\\jghat\\Desktop\\Shifu---Wellness-main\\Shifu---Wellness-main\\Shifu\\Models\\JournalEntry.cs",
+              "RelativeDocumentMoniker": "Shifu\\Models\\JournalEntry.cs",
+              "ToolTip": "C:\\Users\\jghat\\Desktop\\Shifu---Wellness-main\\Shifu---Wellness-main\\Shifu\\Models\\JournalEntry.cs",
+              "RelativeToolTip": "Shifu\\Models\\JournalEntry.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABYAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-23T21:53:20.403Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 22,
+              "Title": "_ViewStart.cshtml",
+              "DocumentMoniker": "C:\\Users\\jghat\\Desktop\\Shifu---Wellness-main\\Shifu---Wellness-main\\Shifu\\Views\\_ViewStart.cshtml",
+              "RelativeDocumentMoniker": "Shifu\\Views\\_ViewStart.cshtml",
+              "ToolTip": "C:\\Users\\jghat\\Desktop\\Shifu---Wellness-main\\Shifu---Wellness-main\\Shifu\\Views\\_ViewStart.cshtml",
+              "RelativeToolTip": "Shifu\\Views\\_ViewStart.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-11-23T21:50:33.79Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 23,
+              "Title": "_ViewImports.cshtml",
+              "DocumentMoniker": "C:\\Users\\jghat\\Desktop\\Shifu---Wellness-main\\Shifu---Wellness-main\\Shifu\\Views\\_ViewImports.cshtml",
+              "RelativeDocumentMoniker": "Shifu\\Views\\_ViewImports.cshtml",
+              "ToolTip": "C:\\Users\\jghat\\Desktop\\Shifu---Wellness-main\\Shifu---Wellness-main\\Shifu\\Views\\_ViewImports.cshtml",
+              "RelativeToolTip": "Shifu\\Views\\_ViewImports.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-11-23T21:50:32.073Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 24,
+              "Title": "Error.cshtml",
+              "DocumentMoniker": "C:\\Users\\jghat\\Desktop\\Shifu---Wellness-main\\Shifu---Wellness-main\\Shifu\\Views\\Shared\\Error.cshtml",
+              "RelativeDocumentMoniker": "Shifu\\Views\\Shared\\Error.cshtml",
+              "ToolTip": "C:\\Users\\jghat\\Desktop\\Shifu---Wellness-main\\Shifu---Wellness-main\\Shifu\\Views\\Shared\\Error.cshtml",
+              "RelativeToolTip": "Shifu\\Views\\Shared\\Error.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABgAAAAEAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-11-23T21:50:24.553Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 25,
+              "Title": "_ValidationScriptsPartial.cshtml",
+              "DocumentMoniker": "C:\\Users\\jghat\\Desktop\\Shifu---Wellness-main\\Shifu---Wellness-main\\Shifu\\Views\\Shared\\_ValidationScriptsPartial.cshtml",
+              "RelativeDocumentMoniker": "Shifu\\Views\\Shared\\_ValidationScriptsPartial.cshtml",
+              "ToolTip": "C:\\Users\\jghat\\Desktop\\Shifu---Wellness-main\\Shifu---Wellness-main\\Shifu\\Views\\Shared\\_ValidationScriptsPartial.cshtml",
+              "RelativeToolTip": "Shifu\\Views\\Shared\\_ValidationScriptsPartial.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAEAAABjAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-11-23T21:50:12.733Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 11,
+              "Title": "_Layout.cshtml",
+              "DocumentMoniker": "C:\\Users\\jghat\\Desktop\\Shifu---Wellness-main\\Shifu---Wellness-main\\Shifu\\Views\\Shared\\_Layout.cshtml",
+              "RelativeDocumentMoniker": "Shifu\\Views\\Shared\\_Layout.cshtml",
+              "ToolTip": "C:\\Users\\jghat\\Desktop\\Shifu---Wellness-main\\Shifu---Wellness-main\\Shifu\\Views\\Shared\\_Layout.cshtml",
+              "RelativeToolTip": "Shifu\\Views\\Shared\\_Layout.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAwAAAADAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-11-23T21:49:53.535Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 26,
+              "Title": "SignUp.cshtml",
+              "DocumentMoniker": "C:\\Users\\jghat\\Desktop\\Shifu---Wellness-main\\Shifu---Wellness-main\\Shifu\\Views\\Home\\SignUp.cshtml",
+              "RelativeDocumentMoniker": "Shifu\\Views\\Home\\SignUp.cshtml",
+              "ToolTip": "C:\\Users\\jghat\\Desktop\\Shifu---Wellness-main\\Shifu---Wellness-main\\Shifu\\Views\\Home\\SignUp.cshtml",
+              "RelativeToolTip": "Shifu\\Views\\Home\\SignUp.cshtml",
+              "ViewState": "AgIAABkAAAAAAAAAAAAQwDUAAAAiAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-11-23T21:49:44.614Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 27,
+              "Title": "Privacy.cshtml",
+              "DocumentMoniker": "C:\\Users\\jghat\\Desktop\\Shifu---Wellness-main\\Shifu---Wellness-main\\Shifu\\Views\\Home\\Privacy.cshtml",
+              "RelativeDocumentMoniker": "Shifu\\Views\\Home\\Privacy.cshtml",
+              "ToolTip": "C:\\Users\\jghat\\Desktop\\Shifu---Wellness-main\\Shifu---Wellness-main\\Shifu\\Views\\Home\\Privacy.cshtml",
+              "RelativeToolTip": "Shifu\\Views\\Home\\Privacy.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAUAAAA6AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-11-23T21:49:35.653Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 28,
+              "Title": "Login.cshtml",
+              "DocumentMoniker": "C:\\Users\\jghat\\Desktop\\Shifu---Wellness-main\\Shifu---Wellness-main\\Shifu\\Views\\Home\\Login.cshtml",
+              "RelativeDocumentMoniker": "Shifu\\Views\\Home\\Login.cshtml",
+              "ToolTip": "C:\\Users\\jghat\\Desktop\\Shifu---Wellness-main\\Shifu---Wellness-main\\Shifu\\Views\\Home\\Login.cshtml",
+              "RelativeToolTip": "Shifu\\Views\\Home\\Login.cshtml",
+              "ViewState": "AgIAAAUAAAAAAAAAAADwvyUAAAAiAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-11-23T21:49:29.038Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 29,
+              "Title": "Index.cshtml",
+              "DocumentMoniker": "C:\\Users\\jghat\\Desktop\\Shifu---Wellness-main\\Shifu---Wellness-main\\Shifu\\Views\\Home\\Index.cshtml",
+              "RelativeDocumentMoniker": "Shifu\\Views\\Home\\Index.cshtml",
+              "ToolTip": "C:\\Users\\jghat\\Desktop\\Shifu---Wellness-main\\Shifu---Wellness-main\\Shifu\\Views\\Home\\Index.cshtml",
+              "RelativeToolTip": "Shifu\\Views\\Home\\Index.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABUAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-11-23T21:49:21.119Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 30,
+              "Title": "EditProfile.cshtml",
+              "DocumentMoniker": "C:\\Users\\jghat\\Desktop\\Shifu---Wellness-main\\Shifu---Wellness-main\\Shifu\\Views\\Home\\EditProfile.cshtml",
+              "RelativeDocumentMoniker": "Shifu\\Views\\Home\\EditProfile.cshtml",
+              "ToolTip": "C:\\Users\\jghat\\Desktop\\Shifu---Wellness-main\\Shifu---Wellness-main\\Shifu\\Views\\Home\\EditProfile.cshtml",
+              "RelativeToolTip": "Shifu\\Views\\Home\\EditProfile.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAFsAAAAYAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-11-23T21:49:08.737Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 10,
+              "Title": "Dashboard.cshtml",
+              "DocumentMoniker": "C:\\Users\\jghat\\Desktop\\Shifu---Wellness-main\\Shifu---Wellness-main\\Shifu\\Views\\Home\\Dashboard.cshtml",
+              "RelativeDocumentMoniker": "Shifu\\Views\\Home\\Dashboard.cshtml",
+              "ToolTip": "C:\\Users\\jghat\\Desktop\\Shifu---Wellness-main\\Shifu---Wellness-main\\Shifu\\Views\\Home\\Dashboard.cshtml",
+              "RelativeToolTip": "Shifu\\Views\\Home\\Dashboard.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAACQAAABaAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-11-23T21:49:02.388Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 31,
+              "Title": "Index.cshtml",
+              "DocumentMoniker": "C:\\Users\\jghat\\Desktop\\Shifu---Wellness-main\\Shifu---Wellness-main\\Shifu\\Views\\Events\\Index.cshtml",
+              "RelativeDocumentMoniker": "Shifu\\Views\\Events\\Index.cshtml",
+              "ToolTip": "C:\\Users\\jghat\\Desktop\\Shifu---Wellness-main\\Shifu---Wellness-main\\Shifu\\Views\\Events\\Index.cshtml",
+              "RelativeToolTip": "Shifu\\Views\\Events\\Index.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAB0AAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-11-23T21:48:46.693Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "UserDataRepository.cs",
+              "DocumentMoniker": "C:\\Users\\jghat\\Desktop\\Shifu---Wellness-main\\Shifu---Wellness-main\\Shifu\\Models\\UserDataRepository.cs",
+              "RelativeDocumentMoniker": "Shifu\\Models\\UserDataRepository.cs",
+              "ToolTip": "C:\\Users\\jghat\\Desktop\\Shifu---Wellness-main\\Shifu---Wellness-main\\Shifu\\Models\\UserDataRepository.cs",
+              "RelativeToolTip": "Shifu\\Models\\UserDataRepository.cs",
+              "ViewState": "AgIAAAgAAAAAAAAAAAA9wCAAAAA1AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-23T21:48:06.626Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 21,
+              "Title": "UserData.cs",
+              "DocumentMoniker": "C:\\Users\\jghat\\Desktop\\Shifu---Wellness-main\\Shifu---Wellness-main\\Shifu\\Models\\UserData.cs",
+              "RelativeDocumentMoniker": "Shifu\\Models\\UserData.cs",
+              "ToolTip": "C:\\Users\\jghat\\Desktop\\Shifu---Wellness-main\\Shifu---Wellness-main\\Shifu\\Models\\UserData.cs",
+              "RelativeToolTip": "Shifu\\Models\\UserData.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAYAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-23T21:47:53.633Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 32,
+              "Title": "TempEvent.cs",
+              "DocumentMoniker": "C:\\Users\\jghat\\Desktop\\Shifu---Wellness-main\\Shifu---Wellness-main\\Shifu\\Models\\TempEvent.cs",
+              "RelativeDocumentMoniker": "Shifu\\Models\\TempEvent.cs",
+              "ToolTip": "C:\\Users\\jghat\\Desktop\\Shifu---Wellness-main\\Shifu---Wellness-main\\Shifu\\Models\\TempEvent.cs",
+              "RelativeToolTip": "Shifu\\Models\\TempEvent.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-23T21:47:41.098Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 33,
+              "Title": "ErrorViewModel.cs",
+              "DocumentMoniker": "C:\\Users\\jghat\\Desktop\\Shifu---Wellness-main\\Shifu---Wellness-main\\Shifu\\Models\\ErrorViewModel.cs",
+              "RelativeDocumentMoniker": "Shifu\\Models\\ErrorViewModel.cs",
+              "ToolTip": "C:\\Users\\jghat\\Desktop\\Shifu---Wellness-main\\Shifu---Wellness-main\\Shifu\\Models\\ErrorViewModel.cs",
+              "RelativeToolTip": "Shifu\\Models\\ErrorViewModel.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAcAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-23T21:47:35.853Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 34,
+              "Title": "CityEvent.cs",
+              "DocumentMoniker": "C:\\Users\\jghat\\Desktop\\Shifu---Wellness-main\\Shifu---Wellness-main\\Shifu\\Models\\CityEvent.cs",
+              "RelativeDocumentMoniker": "Shifu\\Models\\CityEvent.cs",
+              "ToolTip": "C:\\Users\\jghat\\Desktop\\Shifu---Wellness-main\\Shifu---Wellness-main\\Shifu\\Models\\CityEvent.cs",
+              "RelativeToolTip": "Shifu\\Models\\CityEvent.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA0AAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-23T21:47:19.122Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 17,
+              "Title": "AppDbContext.cs",
+              "DocumentMoniker": "C:\\Users\\jghat\\Desktop\\Shifu---Wellness-main\\Shifu---Wellness-main\\Shifu\\Models\\AppDbContext.cs",
+              "RelativeDocumentMoniker": "Shifu\\Models\\AppDbContext.cs",
+              "ToolTip": "C:\\Users\\jghat\\Desktop\\Shifu---Wellness-main\\Shifu---Wellness-main\\Shifu\\Models\\AppDbContext.cs",
+              "RelativeToolTip": "Shifu\\Models\\AppDbContext.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAqwA4AAAADAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-23T21:47:02.466Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 20,
+              "Title": "HomeController.cs",
+              "DocumentMoniker": "C:\\Users\\jghat\\Desktop\\Shifu---Wellness-main\\Shifu---Wellness-main\\Shifu\\Controllers\\HomeController.cs",
+              "RelativeDocumentMoniker": "Shifu\\Controllers\\HomeController.cs",
+              "ToolTip": "C:\\Users\\jghat\\Desktop\\Shifu---Wellness-main\\Shifu---Wellness-main\\Shifu\\Controllers\\HomeController.cs",
+              "RelativeToolTip": "Shifu\\Controllers\\HomeController.cs",
+              "ViewState": "AgIAAFAAAAAAAAAAAADwv2cAAAANAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-23T21:46:48.647Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 35,
+              "Title": "EventsController.cs",
+              "DocumentMoniker": "C:\\Users\\jghat\\Desktop\\Shifu---Wellness-main\\Shifu---Wellness-main\\Shifu\\Controllers\\EventsController.cs",
+              "RelativeDocumentMoniker": "Shifu\\Controllers\\EventsController.cs",
+              "ToolTip": "C:\\Users\\jghat\\Desktop\\Shifu---Wellness-main\\Shifu---Wellness-main\\Shifu\\Controllers\\EventsController.cs",
+              "RelativeToolTip": "Shifu\\Controllers\\EventsController.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABoAAAAHAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-23T21:46:31.73Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "MississaugaCityEventScraper.cs",
+              "DocumentMoniker": "C:\\Users\\jghat\\Desktop\\Shifu---Wellness-main\\Shifu---Wellness-main\\Shifu\\Services\\MississaugaCityEventScraper.cs",
+              "RelativeDocumentMoniker": "Shifu\\Services\\MississaugaCityEventScraper.cs",
+              "ToolTip": "C:\\Users\\jghat\\Desktop\\Shifu---Wellness-main\\Shifu---Wellness-main\\Shifu\\Services\\MississaugaCityEventScraper.cs",
+              "RelativeToolTip": "Shifu\\Services\\MississaugaCityEventScraper.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABMAAAAHAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-23T21:45:49.558Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 18,
+              "Title": "Program.cs",
+              "DocumentMoniker": "C:\\Users\\jghat\\Desktop\\Shifu---Wellness-main\\Shifu---Wellness-main\\Shifu\\Program.cs",
+              "RelativeDocumentMoniker": "Shifu\\Program.cs",
+              "ToolTip": "C:\\Users\\jghat\\Desktop\\Shifu---Wellness-main\\Shifu---Wellness-main\\Shifu\\Program.cs",
+              "RelativeToolTip": "Shifu\\Program.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABQAAAA2AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-23T21:43:18.427Z"
+            }
+          ]
+        },
+        {
+          "DockedWidth": 38,
+          "SelectedChildIndex": -1,
+          "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{1c64b9c2-e352-428e-a56d-0ace190b99a6}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{0ad07096-bba9-4900-a651-0598d26f6d24}"
+            }
+          ]
+        },
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": -1,
+          "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{34e76e81-ee4a-11d0-ae2e-00a0c90fffc3}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{d78612c7-9962-4b83-95d9-268046dad23a}"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

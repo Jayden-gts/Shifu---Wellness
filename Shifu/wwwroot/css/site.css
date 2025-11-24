@@ -1,0 +1,75 @@
+html {
+  font-size: 14px;
+}
+
+@media (min-width: 768px) {
+  html {
+    font-size: 16px;
+  }
+}
+
+.btn:focus, .btn:active:focus, .btn-link.nav-link:focus, .form-control:focus, .form-check-input:focus {
+  box-shadow: 0 0 0 0.1rem white, 0 0 0 0.25rem #258cfb;
+}
+
+html {
+  position: relative;
+  min-height: 100%;
+}
+
+body {
+  margin-bottom: 60px;
+}
+
+.form-floating > .form-control-plaintext::placeholder, .form-floating > .form-control::placeholder {
+  color: var(--bs-secondary-color);
+  text-align: end;
+}
+
+.form-floating > .form-control-plaintext:focus::placeholder, .form-floating > .form-control:focus::placeholder {
+  text-align: start;
+}
+
+
+#link{
+    color: #0a53be;
+}
+
+#spacer{
+    padding: 50px;
+}
+
+.box{
+    border: 2px solid white;
+}
+
+.rounded{
+    border-radius: 15px;
+}
+
+.vh-5{
+    height: 5vh;
+}
+
+.col-3-5 {
+    flex: 0 0 auto;
+    width: 32.9%;
+}
+
+
+.vh-90{
+    height: 90vh;
+}
+
+.mainColour{
+    color: #598a57;
+}
+
+.mainBgColour{
+    background-color: #598a57;
+}
+
+.white{
+    color: white;
+}
+

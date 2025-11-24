@@ -1,0 +1,20 @@
+# Visual Studio
+.vs/
+*.user
+*.suo
+*.userosscache
+*.sln.docstates
+
+# JetBrains IDEs (like Rider)
+.idea/
+*.iml
+
+# Bin and obj folders
+bin/
+obj/
+
+# Logs
+*.log
+
+# Others
+*.db

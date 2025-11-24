@@ -1,0 +1,76 @@
+@model UserData
+@{
+    ViewData["Title"] = "Home Page";
+}
+
+<div class="container-fluid vh-100 p-0">
+    <div class="row  vh-100 box">
+        <div class="col-12 box rounded d-flex flex-column align-items-center justify-content-center h-100" style="background-image: url('@Url.Content("~/bgGreen.png")'); background-size: cover; background-position: right;">
+           <div class="text-center container">
+    <h1 class="display-4 fw-bold" style = "color: seagreen";>Sign Up</h1>
+    <div id="spacer"></div>
+    <div class="align-content-center justify-content-center" id="signup">
+        @if (!ViewData.ModelState.IsValid)
+        {
+            <div class="alert alert-danger" role="alert">
+                @foreach (var key in ViewData.ModelState.Keys)
+                {
+                    var errors = ViewData.ModelState[key].Errors;
+                    if (errors.Count > 0)
+                    {
+                        @foreach (var error in errors)
+                        {
+                            <p class="mb-0">@Html.Raw(error.ErrorMessage)</p>
+                        }
+                    }
+                }
+            </div>
+        }
+        <form asp-action="SignUp" method="post">
+           <div class="row g-3">
+            <div class="col-md-4">
+                <label for="firstName" class="form-label white">First name: </label>
+                <input asp-for="FirstName" type="text" id="firstName" required="required" class="form-control">
+            </div>
+            
+            <div class="col-md-4">
+                <label for="lastName" class="form-label white">Last name: </label>
+                <input asp-for="LastName" type="text" id="lastName" required="required" class="form-control">
+            </div>
+            
+           <div class="col-md-4">
+               <label for="email" class="form-label white">Email address: </label>
+               <input asp-for="Email" type="text" id="email" required="required" class="form-control">
+           </div>
+           </div>
+            
+           <div class="row g-3 mt-2">
+           <div class="col-md-4">
+                <label for="phoneNumber" class="form-label white">Phone number: </label>
+                <input asp-for="PhoneNumber" type="text" id="phoneNumber" required="required" class="form-control">
+                
+            </div>
+            
+            <div class="col-md-4">
+                <label for="password" class="form-label white">Password: </label>
+                <input asp-for="Password" type="password" id="password" required="required" class="form-control">
+                
+            </div>
+            
+           <div class="col-md-4">
+               <label for="passwordConfirm" class="form-label white" >Confirm password: </label>
+               <input asp-for="PasswordConfirm" type="password" id="passwordConfirm" required="required" class="form-control">
+           </div>
+           </div>
+            <div class="mt-5"></div>
+            <button type="submit" class="btn btn-success mt-3 ">Sign Up</button>
+        </form>
+
+    </div>
+    
+</div>
+            
+        </div>
+    </div>
+</div>
+

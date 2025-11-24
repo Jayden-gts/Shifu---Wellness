@@ -1,0 +1,47 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>@ViewData["Title"] - Shifu</title>
+    <script type="importmap"></script>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true"/>
+    <link rel="stylesheet" href="~/Shifu.styles.css" asp-append-version="true"/>
+</head>
+<body>
+   
+    <header>
+    <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light border-bottom box-shadow mb-3" style="background-image: url('@Url.Content("~/bgGreen.png")'); background-size: cover; background-position: center;">
+        <div class="container-fluid">
+            <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index" style="color: seagreen"; >Shifu - Your Personal Health Companion</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" aria-controls="navbarSupportedContent"
+                    aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
+                <ul class="navbar-nav flex-grow-1">
+                </ul>
+            </div>
+        </div>
+    </nav>
+</header>
+<div class="container">
+    <main role="main" class="pb-3">
+        @RenderBody()
+    </main>
+</div>
+
+<footer class="border-top footer text-muted" style="background-image: url('@Url.Content("~/bgGreen.png")'); background-size: cover; background-position: top;">
+    <div class="container d-flex flex-wrap align-items-center fs-6">
+        <span style="font-size: small;">
+            © 2025 - Shifu - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a> - &nbsp&nbsp&nbsp;
+        If you need help right now, call ConnexOntario's 24/7 helpline at 1-866-531-2600 or 911 or visit an emergency room.</span>
+    </div>
+</footer>
+<script src="~/lib/jquery/dist/jquery.min.js"></script>
+<script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+<script src="~/js/site.js" asp-append-version="true"></script>
+@await RenderSectionAsync("Scripts", required: false)
+</body>
+</html>
