@@ -1,0 +1,83 @@
+@model List<Shifu.Models.UserData> 
+
+<div class="container mt-5">
+    <h2>Mentor Chat</h2>
+    
+    
+    <div class="row">
+        <!-- user list -->
+        
+        <div class="col-3 border-end">
+            <h5>Users</h5>
+            <ul id="userList">
+                @foreach (var user in Model)
+                {
+                    <li class="user-item" data-id="@user.Id" style="cursor:pointer">
+                        @user.FirstName @user.LastName
+                    </li>
+                }
+            </ul>
+        </div>
+        
+        <!--chat panel-->
+        <div class="col-9">
+            <h5 id="chatWith">Select a user</h5>
+            <div id="messages" class="border p-3 mb-3" style="height:300px; overflow-y:scroll;"></div>
+            
+            <textarea id="messageInput" class="form-control mb-2" placeholder="Type..."></textarea>
+            <button id="sendBtn" class="btn btn-primary">Send</button>
+        </div>
+    </div>
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/microsoft-signalr/7.0.5/signalr.min.js"></script>
+
+<script>
+    let selectedUser = 0;
+    
+    const connection = new signalR.HubConnectionBuilder()
+        .withUrl("/mentorChatHub")
+        .build();
+    
+    connection.on("ReceiveMessage", function (userId, message) {
+        if (userId == "selectedUser") {
+            const msgDiv = document.getElementById("messages");
+            msgDiv.innerHTML += `<div><b>Users</b> ${message}</div>`;
+            msgDiv.scrollTop += msgDiv.scrollHeight;
+        }
+    });
+    
+    connection.start(); 
+    
+    document.querySelectorAll(".user-item").forEach(item => {
+        item.addEventListener("click", async () => {
+            selectedUser = item.dataset.id;
+            document.getElementById("chatWith").innerText = "Chat with: " + item.innerText;
+
+            const res = await fetch(`/Mentor/LoadMessages?userId=${selectedUser}`);
+            const data = await res.json();
+
+            const msgDiv = document.getElementById("messages");
+            msgDiv.innerHTML = "";
+            data.forEach(msg => {
+                msgDiv.innerHTML += `<div><b>${m.sentByMentor ? "Mentor" : "User"}:<b> ${m.content}</div>`;
+
+            });
+        });
+    });
+    
+    document.getElementById("sendBtn").addEventListener("click", async () => {
+        const content = document.getElementById("messageInput").value;
+        if (!content.trim()) return;
+        
+        
+        await fetch(`/Mentor/SendMessages/?userId=${selectedUser}&message=${content}`, {
+            method: "POST",
+        });
+        
+        const msgDiv = document.getElementById("messages");
+        msgDiv.innerHTML = `<div><b>Mentor:</b> ${content}</div>`;
+        msgDiv.scrollTop += msgDiv.scrollHeight;
+        document.getElementById("messageInput").value = "";
+    });
+</script>
