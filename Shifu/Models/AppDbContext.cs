@@ -9,4 +9,7 @@ public class AppDbContext : DbContext
     }
 
     public DbSet<UserData> Users { get; set; }
+    
+    // check this later 
+    public DbSet<Message> Messages { get; set; }
 }
