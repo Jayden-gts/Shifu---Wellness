@@ -1,6 +1,8 @@
 using Microsoft.EntityFrameworkCore;
 using Shifu.Models;
 using Shifu.Services;
+using Microsoft.AspNetCore.SignalR;
+using Shifu.Hubs;
 
 namespace Shifu;
 
@@ -14,13 +16,13 @@ public class Program
         builder.Services.AddControllersWithViews();
         builder.Services.AddDbContext<AppDbContext>(options =>
             options.UseSqlite(builder.Configuration.GetConnectionString("DefaultConnection")));
+        
         builder.Services.AddScoped<UserDataRepository>();
-
         builder.Services.AddHttpClient<Shifu.Services.OakvilleCityEventScraper>();
         // builder.Services.AddHttpClient<Shifu.Services.MississaugaCityEventScraper>();
         builder.Services.AddScoped<MississaugaCityEventScraper>();
 
-      
+        builder.Services.AddSignalR(); 
 
 
         var app = builder.Build();
@@ -43,6 +45,9 @@ public class Program
                 name: "default",
                 pattern: "{controller=Home}/{action=Index}/{id?}")
             .WithStaticAssets();
+
+        // check thc correct wording
+        app.MapHub<MentorChatHub>("/mentorChat");
 
         app.Run();
     }

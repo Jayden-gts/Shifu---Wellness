@@ -7,7 +7,6 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-
 public class MentorService
 {
     
@@ -26,7 +25,7 @@ public class MentorService
             .ToListAsync();
     }
 
-    public async Task SendMentorMessage(int userId, string content)
+    public async Task SaveMessage(int userId, string content)
     {
         var message = new Message
         {
