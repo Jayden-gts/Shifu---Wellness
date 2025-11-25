@@ -34,7 +34,8 @@ public class UserData
     public int? JournalStreak { get; set; }
 
     public int? GoalsCompleted { get; set; }
-
-    public bool IsMentor { get; set; } = false;
+    
+    [Required(ErrorMessage = "Please choose an option")]
+    public bool? IsMentor { get; set; }
 
 }
