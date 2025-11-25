@@ -3841,19 +3841,19 @@
     ]
   },
   "packageFolders": {
-    "/Users/laibaahmed/.nuget/packages/": {}
+    "/Users/jaydenseto/.nuget/packages/": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "/Users/laibaahmed/RiderProjects/Shifu---Wellness/Shifu/Shifu.csproj",
+      "projectUniqueName": "/Users/jaydenseto/PROG30000/Shifu/Shifu/Shifu.csproj",
       "projectName": "Shifu",
-      "projectPath": "/Users/laibaahmed/RiderProjects/Shifu---Wellness/Shifu/Shifu.csproj",
-      "packagesPath": "/Users/laibaahmed/.nuget/packages/",
-      "outputPath": "/Users/laibaahmed/RiderProjects/Shifu---Wellness/Shifu/obj/",
+      "projectPath": "/Users/jaydenseto/PROG30000/Shifu/Shifu/Shifu.csproj",
+      "packagesPath": "/Users/jaydenseto/.nuget/packages/",
+      "outputPath": "/Users/jaydenseto/PROG30000/Shifu/Shifu/obj/",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "/Users/laibaahmed/.nuget/NuGet/NuGet.Config"
+        "/Users/jaydenseto/.nuget/NuGet/NuGet.Config"
       ],
       "originalTargetFrameworks": [
         "net9.0"
@@ -3934,7 +3934,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/9.0.305/PortableRuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/9.0.304/PortableRuntimeIdentifierGraph.json"
       }
     }
   }

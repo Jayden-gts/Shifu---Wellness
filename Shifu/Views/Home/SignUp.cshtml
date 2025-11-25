@@ -45,24 +45,51 @@
            </div>
             
            <div class="row g-3 mt-2">
-           <div class="col-md-4">
-                <label for="phoneNumber" class="form-label white">Phone number: </label>
-                <input asp-for="PhoneNumber" type="text" id="phoneNumber" required="required" class="form-control">
+               <div class="col-md-4">
+                   <label for="phoneNumber" class="form-label white">Phone number: </label>
+                   <input asp-for="PhoneNumber" type="text" id="phoneNumber" required="required" class="form-control">
                 
-            </div>
+               </div>
             
-            <div class="col-md-4">
-                <label for="password" class="form-label white">Password: </label>
-                <input asp-for="Password" type="password" id="password" required="required" class="form-control">
+               <div class="col-md-4">
+                   <label for="password" class="form-label white">Password: </label>
+                   <input asp-for="Password" type="password" id="password" required="required" class="form-control">
                 
-            </div>
+               </div>
             
-           <div class="col-md-4">
-               <label for="passwordConfirm" class="form-label white" >Confirm password: </label>
-               <input asp-for="PasswordConfirm" type="password" id="passwordConfirm" required="required" class="form-control">
+               <div class="col-md-4">
+                   <label for="passwordConfirm" class="form-label white" >Confirm password: </label>
+                   <input asp-for="PasswordConfirm" type="password" id="passwordConfirm" required="required" class="form-control">
+               </div>
            </div>
+           
+           <div class="d-flex flex-column justify-content-center align-items-center">
+               <div class="d-flex flex-column col-md-12 justify-content-center align-items-center">
+                   <label class="form-label white">Signing up as a mentor:</label>
+
+                   <div class="form-check">
+                       <input class="form-check-input"
+                              type="radio"
+                              asp-for="IsMentor"
+                              value="true"
+                              id="mentorYes" />
+                       <label class="form-check-label white" for="mentorYes">Yes</label>
+                   </div>
+
+                   <div class="form-check">
+                       <input class="form-check-input"
+                              type="radio"
+                              asp-for="IsMentor"
+                              value="false"
+                              id="mentorNo" />
+                       <label class="form-check-label white" for="mentorNo">No</label>
+                   </div>
+               </div>
+               
            </div>
-            <div class="mt-5"></div>
+           
+           
+           <div class="mt-5"></div>
             <button type="submit" class="btn btn-success mt-3 ">Sign Up</button>
         </form>
 
