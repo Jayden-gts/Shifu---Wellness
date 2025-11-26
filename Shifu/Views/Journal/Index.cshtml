@@ -1,0 +1,26 @@
+@model List<Shifu.Models.JournalEntry>
+@{
+    Layout = "_Layout";
+}
+
+<h2>Journal Entries</h2>
+
+<form asp-action="AddEntry" method="post">
+    <textarea name="content" class="form-control mb-2" rows="5" placeholder="Write your entry..."></textarea>
+    <input type="text" name="mood" placeholder="Mood (optional)" class="form-control mb-2" />
+    <input type="text" name="footnote" placeholder="Footnote (optional)" class="form-control mb-2" />
+    <button type="submit" class="btn btn-success">Add Entry</button>
+</form>
+
+<hr />
+
+<ul>
+    @foreach (var entry in Model)
+    {
+        <li>
+            <strong>@entry.CreatedAt.ToString("dd MMM yyyy")</strong> - @entry.Mood
+            <p>@entry.Content</p>
+            <small>@entry.Footnote</small>
+        </li>
+    }
+</ul>

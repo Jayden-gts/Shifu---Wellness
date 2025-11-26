@@ -21,6 +21,9 @@ public class Program
         builder.Services.AddHttpClient<Shifu.Services.OakvilleCityEventScraper>();
         // builder.Services.AddHttpClient<Shifu.Services.MississaugaCityEventScraper>();
         builder.Services.AddScoped<MississaugaCityEventScraper>();
+        builder.Services.AddScoped<JournalManager>();
+        builder.Services.AddScoped<GoalManager>();
+        builder.Services.AddScoped<ResourceManager>();
 
         builder.Services.AddSignalR(); 
 

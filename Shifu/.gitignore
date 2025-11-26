@@ -1,4 +1,11 @@
-users.db
-**/bin/
-**/obj/
-Shifu/bin/Debug/
+# Visual Studio cache (SHOULD NOT BE COMMITTED)
+.vs/
+*.vscode
+
+# Build folders
+bin/
+obj/
+
+# SQLite database (optional, if auto-generated)
+*.db
+*.sqlite

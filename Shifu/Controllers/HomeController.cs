@@ -1,6 +1,7 @@
-using System.Diagnostics;
 using Microsoft.AspNetCore.Mvc;
 using Shifu.Models;
+using Shifu.Services;
+using System.Diagnostics;
 
 namespace Shifu.Controllers;
 
@@ -8,12 +9,14 @@ public class HomeController : Controller
 {
     private readonly ILogger<HomeController> _logger;
     private readonly UserDataRepository _repository;
+    private readonly JournalManager _journalManager;
 
 
-    public HomeController(ILogger<HomeController> logger, UserDataRepository repository)
+    public HomeController(ILogger<HomeController> logger, UserDataRepository repository, JournalManager journalManager)
     {
         _logger = logger;
         _repository = repository;
+        _journalManager = journalManager;
     }
     [HttpGet]
     public IActionResult Index()
@@ -27,7 +30,7 @@ public class HomeController : Controller
         return View();
     }
     
-    private static UserData? LoggedInUser;
+    public static UserData? LoggedInUser;
     
     [HttpPost]
     public async Task<IActionResult> SignUp(UserData user)
@@ -83,10 +86,15 @@ public class HomeController : Controller
     }
     
     [HttpGet]
-    public IActionResult Dashboard()
+    public async Task<IActionResult> Dashboard()
     {
         if (LoggedInUser == null)
             return RedirectToAction("Login");
+
+        // load journal entries
+        LoggedInUser.JournalEntries = await _journalManager.GetUserEntriesAsync(LoggedInUser.Id);
+        // get journal streak
+        LoggedInUser.JournalStreak = await _journalManager.GetJournalStreakAsync(LoggedInUser.Id);
 
         return View(LoggedInUser);
     }

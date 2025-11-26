@@ -1,4 +1,5 @@
 @model UserData
+@inject Shifu.Services.JournalManager JournalManager
 @{
     ViewBag.Title = "Dashboard";
     Layout = "_Layout";
@@ -25,9 +26,18 @@
                 }
                 else
                 {
-                    <p>Try setting a goal!</p>
+                    <a asp-controller="Goals" asp-action="Index" class="btn btn-outline-primary">
+                        Try setting a goal!
+                    </a>
                 }
 
+            </div>
+
+            <div class="p-3 mb-3 rounded shadow bg-white text-center" style="width: 90%;">
+                <h5>Resources for you</h5>
+                <a asp-controller="Resources" asp-action="Index" class="btn btn-outline-primary">
+                    View Resources
+                </a>
             </div>
 
             <div class="p-3 mb-3 rounded shadow bg-white text-center" style="width: 90%;">
@@ -40,6 +50,7 @@
                 {
                     <p>Try writing in your journal!</p>
                 }
+
             </div>
             
             <div class="p-3 mb-3 rounded shadow bg-white text-center" style="width: 90%;">
@@ -66,9 +77,36 @@
 
             
         </div>
-        <div class="col-9 box rounded d-flex flex-column align-items-center justify-content-center border bg-body-secondary h-100">
-            <div>Journal goes here</div>
+        <div class="col-9 box rounded d-flex flex-column align-items-start border bg-body-secondary h-100 overflow-auto p-3" id="journalPanel">
+            @await Html.PartialAsync("_JournalPartial", Model)
         </div>
+
+        @section Scripts {
+            <script>
+                $(document).ready(function () {
+                    $("#journalPanel").on("submit", "#journalForm", function (e) {
+                        e.preventDefault();
+                        var form = $(this);
+                        $.ajax({
+                            type: "POST",
+                            url: "/Journal/AddEntry",
+                            data: form.serialize(),
+                            success: function (result) {
+
+                                $("#journalPanel").html(result);
+                            },
+                            error: function () {
+                                alert("Failed to add entry.");
+                            }
+                        });
+                    });
+                });
+            </script>
+        }
+
+
+
+    </div>
 
     </div>
 </div>

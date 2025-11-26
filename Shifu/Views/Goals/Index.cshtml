@@ -1,0 +1,47 @@
+@model List<Shifu.Models.Goal>
+@{
+    Layout = "_Layout";
+}
+
+
+<h2>Goals Tracker</h2>
+
+
+
+<form asp-action="AddGoal" method="post">
+    <input type="text" name="title" placeholder="Goal title" class="form-control mb-2" required />
+    <input type="text" name="description" placeholder="Description" class="form-control mb-2" />
+    <input type="date" name="targetDate" class="form-control mb-2" />
+    <button type="submit" class="btn btn-success">Add Goal</button>
+</form>
+
+<hr />
+
+<h3>Pending Goals</h3>
+<ul>
+    @foreach (var goal in Model.Where(g => !g.Completed))
+    {
+        <li>
+            <strong>@goal.Title</strong> (@goal.TargetDate?.ToString("dd MMM yyyy"))
+            <p>@goal.Description</p> 
+
+            <form asp-action="MarkCompleted" method="post" style="display:inline;">
+                <input type="hidden" name="id" value="@goal.Id" />
+                <button type="submit" class="btn btn-sm btn-success">Mark Completed</button>
+            </form>
+        </li>
+    }
+</ul>
+
+<h3>Completed Goals</h3>
+<ul>
+    @foreach (var goal in Model.Where(g => g.Completed))
+    {
+        <li>@goal.Title</li>
+        <p>@goal.Description</p>
+    }
+</ul>
+<a asp-controller="Home" asp-action="Dashboard" class="btn btn-outline-success mb-3">
+    Back to Dashboard
+</a>
+

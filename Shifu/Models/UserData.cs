@@ -1,4 +1,5 @@
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace Shifu.Models;
 
@@ -37,5 +38,8 @@ public class UserData
     
     [Required(ErrorMessage = "Please choose an option")]
     public bool? IsMentor { get; set; }
+
+    [NotMapped]
+    public List<JournalEntry> JournalEntries { get; set; } = new();
 
 }
