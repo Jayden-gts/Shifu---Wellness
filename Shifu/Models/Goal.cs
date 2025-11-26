@@ -19,6 +19,8 @@ namespace Shifu.Models
         public bool Completed { get; set; } = false;
         public DateTime? TargetDate { get; set; }
 
+        public string? Footnote { get; set; }
+
 
     }
 }

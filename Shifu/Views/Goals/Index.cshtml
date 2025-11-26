@@ -4,26 +4,45 @@
 }
 
 
-<h2>Goals Tracker</h2>
-
-
+<div class="d-flex justify-content-between align-items-center mb-3">
+    <span class="fw-bold fs-3">Goal Tracker</span>
+    <a asp-controller="Home" asp-action="Dashboard" class="btn btn-outline-secondary">Back to Dashboard</a>
+</div>
 
 <form asp-action="AddGoal" method="post">
     <input type="text" name="title" placeholder="Goal title" class="form-control mb-2" required />
     <input type="text" name="description" placeholder="Description" class="form-control mb-2" />
     <input type="date" name="targetDate" class="form-control mb-2" />
+    <input type="text" name="footnote" placeholder="Footnote" class="form-control mb-2" />
     <button type="submit" class="btn btn-success">Add Goal</button>
 </form>
 
-<hr />
 
+
+
+<hr />
+<div class=" box rounded d-flex flex-column justify-content-start  border h-100"
+     style="background-image: url('@Url.Content("~/bgGreen.png")');   overflow-y: auto; padding: 1rem; background-size: cover; background-position: left;">
 <h3>Pending Goals</h3>
+
+   
 <ul>
+        <div class="p-3 mb-3 rounded bg-white  d-flex flex-column  w-50">
     @foreach (var goal in Model.Where(g => !g.Completed))
     {
         <li>
-            <strong>@goal.Title</strong> (@goal.TargetDate?.ToString("dd MMM yyyy"))
-            <p>@goal.Description</p> 
+                <strong>@goal.Title</strong>
+                @if (goal.TargetDate != null)
+                {
+                    <span>(@goal.TargetDate?.ToString("dd MMM yyyy"))</span>
+                }
+            <p>@goal.Description</p>
+
+                @if (!string.IsNullOrWhiteSpace(goal.Footnote))
+                {
+                    <small class="text-secondary">Note: @goal.Footnote</small>
+                }
+
 
             <form asp-action="MarkCompleted" method="post" style="display:inline;">
                 <input type="hidden" name="id" value="@goal.Id" />
@@ -33,15 +52,23 @@
     }
 </ul>
 
+
 <h3>Completed Goals</h3>
 <ul>
+        <div class="p-3 mb-3 rounded bg-white  d-flex flex-column  w-50">
     @foreach (var goal in Model.Where(g => g.Completed))
     {
+        
         <li>@goal.Title</li>
         <p>@goal.Description</p>
+         @if (!string.IsNullOrWhiteSpace(goal.Footnote))
+         {
+            <small class="text-secondary">Note: @goal.Footnote</small>
+         }
+        
     }
+</div>
 </ul>
-<a asp-controller="Home" asp-action="Dashboard" class="btn btn-outline-success mb-3">
-    Back to Dashboard
-</a>
+</div>
+
 

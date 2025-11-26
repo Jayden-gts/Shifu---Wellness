@@ -18,7 +18,7 @@ namespace Shifu.Models
         public DateTime CreatedAt { get; set; } = DateTime.Now;
 
         public string? Mood { get; set; }
-        public string? Footnote { get; set; }
+      
 
 
     }

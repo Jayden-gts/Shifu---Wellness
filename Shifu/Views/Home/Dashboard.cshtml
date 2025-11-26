@@ -77,7 +77,8 @@
 
             
         </div>
-        <div class="col-9 box rounded d-flex flex-column align-items-start border bg-body-secondary h-100 overflow-auto p-3" id="journalPanel">
+        <div class="col-9 box rounded d-flex flex-column align-items-start border bg-body-secondary h-100 overflow-auto p-3" id="journalPanel"
+             style="background-image: url('@Url.Content("~/bgGreen.png")'); overflow-y: auto; padding: 1rem; background-size: cover; background-position: left;">
             @await Html.PartialAsync("_JournalPartial", Model)
         </div>
 

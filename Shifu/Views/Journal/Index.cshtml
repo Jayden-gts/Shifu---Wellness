@@ -1,4 +1,4 @@
-@model List<Shifu.Models.JournalEntry>
+@* @model List<Shifu.Models.JournalEntry>
 @{
     Layout = "_Layout";
 }
@@ -20,7 +20,10 @@
         <li>
             <strong>@entry.CreatedAt.ToString("dd MMM yyyy")</strong> - @entry.Mood
             <p>@entry.Content</p>
-            <small>@entry.Footnote</small>
+            
         </li>
     }
-</ul>
+</ul> *@
+
+@* 
+Not needed *@

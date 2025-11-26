@@ -22,7 +22,7 @@
             </select>
         </div>
 
-        <input type="text" class="form-control mb-2" name="footnote" placeholder="Footnote: (type '#goal:' to turn your footnote into a goal!)" />
+     
         <input type="hidden" name="userId" value="@Model.Id" />
         <button type="submit" class="btn btn-success mt-2">Add Entry</button>
     </form>
@@ -44,24 +44,7 @@
                         }
                     </p>
 
-                    @if (!string.IsNullOrWhiteSpace(entry.Footnote))
-                    {
-                        if (entry.Footnote.StartsWith("#goal:"))
-                        {
-                            var goalTitle = entry.Footnote.Substring(6);
-                            <form asp-controller="Goals" asp-action="AddGoal" method="post" class="d-inline">
-                                <input type="hidden" name="title" value="@goalTitle" />
-                                <input type="hidden" name="description" value="" />
-                                <button type="submit" class="btn btn-sm btn-outline-success">
-                                    Add Goal: @goalTitle
-                                </button>
-                            </form>
-                        }
-                        else
-                        {
-                            <small class="text-secondary">Footnote: @entry.Footnote</small>
-                        }
-                    }
+                   
                 </div>
             </div>
         }

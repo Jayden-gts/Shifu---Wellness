@@ -12,7 +12,7 @@ namespace Shifu.Controllers
         public JournalController(JournalManager journalManager) => _journalManager = journalManager;
 
         [HttpPost]
-        public async Task<IActionResult> AddEntry(int userId, string content, string? mood, string? footnote)
+        public async Task<IActionResult> AddEntry(int userId, string content, string? mood)
         {
             if (HomeController.LoggedInUser == null || HomeController.LoggedInUser.Id != userId)
                 return Unauthorized();
@@ -22,7 +22,7 @@ namespace Shifu.Controllers
                 UserId = userId,
                 Content = content,
                 Mood = mood,
-                Footnote = footnote,
+               
                 CreatedAt = DateTime.Now
             };
 

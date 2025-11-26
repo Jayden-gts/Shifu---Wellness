@@ -19,7 +19,7 @@ namespace Shifu.Controllers
         }
 
         [HttpPost]
-        public async Task<IActionResult> AddGoal(string title, string? description, DateTime? targetDate)
+        public async Task<IActionResult> AddGoal(string title, string? description, DateTime? targetDate, string? footnote)
         {
             if (_currentUser == null) return RedirectToAction("Login", "Home");
 
@@ -28,11 +28,15 @@ namespace Shifu.Controllers
                 UserId = _currentUser.Id,
                 Title = title,
                 Description = description,
-                TargetDate = targetDate
+                TargetDate = targetDate,
+                Footnote = footnote
             });
 
             return RedirectToAction("Index");
         }
+
+
+
 
 
 
