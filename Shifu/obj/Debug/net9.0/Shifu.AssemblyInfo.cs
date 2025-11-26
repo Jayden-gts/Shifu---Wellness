@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("Shifu")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+cd11a35b80cb29ba1638ddd540665705f3132249")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+7843dbedad2b737f35aeef5b10e75f389acb4949")]
 [assembly: System.Reflection.AssemblyProductAttribute("Shifu")]
 [assembly: System.Reflection.AssemblyTitleAttribute("Shifu")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

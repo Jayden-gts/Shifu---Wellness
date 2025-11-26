@@ -1,18 +1,22 @@
 @model List<Shifu.Models.Resource>
 @{
     Layout = "_Layout";
-    var defaultThumbnail = Url.Content("~/images/default-resource.png"); // put a placeholder image in wwwroot/images
+    var defaultThumbnail = Url.Content("~/images/default-resource.png"); // put a placeholder image
 }
+<div class="d-flex justify-content-between align-items-center mb-3">
+<span class="fw-bold fs-3">Your Resources</span>
+<a asp-controller="Home" asp-action="Dashboard" class="btn btn-outline-secondary">Back to Dashboard</a>
+</div>
 
-<h2>Your Resources</h2>
 
-<div class="row">
+<div class=" box rounded d-flex flex-column justify-content-start align-items-center border h-100"
+     style="background-image: url('@Url.Content("~/bgGreen.png")'); overflow-y: auto; padding: 1rem; background-size: cover; background-position: left;">
     @foreach (var res in Model)
     {
         <div class="col-md-4 mb-3">
             <div class="card">
                 <img class="card-img-top" src="@(!string.IsNullOrWhiteSpace(res.ThumbnailUrl) ? res.ThumbnailUrl : defaultThumbnail)" alt="@res.Title" />
-                <div class="card-body">
+                <div class="p-3 mb-3 rounded shadow bg-white text-center d-flex flex-column align-items-center">
                     <h5 class="card-title">@res.Title</h5>
                     <p class="card-text">@res.Description</p>
                     <a href="@res.Url" target="_blank" class="btn btn-primary">View Resource</a>
@@ -23,6 +27,4 @@
    
 </div>
 
-<a asp-controller="Home" asp-action="Dashboard" class="btn btn-outline-success mb-3">
-    Back to Dashboard
-</a>
+
