@@ -3,7 +3,7 @@ using Shifu.Models;
 using Shifu.Services;
 
 namespace Shifu.Controllers;
-
+// Created by Jayden Seto - 991746683
 public class EventsController : Controller
 {
 

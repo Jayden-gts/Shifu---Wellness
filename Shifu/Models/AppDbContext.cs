@@ -1,7 +1,8 @@
 using Microsoft.EntityFrameworkCore;
 
 namespace Shifu.Models;
-
+// Created by Jayden Seto - 991746683
+// This is a Model representing the EFC database context. Managing entity sets.
 public class AppDbContext : DbContext
 {
     public AppDbContext(DbContextOptions<AppDbContext> options) : base(options)

@@ -7,34 +7,43 @@ using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Authorization;
 
 namespace Shifu.Controllers;
+// Created by Jayden Seto - 991746683 
+// Controller for handling user authentication during sign up and log in, and profile management 
 
 public class HomeController : Controller
 {
     private readonly ILogger<HomeController> _logger;
     private readonly UserDataRepository _repository;
     private readonly JournalManager _journalManager;
+    private readonly GoalManager _goalManager;
+    private readonly UserData? _currentUser = HomeController.LoggedInUser;
 
 
-    public HomeController(ILogger<HomeController> logger, UserDataRepository repository, JournalManager journalManager)
+    public HomeController(ILogger<HomeController> logger, UserDataRepository repository, JournalManager journalManager, GoalManager goal)
     {
         _logger = logger;
         _repository = repository;
         _journalManager = journalManager;
+        _goalManager = goal;
     }
+    
+    // Displays main landing page
     [HttpGet]
     public IActionResult Index()
     {
         return View();
     }
     
+    //Displays SignUp page
     [HttpGet]
     public IActionResult SignUp()
     {
         return View();
     }
-    
+    //Current logged in user
     public static UserData? LoggedInUser;
     
+    //Redirects to log in on successful signup, otherwise re-displays the form.
     [HttpPost]
     public async Task<IActionResult> SignUp(UserData user)
     {
@@ -96,13 +105,14 @@ public class HomeController : Controller
         return RedirectToAction("Login");
     }
     
+    //Display Login Page
     [HttpGet]
     public IActionResult Login()
     {
         return View(); 
     }
 
-    
+    //Log in after validation, sets logged in user to current user.
     [HttpPost]
     public async Task<IActionResult> Login(string email, string password)
     {
@@ -182,6 +192,7 @@ public class HomeController : Controller
         return RedirectToAction("Dashboard");
     }
 
+    //Signs out user
     [HttpGet]
     public IActionResult SignOut()
     {
@@ -189,11 +200,24 @@ public class HomeController : Controller
         return RedirectToAction("Login");
     }
     
+    //Displays Dashboard for logged-in user, if currently no one is logged in, redirects to the log-in page
     [HttpGet]
     public async Task<IActionResult> Dashboard()
     {
         if (LoggedInUser == null)
             return RedirectToAction("Login");
+
+        var goals = await _goalManager.GetUserGoalsAsync(_currentUser.Id);
+
+        // Find oldest pending goal (or null if none exist)
+        var oldestGoal = goals
+            .Where(g => !g.Completed)
+            .OrderBy(g => g.TargetDate ?? DateTime.MaxValue) // Safely handles null target dates
+            .FirstOrDefault();
+
+
+        // this is to track the "age" of a goal in order to be able to send the oldest goal to the dashboard via ViewBag
+        ViewBag.OldestGoal = oldestGoal;
 
         // load journal entries
         LoggedInUser.JournalEntries = await _journalManager.GetUserEntriesAsync(LoggedInUser.Id);
@@ -203,6 +227,7 @@ public class HomeController : Controller
         return View(LoggedInUser);
     }
 
+    //Edit Profile Page, if no current logged-in user, redirect to log-in page
     [HttpGet]
     public IActionResult EditProfile()
     {
@@ -211,6 +236,7 @@ public class HomeController : Controller
         return View(LoggedInUser);
     }
 
+    //Edit Profile Page POST, if no current logged-in user, redirect to log-in page, if valid, info updates the user.
     [HttpPost]
     public async Task<IActionResult> EditProfile(UserData user)
     {
@@ -244,6 +270,7 @@ public class HomeController : Controller
         return RedirectToAction("Dashboard");
     }
 
+    
     public IActionResult Privacy()
     {
         return View();

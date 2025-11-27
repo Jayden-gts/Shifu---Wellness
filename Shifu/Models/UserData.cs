@@ -3,6 +3,9 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace Shifu.Models;
 
+//Created by Jayden Seto - 991746683
+// This is a Model for a User entity with required fields and validation.
+
 public class UserData
 {
     [Key] public int Id { get; set; }

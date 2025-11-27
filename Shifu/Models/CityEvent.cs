@@ -1,5 +1,6 @@
 namespace Shifu.Models;
-
+// Created by Jayden Seto - 991746683
+// This is a Model for a local city event
 public class CityEvent
 {
     public string Title { get; set; }

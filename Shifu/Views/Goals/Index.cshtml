@@ -13,7 +13,7 @@
     <input type="text" name="title" placeholder="Goal title" class="form-control mb-2" required />
     <input type="text" name="description" placeholder="Description" class="form-control mb-2" />
     <input type="date" name="targetDate" class="form-control mb-2" />
-    <input type="text" name="footnote" placeholder="Footnote" class="form-control mb-2" />
+  
     <button type="submit" class="btn btn-success">Add Goal</button>
 </form>
 
@@ -38,10 +38,7 @@
                 }
             <p>@goal.Description</p>
 
-                @if (!string.IsNullOrWhiteSpace(goal.Footnote))
-                {
-                    <small class="text-secondary">Note: @goal.Footnote</small>
-                }
+             
 
 
             <form asp-action="MarkCompleted" method="post" style="display:inline;">
@@ -61,10 +58,7 @@
         
         <li>@goal.Title</li>
         <p>@goal.Description</p>
-         @if (!string.IsNullOrWhiteSpace(goal.Footnote))
-         {
-            <small class="text-secondary">Note: @goal.Footnote</small>
-         }
+        
         
     }
 </div>
