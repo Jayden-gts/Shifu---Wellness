@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("Shifu")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+b07fdc3a11b35de89b63bc6b29358bf9cc7f4081")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+46a2e319ae9512866d33a7282d5cf853c04dd0df")]
 [assembly: System.Reflection.AssemblyProductAttribute("Shifu")]
 [assembly: System.Reflection.AssemblyTitleAttribute("Shifu")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
