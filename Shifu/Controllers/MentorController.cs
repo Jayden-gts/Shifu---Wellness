@@ -33,19 +33,18 @@ public class MentorController : Controller
     }
     
     [Authorize(Roles = "Mentor")]
-    [HttpGet("MentorDashboard")]
-
+    [HttpGet("Mentor/MentorDashboard")]
     public IActionResult MentorDashboard()
     { 
         return View();
     }
     
-    [Authorize]
-    [HttpGet("MentorDashboard")]
-    public IActionResult Dashboard()
-    {
-        return View();
-    }
+    // [Authorize]
+    // [HttpGet("MentorDashboard")]
+    // public IActionResult Dashboard()
+    // {
+    //     return View();
+    // }
 
 
     [HttpGet]
