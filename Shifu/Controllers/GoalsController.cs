@@ -15,11 +15,13 @@ namespace Shifu.Controllers
         {
             if (_currentUser == null) return RedirectToAction("Login", "Home");
             var goals = await _goalManager.GetUserGoalsAsync(_currentUser.Id);
+           
+          
             return View(goals);
         }
 
         [HttpPost]
-        public async Task<IActionResult> AddGoal(string title, string? description, DateTime? targetDate, string? footnote)
+        public async Task<IActionResult> AddGoal(string title, string? description, DateTime? targetDate)
         {
             if (_currentUser == null) return RedirectToAction("Login", "Home");
 
@@ -29,13 +31,32 @@ namespace Shifu.Controllers
                 Title = title,
                 Description = description,
                 TargetDate = targetDate,
-                Footnote = footnote
+               
             });
 
             return RedirectToAction("Index");
         }
 
 
+        [HttpPost]
+        public async Task<IActionResult> AddGoalFromFootnote(string title, string description, DateTime? targetDate)
+        {
+            if (_currentUser == null)
+                return RedirectToAction("Login");
+
+            Goal newGoal = new Goal
+            {
+                Title = title,
+                Description = description,
+                TargetDate = targetDate,
+                UserId = _currentUser.Id,
+                Completed = false
+            };
+
+            await _goalManager.AddGoalAsync(newGoal);
+
+            return RedirectToAction("Index", "Goals"); 
+        }
 
 
 

@@ -10,13 +10,16 @@ public class HomeController : Controller
     private readonly ILogger<HomeController> _logger;
     private readonly UserDataRepository _repository;
     private readonly JournalManager _journalManager;
+    private readonly GoalManager _goalManager;
+    private readonly UserData? _currentUser = HomeController.LoggedInUser;
 
 
-    public HomeController(ILogger<HomeController> logger, UserDataRepository repository, JournalManager journalManager)
+    public HomeController(ILogger<HomeController> logger, UserDataRepository repository, JournalManager journalManager, GoalManager goal)
     {
         _logger = logger;
         _repository = repository;
         _journalManager = journalManager;
+        _goalManager = goal;
     }
     [HttpGet]
     public IActionResult Index()
@@ -90,6 +93,18 @@ public class HomeController : Controller
     {
         if (LoggedInUser == null)
             return RedirectToAction("Login");
+
+        var goals = await _goalManager.GetUserGoalsAsync(_currentUser.Id);
+
+        // Find oldest pending goal (or null if none exist)
+        var oldestGoal = goals
+            .Where(g => !g.Completed)
+            .OrderBy(g => g.TargetDate ?? DateTime.MaxValue) // Safely handles null target dates
+            .FirstOrDefault();
+
+
+        // this is to track the "age" of a goal in order to be able to send the oldest goal to the dashboard via ViewBag
+        ViewBag.OldestGoal = oldestGoal;
 
         // load journal entries
         LoggedInUser.JournalEntries = await _journalManager.GetUserEntriesAsync(LoggedInUser.Id);
