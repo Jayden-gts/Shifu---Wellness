@@ -29,16 +29,23 @@
                 }
                 else
                 {
-                    <a asp-controller="Goals" asp-action="Index" class="btn btn-outline-primary">
+                    <a asp-controller="Goals" asp-action="Index" class="btn btn-outline-success">
                         Try setting a goal!
                     </a>
                 }
 
             </div>
+            
+            <div class="p-3 mb-3 rounded shadow bg-white text-center" style="width: 90%;">
+                <h5>View Your Progress</h5>
+                <a asp-controller="Goals" asp-action="Index" class="btn btn-outline-success">
+                    Goals
+                </a>
+            </div>
 
             <div class="p-3 mb-3 rounded shadow bg-white text-center" style="width: 90%;">
                 <h5>Resources for you</h5>
-                <a asp-controller="Resources" asp-action="Index" class="btn btn-outline-primary">
+                <a asp-controller="Resources" asp-action="Index" class="btn btn-outline-success">
                     View Resources
                 </a>
             </div>
@@ -69,10 +76,6 @@
                 </a>
             </div>
 
-            
-            
-            
-            
             <div class="container text-center">
                 <a asp-action="SignOut" class="btn btn-outline-danger">Sign Out</a>
             </div>
