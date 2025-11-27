@@ -31,6 +31,21 @@ public class MentorController : Controller
         var users = await _service.GetUsersAssignedToMentor(mentorId);
         return View(users);
     }
+    
+    [Authorize(Roles = "Mentor")]
+    [HttpGet("MentorDashboard")]
+
+    public IActionResult MentorDashboard()
+    { 
+        return View();
+    }
+    
+    [Authorize]
+    [HttpGet("MentorDashboard")]
+    public IActionResult Dashboard()
+    {
+        return View();
+    }
 
 
     [HttpGet]

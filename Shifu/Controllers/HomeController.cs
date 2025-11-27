@@ -171,25 +171,35 @@ public class HomeController : Controller
         
         // make an admin dashboard 
         // case checks 
-        if (user.IsAdmin)
-            return RedirectToAction("PendingMentors", "Admin");
+        //if (user.IsAdmin)
+            //return RedirectToAction("PendingMentors", "Admin");
 
-        if (user.IsMentorApplicant == true)
-        {
-            if (user.MentorStatus == "Pending")
-                return RedirectToAction("Pending", "MentorApplication");
+        //if (user.IsMentorApplicant == true)
+        //{
+        //if (user.MentorStatus == "Pending")
+                //return RedirectToAction("Pending", "MentorApplication");
             
-            if (user.MentorStatus == "Approved")
-                return RedirectToAction("Chat", "Mentor");
+            //if (user.MentorStatus == "Approved")
+            //return RedirectToAction("Chat", "Mentor");
             
             //if (user.IsMentorApplicant && user.MentorStatus == "Pending")
                 //return RedirectToAction("Pending", "MentorApplication");
             
             // if rejected ****** make a page for this 
             //return RedirectToAction("Rejected");
-        }
+        //}
         
-        return RedirectToAction("Dashboard");
+        // Redirect based on role and mentor status
+        if (user.IsAdmin)
+            return RedirectToAction("PendingMentors", "Admin");
+
+        if (user.IsMentor && user.MentorStatus == "Approved")
+            return RedirectToAction("MentorDashboard", "Mentor");
+
+        if (user.IsMentorApplicant.GetValueOrDefault() && user.MentorStatus == "Pending")
+            return RedirectToAction("PendingApplications", "Mentor");
+
+        return RedirectToAction("Dashboard"); // Regular users
     }
 
     //Signs out user

@@ -52,13 +52,18 @@ public class AccountController : Controller
         var claims = new List<Claim>
         {
             new Claim(ClaimTypes.NameIdentifier, user.Id.ToString()),
-            new Claim(ClaimTypes.Name, user.Email ?? $"{user.FirstName} {user.LastName}") // check this ***
+            new Claim(ClaimTypes.Name, user.Email ?? $"{user.FirstName} {user.LastName}"), // check this ***
+            new Claim(ClaimTypes.Role, user.IsAdmin ? "Admin" : user.IsMentor ? "Mentor" : "User")
+
         };
         
         if (user.IsMentor) claims.Add(new Claim(ClaimTypes.Role, "Mentor"));
         if (user.IsAdmin) claims.Add(new Claim(ClaimTypes.Role, "Admin"));
         
         var identity = new ClaimsIdentity(claims, CookieAuthenticationDefaults.AuthenticationScheme);
+        var principal = new ClaimsPrincipal(identity);
+
+        
         await HttpContext.SignInAsync(CookieAuthenticationDefaults.AuthenticationScheme, new ClaimsPrincipal(identity));
         
         return RedirectToAction("Dashboard", "Home");

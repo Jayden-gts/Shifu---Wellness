@@ -29,7 +29,10 @@ public class UserData
     public string? Password { get; set; }
     
     
+    
+    
     [Required (ErrorMessage = "Please Enter your password")]
+    
     [DataType(DataType.Password)]
     [Compare("Password", ErrorMessage = "Passwords do not match")]
     public string? PasswordConfirm { get; set; }

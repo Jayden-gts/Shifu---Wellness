@@ -83,7 +83,7 @@ public class MentorApplicationController : Controller
     [HttpPost]
     public async Task<IActionResult> Apply(MentorApplicationViewModel vm)
     {
-        _logger.LogInformation("Apply POST called");  // <-- log start
+        _logger.LogInformation("Apply POST called");
 
         if (!ModelState.IsValid)
         {
