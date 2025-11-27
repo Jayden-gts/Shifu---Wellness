@@ -4,6 +4,8 @@ using Shifu.Services;
 using System.Diagnostics;
 
 namespace Shifu.Controllers;
+// Created by Jayden Seto - 991746683 
+// Controller for handling user authentication during sign up and log in, and profile management 
 
 public class HomeController : Controller
 {
@@ -21,20 +23,24 @@ public class HomeController : Controller
         _journalManager = journalManager;
         _goalManager = goal;
     }
+    
+    // Displays main landing page
     [HttpGet]
     public IActionResult Index()
     {
         return View();
     }
     
+    //Displays SignUp page
     [HttpGet]
     public IActionResult SignUp()
     {
         return View();
     }
-    
+    //Current logged in user
     public static UserData? LoggedInUser;
     
+    //Redirects to log in on successful signup, otherwise re-displays the form.
     [HttpPost]
     public async Task<IActionResult> SignUp(UserData user)
     {
@@ -59,13 +65,14 @@ public class HomeController : Controller
 
     }
     
+    //Display Login Page
     [HttpGet]
     public IActionResult Login()
     {
         return View(); 
     }
 
-    
+    //Log in after validation, sets logged in user to current user.
     [HttpPost]
     public async Task<IActionResult> Login(string email, string password)
     {
@@ -81,6 +88,7 @@ public class HomeController : Controller
         return RedirectToAction("Dashboard");
     }
 
+    //Signs out user
     [HttpGet]
     public IActionResult SignOut()
     {
@@ -88,6 +96,7 @@ public class HomeController : Controller
         return RedirectToAction("Login");
     }
     
+    //Displays Dashboard for logged-in user, if currently no one is logged in, redirects to the log-in page
     [HttpGet]
     public async Task<IActionResult> Dashboard()
     {
@@ -114,6 +123,7 @@ public class HomeController : Controller
         return View(LoggedInUser);
     }
 
+    //Edit Profile Page, if no current logged-in user, redirect to log-in page
     [HttpGet]
     public IActionResult EditProfile()
     {
@@ -122,6 +132,7 @@ public class HomeController : Controller
         return View(LoggedInUser);
     }
 
+    //Edit Profile Page POST, if no current logged-in user, redirect to log-in page, if valid, info updates the user.
     [HttpPost]
     public async Task<IActionResult> EditProfile(UserData user)
     {
@@ -155,6 +166,7 @@ public class HomeController : Controller
         return RedirectToAction("Dashboard");
     }
 
+    
     public IActionResult Privacy()
     {
         return View();

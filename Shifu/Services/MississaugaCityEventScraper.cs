@@ -6,13 +6,18 @@ namespace Shifu.Services;
 using System.Globalization;
 using HtmlAgilityPack;
 using PuppeteerSharp;
-
+//Created By Jayden Seto - 991746683
+// This is a service for web scraping from the City of Mississauga's events website.
 public class MississaugaCityEventScraper
 {
     public MississaugaCityEventScraper()
     {
         
     }
+    //Scrapes events calendar.
+    //Launches a headless browser instance using PuppeteerSharp
+    //Extracts data dynamically from HTML list items on the website
+    //Parses into structured event fields
     public async Task<List<CityEvent>> ScrapeEventsAsync()
     {
         var events = new List<CityEvent>();
@@ -30,7 +35,7 @@ public class MississaugaCityEventScraper
         await page.WaitForSelectorAsync("li.event-card");
 
         
-        
+        // uses JavaScript in the page to extract the data for the event card details
         var eventsData = await page.EvaluateExpressionAsync<string>(@"
             Array.from(document.querySelectorAll('li.event-card')).map(e => {
                 const title = e.querySelector('.event-title')?.innerText || '';
@@ -41,7 +46,7 @@ public class MississaugaCityEventScraper
             }).join('|');
         ");
 
-       
+       //Creates event from JSON data
         events = eventsData
             .Split('|', StringSplitOptions.RemoveEmptyEntries)
             .Select(ev => JsonSerializer.Deserialize<TempEvent>(ev)!)
