@@ -2,6 +2,9 @@ using Microsoft.AspNetCore.Mvc;
 using Shifu.Models;
 using Shifu.Services;
 using System.Diagnostics;
+using System.Security.Claims;
+using Microsoft.AspNetCore.Authentication;
+using Microsoft.AspNetCore.Authorization;
 
 namespace Shifu.Controllers;
 
@@ -50,10 +53,47 @@ public class HomeController : Controller
             return View(user);
         }
         
-        await _repository.AddUserDataAsync(user);
-        return RedirectToAction("Login");
+        // Ensure they picked a role
+        if (user.IsMentor == null)
+        {
+            ModelState.AddModelError("IsMentorApplicant", "Please select a role: User or Mentor.");
+            return View(user);
+        }
         
+        await _repository.AddUserDataAsync(user);
+        
+        // After saving the new user
+        //await _repository.AddUserDataAsync(user);
 
+// Sign in the user
+        var claims = new List<Claim>
+        {
+            new Claim(ClaimTypes.NameIdentifier, user.Id.ToString()),
+            new Claim(ClaimTypes.Name, $"{user.FirstName} {user.LastName}"),
+            new Claim(ClaimTypes.Role, (user.IsMentorApplicant ?? false) ? "Mentor" : "User")
+        };
+        var identity = new ClaimsIdentity(claims, "MyCookieAuth");
+        await HttpContext.SignInAsync("MyCookieAuth", new ClaimsPrincipal(identity));
+        LoggedInUser = user;
+
+// Redirect to Mentor Application
+        //return RedirectToAction("Apply", "MentorApplication");
+
+        
+        
+        
+        /// If signing up as mentor, mark as applicant and Pending
+        if (user.IsMentorApplicant == true)
+        {
+            user.MentorStatus = "Pending";
+            await _repository.UpdateUserAsync(user); // Save the status to DB
+
+            // Redirect to Mentor Application form
+            return RedirectToAction("Apply", "MentorApplication");
+        }
+        
+        LoggedInUser = user;
+        return RedirectToAction("Login");
     }
     
     [HttpGet]
@@ -66,7 +106,29 @@ public class HomeController : Controller
     [HttpPost]
     public async Task<IActionResult> Login(string email, string password)
     {
+        
+        // Hardcoded admin credentials
+        if (email == "admin@gmail.com" && password == "AdminPass123")
+        {
+            var adminClaims = new List<Claim>
+            {
+                new Claim(ClaimTypes.NameIdentifier, "0"), // fixed ID for admin
+                new Claim(ClaimTypes.Name, "Admin User"),
+                new Claim(ClaimTypes.Role, "Admin")
+            };
 
+            var adminIdentity = new ClaimsIdentity(adminClaims, "MyCookieAuth");
+            await HttpContext.SignInAsync("MyCookieAuth", new ClaimsPrincipal(adminIdentity));
+
+            // Redirect directly to admin dashboard
+            return RedirectToAction("PendingMentors", "Admin");
+        } 
+        // Hardcoded admin credentials
+        
+        
+        // ------------------------------------------------
+
+        
         var user = await _repository.GetUserAsync(email, password);
         if (user == null)
         {
@@ -74,7 +136,49 @@ public class HomeController : Controller
             return View("Login");
         }
 
+        string role;
+        if (user.IsAdmin)
+            role = "Admin";
+        else if (user.IsMentorApplicant == true)
+            role = "Mentor";
+        else 
+            role = "User";
+
+        var claims = new List<Claim>
+        {
+            new Claim(ClaimTypes.NameIdentifier, user.Id.ToString()),
+            new Claim(ClaimTypes.Name, user.FirstName + " " + user.LastName),
+            new Claim(ClaimTypes.Role, role),
+
+        };
+        
+        var identity = new ClaimsIdentity(claims, "MyCookieAuth");
+        var principal = new ClaimsPrincipal(identity);
+        
+        await HttpContext.SignInAsync("MyCookieAuth", principal);
+
         LoggedInUser = user;
+        
+        // make an admin dashboard 
+        // case checks 
+        if (user.IsAdmin)
+            return RedirectToAction("PendingMentors", "Admin");
+
+        if (user.IsMentorApplicant == true)
+        {
+            if (user.MentorStatus == "Pending")
+                return RedirectToAction("Pending", "MentorApplication");
+            
+            if (user.MentorStatus == "Approved")
+                return RedirectToAction("Chat", "Mentor");
+            
+            //if (user.IsMentorApplicant && user.MentorStatus == "Pending")
+                //return RedirectToAction("Pending", "MentorApplication");
+            
+            // if rejected ****** make a page for this 
+            //return RedirectToAction("Rejected");
+        }
+        
         return RedirectToAction("Dashboard");
     }
 
@@ -150,4 +254,13 @@ public class HomeController : Controller
     {
         return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
     }
+    
+    //  check thiss after ******
+    [Authorize(Roles="Mentor")]
+    public IActionResult Pending() => View(); // shows "Your application is under review"
+
+    [Authorize(Roles="Mentor")]
+    public IActionResult Rejected() => View(); // shows "Your application was rejected"
+
+    
 }

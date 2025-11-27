@@ -85,6 +85,9 @@ namespace Shifu.Migrations
                         .IsRequired()
                         .HasColumnType("TEXT");
 
+                    b.Property<int?>("MentorId")
+                        .HasColumnType("INTEGER");
+
                     b.Property<bool>("SentByMentor")
                         .HasColumnType("INTEGER");
 
@@ -133,6 +136,9 @@ namespace Shifu.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("INTEGER");
 
+                    b.Property<string>("Bio")
+                        .HasColumnType("TEXT");
+
                     b.Property<string>("CurrentGoal")
                         .HasColumnType("TEXT");
 
@@ -147,7 +153,16 @@ namespace Shifu.Migrations
                     b.Property<int?>("GoalsCompleted")
                         .HasColumnType("INTEGER");
 
+                    b.Property<bool>("IsAdmin")
+                        .HasColumnType("INTEGER");
+
+                    b.Property<bool>("IsAvailable")
+                        .HasColumnType("INTEGER");
+
                     b.Property<bool>("IsMentor")
+                        .HasColumnType("INTEGER");
+
+                    b.Property<bool>("IsMentorApplicant")
                         .HasColumnType("INTEGER");
 
                     b.Property<int?>("JournalStreak")
@@ -157,11 +172,10 @@ namespace Shifu.Migrations
                         .IsRequired()
                         .HasColumnType("TEXT");
 
-                    b.Property<string>("Password")
-                        .IsRequired()
+                    b.Property<string>("MentorStatus")
                         .HasColumnType("TEXT");
 
-                    b.Property<string>("PasswordConfirm")
+                    b.Property<string>("Password")
                         .IsRequired()
                         .HasColumnType("TEXT");
 
@@ -169,9 +183,50 @@ namespace Shifu.Migrations
                         .IsRequired()
                         .HasColumnType("TEXT");
 
+                    b.Property<string>("Qualifications")
+                        .HasColumnType("TEXT");
+
+                    b.Property<string>("Specialities")
+                        .HasColumnType("TEXT");
+
                     b.HasKey("Id");
 
                     b.ToTable("Users");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = 1,
+                            Email = "admin@gmail.com",
+                            FirstName = "Admin",
+                            IsAdmin = true,
+                            IsAvailable = false,
+                            IsMentor = false,
+                            IsMentorApplicant = false,
+                            LastName = "User",
+                            Password = "AdminPass123",
+                            PhoneNumber = "000-000-0000"
+                        });
+                });
+
+            modelBuilder.Entity("Shifu.Models.UserMentorAssignment", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("INTEGER");
+
+                    b.Property<DateTime>("AssignedAt")
+                        .HasColumnType("TEXT");
+
+                    b.Property<int>("MentorId")
+                        .HasColumnType("INTEGER");
+
+                    b.Property<int>("UserId")
+                        .HasColumnType("INTEGER");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("UserMentorAssignments");
                 });
 
             modelBuilder.Entity("Shifu.Models.Goal", b =>

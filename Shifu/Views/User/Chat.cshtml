@@ -1,0 +1,67 @@
+@model List<Shifu.Models.UserData>
+@{
+    Layout = "_Layout";
+}
+<input id="currentUserId" type="hidden" value="@User.FindFirst(System.Security.Claims.ClaimTypes.NameIdentifier)?.Value" />
+
+<div class="container mt-4">
+    <h3>Pick a Mentor</h3>
+    <div class="row">
+        <div class="col-4">
+            <ul class="list-group">
+                @foreach (var m in Model)
+                {
+                    <li class="list-group-item">
+                        <h5>@m.FirstName @m.LastName</h5>
+                        <p>@m.Qualifications</p>
+                        <p><strong>Specialties:</strong> @m.Specialities</p>
+                        <p>@m.Bio</p>
+                        <button class="btn btn-sm btn-primary assignBtn" data-id="@m.Id">Select Mentor</button>
+                        <a class="btn btn-sm btn-outline-secondary ms-2" href="/UserChat/LoadMessages?userId=@User.FindFirst(System.Security.Claims.ClaimTypes.NameIdentifier)?.Value">Open Chat</a>
+                    </li>
+                }
+            </ul>
+        </div>
+
+        <div class="col-8">
+            <h4>Chat</h4>
+            <div id="messages" class="border p-3 mb-2" style="height:350px; overflow-y:auto;"></div>
+            <textarea id="messageInput" class="form-control mb-2"></textarea>
+            <button id="sendBtn" class="btn btn-primary">Send</button>
+        </div>
+    </div>
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/microsoft-signalr/7.0.5/signalr.min.js"></script>
+<script>
+    const connection = new signalR.HubConnectionBuilder().withUrl("/mentorUserHub").build();
+    const currentUserId = document.getElementById("currentUserId").value;
+    let selectedMentorId = 0;
+
+    connection.start().then(async () => {
+        await connection.invoke("JoinUserGroup", parseInt(currentUserId));
+    }).catch(e => console.error(e));
+
+    connection.on("ReceiveMessage", (userId, message, sentByMentor, mentorId) => {
+        const msgs = document.getElementById("messages");
+        const who = sentByMentor ? "Mentor" : "You";
+        msgs.innerHTML += `<div><b>${who}:</b> ${message}</div>`;
+        msgs.scrollTop = msgs.scrollHeight;
+    });
+
+    document.querySelectorAll(".assignBtn").forEach(b => b.addEventListener("click", async () => {
+        selectedMentorId = b.dataset.id;
+        const res = await fetch('/UserChat/AssignMentor?mentorId=' + selectedMentorId, { method: 'POST' });
+        if (res.ok) alert('Mentor assigned. Open chat to message.');
+    }));
+
+    document.getElementById("sendBtn").addEventListener("click", async () => {
+        const content = document.getElementById("messageInput").value;
+        if (!content.trim()) return;
+        if (!selectedMentorId) { alert("Select a mentor first"); return; }
+
+        await fetch(`/UserChat/SendMessage?mentorId=${selectedMentorId}&message=${encodeURIComponent(content)}`, { method: 'POST' });
+        document.getElementById("messages").innerHTML += `<div><b>You:</b> ${content}</div>`;
+        document.getElementById("messageInput").value = "";
+    });
+</script>

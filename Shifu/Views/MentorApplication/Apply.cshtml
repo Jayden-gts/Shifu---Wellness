@@ -1,0 +1,22 @@
+@model Shifu.Controllers.MentorApplicationViewModel
+@{
+    Layout = "_Layout";
+}
+
+<h3>Mentor Application</h3>
+
+<form asp-controller="MentorApplication" asp-action="Apply" method="post">
+    <div class="mb-3">
+        <label asp-for="Qualifications"></label>
+        <textarea asp-for="Qualifications" class="form-control"></textarea>
+    </div>
+    <div class="mb-3">
+        <label asp-for="Specialities"></label>
+        <input asp-for="Specialities" class="form-control" />
+    </div>
+    <div class="mb-3">
+        <label asp-for="Bio"></label>
+        <textarea asp-for="Bio" class="form-control"></textarea>
+    </div>
+    <button class="btn btn-primary" type="submit">Apply</button>
+</form>

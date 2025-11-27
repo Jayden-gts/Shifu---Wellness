@@ -7,11 +7,13 @@ public class Message
     [Key]
     public int Id { get; set; }
     public int UserId { get; set; } // Foreign Key to UserData 
-    public bool SentByMentor  { get; set; }
     
-    //[Required]
-    public string Content { get; set; }
+    // which mentor is involved 
+    public int? MentorId { get; set; }
+    public bool SentByMentor  { get; set; }
 
-	public DateTime Timestamp { get; set; }
+    [Required] public string Content { get; set; } = ""; 
+
+	public DateTime Timestamp { get; set; } = DateTime.UtcNow;
 
 }

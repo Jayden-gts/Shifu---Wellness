@@ -25,7 +25,16 @@ public class Program
         builder.Services.AddScoped<GoalManager>();
         builder.Services.AddScoped<ResourceManager>();
 
-        builder.Services.AddSignalR(); 
+        builder.Services.AddSignalR();
+
+        builder.Services.AddAuthentication("MyCookieAuth")
+            .AddCookie("MyCookieAuth", options =>
+            {
+                options.LoginPath = "/Home/Login";
+                options.AccessDeniedPath = "/Home/Login";
+            });
+        
+        builder.Services.AddAuthorization();
 
 
         var app = builder.Build();
@@ -41,6 +50,8 @@ public class Program
         app.UseHttpsRedirection();
         app.UseRouting();
 
+        app.UseAuthentication();
+        
         app.UseAuthorization();
 
         app.MapStaticAssets();
@@ -50,7 +61,7 @@ public class Program
             .WithStaticAssets();
 
         // check thc correct wording
-        app.MapHub<MentorChatHub>("/mentorChat");
+        app.MapHub<MentorUserHub>("/mentorUserHub");
 
         app.Run();
     }

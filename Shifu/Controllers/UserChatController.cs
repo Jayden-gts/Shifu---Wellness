@@ -4,7 +4,9 @@ using Shifu.Hubs;
 using Shifu.Models;
 using Shifu.Services;
 using System.Linq;
+using System.Security.Claims;
 using System.Threading.Tasks;
+using Microsoft.EntityFrameworkCore;
 
 namespace Shifu.Controllers;
 
@@ -12,41 +14,69 @@ public class UserChatController : Controller
 {
     private readonly AppDbContext _db; 
     private readonly MentorService  _service;
-    private readonly IHubContext<UserChatHub> _hubContext; // check this 
+    private readonly IHubContext<MentorUserHub> _hubContext; // check this 
 
-    public UserChatController(AppDbContext db, IHubContext<UserChatHub> hubContext)
+    public UserChatController(AppDbContext db, IHubContext<MentorUserHub> hubContext)
     {
         _db = db;
         _service = new MentorService(db);
         _hubContext = hubContext;
     }
-
-    public IActionResult Chat()
+    
+    // show the avaliable mentors with the qualifications 
+    public async Task<IActionResult> Chat()
     {
-        //var users = _db.Users.ToList();
-        return View();
+        var mentors = await _service.GetMentorsAvailable();
+        return View(mentors);
     }
+    
+    
+    [HttpPost]
+    public async Task<IActionResult> AssignMentor(int mentorId)
+    {
+        var userId = int.Parse(User.FindFirst(System.Security.Claims.ClaimTypes.NameIdentifier).Value);
+        
+        var existing = await _db.UserMentorAssignments.FirstOrDefaultAsync(a => a.UserId == userId);
+        if (existing != null)
+            return BadRequest("Already assigned");
+        
+        await _service.AssignMentor(userId, mentorId);
+        return Ok();
+    }
+
+    //public IActionResult Chat()
+    //{
+        //var users = _db.Users.ToList();
+        //return View();
+    //}
 
 
     [HttpGet]
-    public async Task<IActionResult> LoadMessages(int mentorId)
+    public async Task<IActionResult> LoadMessages(int userId)
     {
-        var messsages = await _service.GetMessagesForUser(mentorId);
+        var callerId = int.Parse(User.FindFirst(System.Security.Claims.ClaimTypes.NameIdentifier).Value);
+        if (callerId != userId)
+            return Forbid(); 
+        
+        var messsages = await _service.GetMessagesForUser(userId);
         return Json(messsages);
     }
 
     [HttpPost]
     public async Task<IActionResult> SendMessages(int mentorId, string message)
     {
+        var userId = int.Parse(User.FindFirst(System.Security.Claims.ClaimTypes.NameIdentifier).Value);
+        
+        var assign = await _db.UserMentorAssignments.FirstOrDefaultAsync(a => a.UserId == userId && a.MentorId == mentorId);
+        if (assign == null)
+            return Forbid();
+        
+        
         // saves the message in the database 
-        await _service.SaveMessage(mentorId, message);
+        await _service.SaveMessage(userId, message, sentByMentor: false, mentorId: mentorId);
         
         // this broadcast to all the clients using SignalR 
-        await  _hubContext.Clients.All.SendAsync("ReceiveMessage", mentorId, message);
+        await  _hubContext.Clients.Group($"user-{userId}").SendAsync("RecieveMessage", userId, message, false, mentorId);
         return Ok();
     }
-
-    
-    
-    
 }

@@ -1,0 +1,30 @@
+@model List<Shifu.Models.UserData>
+@{
+    Layout = "_Layout";
+}
+<h3>Pending Mentors</h3>
+<ul class="list-group">
+    @foreach(var p in Model)
+    {
+        <li class="list-group-item">
+            <h5>@p.FirstName @p.LastName</h5>
+            <p>@p.Qualifications</p>
+            <p>@p.Bio</p>
+            <button class="btn btn-sm btn-success approve" data-id="@p.Id">Approve</button>
+            <button class="btn btn-sm btn-danger reject" data-id="@p.Id">Reject</button>
+        </li>
+    }
+</ul>
+
+<script>
+    document.querySelectorAll(".approve").forEach(b => b.addEventListener("click", async () => {
+        const id = b.dataset.id;
+        const res = await fetch('/Admin/ApproveMentor?userId=' + id, { method: 'POST' });
+        if (res.ok) location.reload();
+    }));
+    document.querySelectorAll(".reject").forEach(b => b.addEventListener("click", async () => {
+        const id = b.dataset.id;
+        const res = await fetch('/Admin/RejectMentor?userId=' + id, { method: 'POST' });
+        if (res.ok) location.reload();
+    }));
+</script>

@@ -1,32 +1,26 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\jghat\\Source\\Repos\\Shifu---Wellness\\Shifu\\Shifu.csproj": {}
+    "/Users/laibaahmed/RiderProjects/Shifu---Wellness/Shifu/Shifu.csproj": {}
   },
   "projects": {
-    "C:\\Users\\jghat\\Source\\Repos\\Shifu---Wellness\\Shifu\\Shifu.csproj": {
+    "/Users/laibaahmed/RiderProjects/Shifu---Wellness/Shifu/Shifu.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\jghat\\Source\\Repos\\Shifu---Wellness\\Shifu\\Shifu.csproj",
+        "projectUniqueName": "/Users/laibaahmed/RiderProjects/Shifu---Wellness/Shifu/Shifu.csproj",
         "projectName": "Shifu",
-        "projectPath": "C:\\Users\\jghat\\Source\\Repos\\Shifu---Wellness\\Shifu\\Shifu.csproj",
-        "packagesPath": "C:\\Users\\jghat\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\jghat\\Source\\Repos\\Shifu---Wellness\\Shifu\\obj\\",
+        "projectPath": "/Users/laibaahmed/RiderProjects/Shifu---Wellness/Shifu/Shifu.csproj",
+        "packagesPath": "/Users/laibaahmed/.nuget/packages/",
+        "outputPath": "/Users/laibaahmed/RiderProjects/Shifu---Wellness/Shifu/obj/",
         "projectStyle": "PackageReference",
-        "fallbackFolders": [
-          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
-        ],
         "configFilePaths": [
-          "C:\\Users\\jghat\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+          "/Users/laibaahmed/.nuget/NuGet/NuGet.Config"
         ],
         "originalTargetFrameworks": [
           "net9.0"
         ],
         "sources": {
-          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-          "C:\\Program Files\\dotnet\\library-packs": {},
+          "/usr/local/share/dotnet/library-packs": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
@@ -101,7 +95,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.306/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/9.0.305/PortableRuntimeIdentifierGraph.json"
         }
       }
     }

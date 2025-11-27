@@ -12,7 +12,13 @@ public class AppDbContext : DbContext
     
     // check this later 
     public DbSet<Message> Messages { get; set; }
+    public DbSet<UserMentorAssignment> UserMentorAssignments { get; set; }
+    
+    
     public DbSet<JournalEntry> JournalEntries { get; set; }
     public DbSet<Goal> Goals { get; set; }
     public DbSet<Resource> Resources { get; set; }
-}
+    
+    }
+
+    
