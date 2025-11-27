@@ -11,8 +11,8 @@ using Shifu.Models;
 namespace Shifu.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    [Migration("20251127042228_FootNoteToBeChanged")]
-    partial class FootNoteToBeChanged
+    [Migration("20251127222745_Updated")]
+    partial class Updated
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -88,6 +88,9 @@ namespace Shifu.Migrations
                         .IsRequired()
                         .HasColumnType("TEXT");
 
+                    b.Property<int?>("MentorId")
+                        .HasColumnType("INTEGER");
+
                     b.Property<bool>("SentByMentor")
                         .HasColumnType("INTEGER");
 
@@ -136,6 +139,9 @@ namespace Shifu.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("INTEGER");
 
+                    b.Property<string>("Bio")
+                        .HasColumnType("TEXT");
+
                     b.Property<string>("CurrentGoal")
                         .HasColumnType("TEXT");
 
@@ -150,7 +156,16 @@ namespace Shifu.Migrations
                     b.Property<int?>("GoalsCompleted")
                         .HasColumnType("INTEGER");
 
+                    b.Property<bool>("IsAdmin")
+                        .HasColumnType("INTEGER");
+
+                    b.Property<bool>("IsAvailable")
+                        .HasColumnType("INTEGER");
+
                     b.Property<bool>("IsMentor")
+                        .HasColumnType("INTEGER");
+
+                    b.Property<bool>("IsMentorApplicant")
                         .HasColumnType("INTEGER");
 
                     b.Property<int?>("JournalStreak")
@@ -158,6 +173,9 @@ namespace Shifu.Migrations
 
                     b.Property<string>("LastName")
                         .IsRequired()
+                        .HasColumnType("TEXT");
+
+                    b.Property<string>("MentorStatus")
                         .HasColumnType("TEXT");
 
                     b.Property<string>("Password")
@@ -172,9 +190,35 @@ namespace Shifu.Migrations
                         .IsRequired()
                         .HasColumnType("TEXT");
 
+                    b.Property<string>("Qualifications")
+                        .HasColumnType("TEXT");
+
+                    b.Property<string>("Specialities")
+                        .HasColumnType("TEXT");
+
                     b.HasKey("Id");
 
                     b.ToTable("Users");
+                });
+
+            modelBuilder.Entity("Shifu.Models.UserMentorAssignment", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("INTEGER");
+
+                    b.Property<DateTime>("AssignedAt")
+                        .HasColumnType("TEXT");
+
+                    b.Property<int>("MentorId")
+                        .HasColumnType("INTEGER");
+
+                    b.Property<int>("UserId")
+                        .HasColumnType("INTEGER");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("UserMentorAssignments");
                 });
 
             modelBuilder.Entity("Shifu.Models.Goal", b =>

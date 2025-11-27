@@ -66,7 +66,7 @@ public class AdminController : Controller
         await HttpContext.SignInAsync("MyCookieAuth", new ClaimsPrincipal(identity));
 
         // Redirect directly to mentor dashboard
-        return RedirectToAction("MentorDashboard", "Mentor");
+        return RedirectToAction("Login", "Home");
         
         
         //return RedirectToAction("Login", "Home");

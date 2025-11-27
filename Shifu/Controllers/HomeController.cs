@@ -149,7 +149,7 @@ public class HomeController : Controller
         string role;
         if (user.IsAdmin)
             role = "Admin";
-        else if (user.IsMentorApplicant == true)
+        else if (user.IsMentor)
             role = "Mentor";
         else 
             role = "User";
