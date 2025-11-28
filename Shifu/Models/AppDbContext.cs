@@ -20,6 +20,9 @@ public class AppDbContext : DbContext
     public DbSet<Goal> Goals { get; set; }
     public DbSet<Resource> Resources { get; set; }
     
+    public DbSet<Badge> Badges { get; set; }
+
+    
     }
 
     

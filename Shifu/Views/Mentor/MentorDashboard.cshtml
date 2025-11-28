@@ -1,7 +1,73 @@
+@model Shifu.Models.MentorDashboardViewModel
 @{
     Layout = "_Layout";
 }
 
 <h2>Mentor Dashboard</h2>
 
-<a href="/Mentor/Chat" class="btn btn-primary">Open Chat</a>
+<a href="/Mentor/Chat" class="btn btn-primary mb-3">Open Chat</a>
+
+<!-- Award Badge Section -->
+<div class="card mt-3 p-3">
+    <h5>Award Badge</h5>
+    
+    <div class="mb-2">
+        <label for="userSelect" class="form-label">Select User:</label>
+        <select id="userSelect" class="form-select">
+            @if (Model.Users != null && Model.Users.Count > 0)
+            {
+                @foreach(var user in Model.Users)
+                {
+                    <option value="@user.Id">@user.FirstName @user.LastName</option>
+                }
+            }
+            else
+            {
+                <option disabled>No users found</option>
+            }
+        </select>
+    </div>
+
+    <div class="mb-2">
+        <label for="badgeName" class="form-label">Badge Label:</label>
+        <input id="badgeName" type="text" class="form-control" placeholder="Ex: Star Performer">
+    </div>
+
+    <div class="mb-2">
+        <label for="badgeImage" class="form-label">Select Badge Image:</label>
+        <select id="badgeImage" class="form-select">
+            <option value="/images/badge1.png">Gold Star</option>
+            <option value="/images/badge2.png">Silver Star</option>
+            <option value="/images/badge3.png">Bronze Star</option>
+        </select>
+    </div>
+
+    <button id="awardBadgeBtn" class="btn btn-success">Award Badge</button>
+
+    <div id="badgeAlert" class="mt-2"></div>
+</div>
+
+<script>
+document.getElementById("awardBadgeBtn").addEventListener("click", async () => {
+    const userId = document.getElementById("userSelect").value;
+    const badgeName = document.getElementById("badgeName").value;
+    const imageUrl = document.getElementById("badgeImage").value;
+
+    if (!badgeName) {
+        document.getElementById("badgeAlert").innerHTML = '<div class="text-danger">Please enter a badge label.</div>';
+        return;
+    }
+
+    const res = await fetch('/Mentor/AwardBadge', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ userId, badgeName, imageUrl })
+    });
+
+    if (res.ok) {
+        document.getElementById("badgeAlert").innerHTML = '<div class="text-success">Badge awarded!</div>';
+    } else {
+        document.getElementById("badgeAlert").innerHTML = '<div class="text-danger">Failed to award badge.</div>';
+    }
+});
+</script>

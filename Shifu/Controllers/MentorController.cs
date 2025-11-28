@@ -1,3 +1,4 @@
+using System.Security.Claims;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.SignalR;
 using Microsoft.EntityFrameworkCore;
@@ -23,7 +24,34 @@ public class MentorController : Controller
         _db = db;
         _service = new MentorService(db);
         _hubContext = hubContext;
+
     }
+    
+    [HttpPost]
+    public async Task<IActionResult> AwardBadge([FromBody] BadgeDto dto)
+    {
+        var badge = new Badge
+        {
+            AwardedToId = dto.UserId.ToString(),
+            AwardedById = User.FindFirstValue(ClaimTypes.NameIdentifier),
+            Name = dto.BadgeName,
+            ImageUrl = dto.ImageUrl,
+            AwardedOn = DateTime.UtcNow
+        };
+
+        _db.Badges.Add(badge);
+        await _db.SaveChangesAsync();
+        return Ok();
+    }
+
+    public class BadgeDto
+    {
+        public int UserId { get; set; }
+        public string BadgeName { get; set; }
+        public string ImageUrl { get; set; }
+    }
+
+
 
     public async Task<IActionResult> Chat()
     {
@@ -34,9 +62,19 @@ public class MentorController : Controller
     
     [Authorize(Roles = "Mentor")]
     [HttpGet("Mentor/MentorDashboard")]
-    public IActionResult MentorDashboard()
+    public async Task<IActionResult> MentorDashboard()
     { 
-        return View();
+        var mentorId = int.Parse(User.FindFirst(ClaimTypes.NameIdentifier).Value);
+
+        // Get assigned users asynchronously
+        var users = await _service.GetUsersAssignedToMentor(mentorId);
+
+        var model = new MentorDashboardViewModel
+        {
+            Users = users
+        };
+    
+        return View(model);
     }
     
     // [Authorize]

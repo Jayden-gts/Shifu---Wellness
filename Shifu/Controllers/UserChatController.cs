@@ -103,4 +103,56 @@ public class UserChatController : Controller
         await  _hubContext.Clients.Group($"user-{userId}").SendAsync("RecieveMessage", userId, message, false, mentorId);
         return Ok();
     }
+    
+    
+    
+    
+    [Authorize]
+    public async Task<IActionResult> Dashboard()
+    {
+        var userId = int.Parse(User.FindFirst(ClaimTypes.NameIdentifier).Value);
+
+        // Get badges
+        var badges = await _db.Badges
+            .Where(b => b.AwardedToId == userId.ToString())
+            .OrderByDescending(b => b.AwardedOn)
+            .ToListAsync();
+
+        // Get mentors (you already have this in Chat)
+        var assigned = await _service.GetAssignmentForUser(userId);
+        int? assignedMentorId = assigned?.MentorId;
+
+        List<UserData> mentors;
+        if (assignedMentorId != null)
+            mentors = await _service.GetMentorsAllApproved(); 
+        else
+            mentors = await _service.GetMentorsAvailable();
+
+        var model = new UserDashboardViewModel
+        {
+            Mentors = mentors,
+            AssignedMentorId = assignedMentorId,
+            Badges = badges
+        };
+
+        return View(model);
+    }
+    
+    [HttpGet]
+    public async Task<IActionResult> GetBadges(int userId)
+    {
+        var badges = await _db.Badges
+            .Where(b => b.AwardedToId == userId.ToString()) // now querying users
+            .OrderByDescending(b => b.AwardedOn)
+            .Select(b => new {
+                b.Name,
+                b.ImageUrl,
+                b.AwardedOn
+            })
+            .ToListAsync();
+
+        return Json(badges);
+    }
+
+
 }
