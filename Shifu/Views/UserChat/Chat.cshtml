@@ -2,13 +2,23 @@
 @{
     Layout = "_Layout";
 }
+
 <input id="currentUserId" type="hidden" value="@User.FindFirst(System.Security.Claims.ClaimTypes.NameIdentifier)?.Value" />
 
 <div class="container mt-4">
     <h3>Pick a Mentor</h3>
     <div class="row">
+        <!-- Left column: quote + mentor list -->
         <div class="col-4">
-            <ul class="list-group">
+            <!-- Sticky quote card -->
+            <div id="quoteSection" class="card mb-3" style="position: sticky; top: 20px;">
+                <div class="card-body p-2 bg-light border">
+                    <p class="mb-0" id="quoteText">Loading quote...</p>
+                </div>
+            </div>
+
+            <!-- Mentor list -->
+            <ul class="list-group" style="max-height: 70vh; overflow-y: auto;">
                 @foreach (var m in Model)
                 {
                     <li class="list-group-item">
@@ -23,6 +33,7 @@
             </ul>
         </div>
 
+        <!-- Right column: chat -->
         <div class="col-8">
             <h4>Chat</h4>
             <div id="messages" class="border p-3 mb-2" style="height:350px; overflow-y:auto;"></div>
@@ -37,7 +48,7 @@
     const currentUserId = document.getElementById("currentUserId").value;
     let selectedMentorId = 0;
 
-    // fetch assigned mentor from server
+    // Fetch assigned mentor from server
     fetch(`/UserChat/GetAssignedMentor?userId=${currentUserId}`)
         .then(res => res.json())
         .then(data => {
@@ -56,7 +67,7 @@
                 data.forEach(m => msgs.innerHTML += `<div><b>${m.sentByMentor ? "Mentor" : "You"}:</b> ${m.content}</div>`);
             });
     }
-    
+
     // Assign mentor button
     document.querySelectorAll(".assignBtn").forEach(b => b.addEventListener("click", async () => {
         selectedMentorId = b.dataset.id;
@@ -83,5 +94,25 @@
         const msgs = document.getElementById("messages");
         msgs.innerHTML += `<div><b>You:</b> ${content}</div>`;
         document.getElementById("messageInput").value = "";
+    });
+
+    // Quote fetch
+    window.addEventListener('DOMContentLoaded', () => {
+        const quoteText = document.getElementById("quoteText");
+
+        async function loadQuote() {
+            try {
+                const res = await fetch("/api/quotes/getquote");
+                if (!res.ok) throw new Error("API failed");
+                const data = await res.json();
+                quoteText.innerText = data.text;
+            } catch (err) {
+                quoteText.innerText = "Could not load quote.";
+                console.error(err);
+            }
+        }
+
+        loadQuote();
+        setInterval(loadQuote, 30000);
     });
 </script>
