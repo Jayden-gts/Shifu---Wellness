@@ -872,6 +872,28 @@
           }
         }
       },
+      "NUnit/4.4.0": {
+        "type": "package",
+        "compile": {
+          "lib/net8.0/nunit.framework.dll": {
+            "related": ".legacy.xml;.xml"
+          },
+          "lib/net8.0/nunit.framework.legacy.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/net8.0/nunit.framework.dll": {
+            "related": ".legacy.xml;.xml"
+          },
+          "lib/net8.0/nunit.framework.legacy.dll": {
+            "related": ".xml"
+          }
+        },
+        "build": {
+          "build/NUnit.props": {}
+        }
+      },
       "PuppeteerSharp/20.2.4": {
         "type": "package",
         "dependencies": {
@@ -2510,6 +2532,35 @@
         "packageIcon.png"
       ]
     },
+    "NUnit/4.4.0": {
+      "sha512": "7IWJcT9xWNhG9dEGdgAWdH6maCE0eVbeVnizvXACKbAyxbjoJ9+WaEb8qsCTJi3hsb18AJBtoqvWa3G7YYUQfw==",
+      "type": "package",
+      "path": "nunit/4.4.0",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "LICENSE.txt",
+        "NOTICES.md",
+        "README.md",
+        "THIRD_PARTY_NOTICES.md",
+        "build/NUnit.props",
+        "icon.png",
+        "lib/net462/nunit.framework.dll",
+        "lib/net462/nunit.framework.legacy.dll",
+        "lib/net462/nunit.framework.legacy.xml",
+        "lib/net462/nunit.framework.xml",
+        "lib/net6.0/nunit.framework.dll",
+        "lib/net6.0/nunit.framework.legacy.dll",
+        "lib/net6.0/nunit.framework.legacy.xml",
+        "lib/net6.0/nunit.framework.xml",
+        "lib/net8.0/nunit.framework.dll",
+        "lib/net8.0/nunit.framework.legacy.dll",
+        "lib/net8.0/nunit.framework.legacy.xml",
+        "lib/net8.0/nunit.framework.xml",
+        "nunit.4.4.0.nupkg.sha512",
+        "nunit.nuspec"
+      ]
+    },
     "PuppeteerSharp/20.2.4": {
       "sha512": "EIZEsXiFkzh1oftndcLwwFuiSoWGQ0s8/W7s78nszZZ97dP8Hv5n/37uQL/qW7rYs2xA/Upj1dsG9SRzYqySmA==",
       "type": "package",
@@ -3160,6 +3211,7 @@
       "Microsoft.EntityFrameworkCore.InMemory >= 9.0.9",
       "Microsoft.NET.Test.Sdk >= 18.0.1",
       "Moq >= 4.20.72",
+      "NUnit >= 4.4.0",
       "Shifu >= 1.0.0",
       "coverlet.collector >= 6.0.2",
       "xunit >= 2.9.3",
@@ -3167,40 +3219,33 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\jghat\\.nuget\\packages\\": {},
-    "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
+    "/Users/jaydenseto/.nuget/packages/": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\jghat\\source\\repos\\Shifu---Wellness3\\Shifu.Tests\\Shifu.Tests.csproj",
+      "projectUniqueName": "/Users/jaydenseto/PROG30000/Shifu/Shifu.Tests/Shifu.Tests.csproj",
       "projectName": "Shifu.Tests",
-      "projectPath": "C:\\Users\\jghat\\source\\repos\\Shifu---Wellness3\\Shifu.Tests\\Shifu.Tests.csproj",
-      "packagesPath": "C:\\Users\\jghat\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\jghat\\source\\repos\\Shifu---Wellness3\\Shifu.Tests\\obj\\",
+      "projectPath": "/Users/jaydenseto/PROG30000/Shifu/Shifu.Tests/Shifu.Tests.csproj",
+      "packagesPath": "/Users/jaydenseto/.nuget/packages/",
+      "outputPath": "/Users/jaydenseto/PROG30000/Shifu/Shifu.Tests/obj/",
       "projectStyle": "PackageReference",
-      "fallbackFolders": [
-        "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
-      ],
       "configFilePaths": [
-        "C:\\Users\\jghat\\AppData\\Roaming\\NuGet\\NuGet.Config",
-        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
-        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        "/Users/jaydenseto/.nuget/NuGet/NuGet.Config"
       ],
       "originalTargetFrameworks": [
         "net9.0"
       ],
       "sources": {
-        "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-        "C:\\Program Files\\dotnet\\library-packs": {},
+        "/usr/local/share/dotnet/library-packs": {},
         "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {
         "net9.0": {
           "targetAlias": "net9.0",
           "projectReferences": {
-            "C:\\Users\\jghat\\source\\repos\\Shifu---Wellness3\\Shifu\\Shifu.csproj": {
-              "projectPath": "C:\\Users\\jghat\\source\\repos\\Shifu---Wellness3\\Shifu\\Shifu.csproj"
+            "/Users/jaydenseto/PROG30000/Shifu/Shifu/Shifu.csproj": {
+              "projectPath": "/Users/jaydenseto/PROG30000/Shifu/Shifu/Shifu.csproj"
             }
           }
         }
@@ -3233,6 +3278,10 @@
             "target": "Package",
             "version": "[4.20.72, )"
           },
+          "NUnit": {
+            "target": "Package",
+            "version": "[4.4.0, )"
+          },
           "coverlet.collector": {
             "target": "Package",
             "version": "[6.0.2, )"
@@ -3264,7 +3313,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.306/PortableRuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/9.0.304/PortableRuntimeIdentifierGraph.json"
       }
     }
   }

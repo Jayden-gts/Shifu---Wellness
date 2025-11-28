@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("Shifu.Tests")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+195891c1213ec33f3f39e4b25d7ac4e212ed4b22")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+4f45b62800a2d68faf3cf99238e45e2627ecc180")]
 [assembly: System.Reflection.AssemblyProductAttribute("Shifu.Tests")]
 [assembly: System.Reflection.AssemblyTitleAttribute("Shifu.Tests")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
