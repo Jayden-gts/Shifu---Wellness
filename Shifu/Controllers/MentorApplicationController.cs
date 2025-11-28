@@ -4,6 +4,8 @@ using Shifu.Models;
 
 namespace Shifu.Controllers;
 
+// Created by Laiba Ahmed 991691793
+
 [Authorize]
 public class MentorApplicationController : Controller 
 {
@@ -23,62 +25,6 @@ public class MentorApplicationController : Controller
     {
         return View();
     }
-
-    //[HttpPost]
-    //public async Task<IActionResult> Apply(MentorApplicationViewModel vm)
-        //{
-        //var userId = int.Parse(User.FindFirst(System.Security.Claims.ClaimTypes.NameIdentifier).Value);
-        //var user = await _db.Users.FindAsync(userId);
-        
-        // Get current user ID from claims
-        //var userIdClaim = User.FindFirst(System.Security.Claims.ClaimTypes.NameIdentifier);
-        //if (userIdClaim == null)
-            //return RedirectToAction("Login", "Home"); // not logged in
-
-        
-        //if (user == null)
-            //return NotFound();
-        
-        
-        //user.IsMentorApplicant = true;
-        //user.MentorStatus = "Pending";
-        //user.Bio = vm.Bio;
-        //user.Qualifications = vm.Qualifications;
-        //user.Specialities = vm.Specialities;
-
-        //await _db.SaveChangesAsync();
-        
-        //return RedirectToAction("Pending", "MentorApplication");
-    //}
-    
-    
-    //[HttpPost]
-    //public async Task<IActionResult> Apply(MentorApplicationViewModel vm)
-    //{
-        //if (!ModelState.IsValid)
-            //return View(vm);
-
-        //var userIdClaim = User.FindFirst(System.Security.Claims.ClaimTypes.NameIdentifier);
-        //if (userIdClaim == null)
-            //return RedirectToAction("Login", "Home");
-
-        //var userId = int.Parse(userIdClaim.Value);
-        //var user = await _db.Users.FindAsync(userId);
-        //if (user == null)
-            //return NotFound();
-
-        //user.IsMentorApplicant = true;
-        //user.MentorStatus = "Pending";
-        //user.Bio = vm.Bio;
-        //user.Qualifications = vm.Qualifications;
-        //user.Specialities = vm.Specialities;
-
-        //await _db.SaveChangesAsync();
-
-        //return RedirectToAction("Pending", "MentorApplication");
-    //}
-
-    
     
     [HttpPost]
     public async Task<IActionResult> Apply(MentorApplicationViewModel vm)
@@ -128,7 +74,6 @@ public class MentorApplicationController : Controller
         return RedirectToAction("Pending", "MentorApplication");
     }
 }
-    
     
 
 

@@ -3,20 +3,39 @@
     Layout = "_Layout";
 }
 
-<h3>Mentor Application</h3>
+@* Laiba Ahmed - 991691793 *@
 
-<form asp-controller="MentorApplication" asp-action="Apply" method="post">
-    <div class="mb-3">
-        <label asp-for="Qualifications"></label>
-        <textarea asp-for="Qualifications" class="form-control"></textarea>
+<div class="container mt-5" style="max-width: 700px;">
+
+    <!-- Title Card -->
+    <div class="p-4 mb-4 bg-white rounded shadow text-center">
+        <h3 class="mb-0">Mentor Application</h3>
     </div>
-    <div class="mb-3">
-        <label asp-for="Specialities"></label>
-        <input asp-for="Specialities" class="form-control" />
+
+    <!-- Form Card -->
+    <div class="p-4 bg-white rounded shadow">
+        <form asp-controller="MentorApplication" asp-action="Apply" method="post">
+
+            <!-- Qualifications -->
+            <div class="mb-4">
+                <label asp-for="Qualifications" class="form-label fw-bold"></label>
+                <textarea asp-for="Qualifications" class="form-control" rows="4"></textarea>
+            </div>
+
+            <!-- Specialities -->
+            <div class="mb-4">
+                <label asp-for="Specialities" class="form-label fw-bold"></label>
+                <input asp-for="Specialities" class="form-control" />
+            </div>
+
+            <!-- Bio -->
+            <div class="mb-4">
+                <label asp-for="Bio" class="form-label fw-bold"></label>
+                <textarea asp-for="Bio" class="form-control" rows="4"></textarea>
+            </div>
+
+            <button class="btn btn-success w-100" type="submit">Submit Application</button>
+        </form>
     </div>
-    <div class="mb-3">
-        <label asp-for="Bio"></label>
-        <textarea asp-for="Bio" class="form-control"></textarea>
-    </div>
-    <button class="btn btn-primary" type="submit">Apply</button>
-</form>
+
+</div>

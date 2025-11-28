@@ -1,73 +1,44 @@
 @model Shifu.Models.MentorDashboardViewModel
 @{
     Layout = "_Layout";
+    ViewBag.Title = "Mentor Dashboard";
 }
+@* Laiba Ahmed - 991691793 *@
 
-<h2>Mentor Dashboard</h2>
+<div class="container-fluid vh-100 p-0">
+    <div class="row column-gap-1 flex-nowrap vh-100 box">
 
-<a href="/Mentor/Chat" class="btn btn-primary mb-3">Open Chat</a>
+        <!-- LEFT SIDEBAR -->
+        <div class="col-3 box rounded d-flex flex-column align-items-center overflow-y-auto border p-2"
+             style="background-image: url('@Url.Content("~/bgGreen.png")'); background-size: cover; background-position: left; max-height: 100vh">
 
-<!-- Award Badge Section -->
-<div class="card mt-3 p-3">
-    <h5>Award Badge</h5>
-    
-    <div class="mb-2">
-        <label for="userSelect" class="form-label">Select User:</label>
-        <select id="userSelect" class="form-select">
-            @if (Model.Users != null && Model.Users.Count > 0)
-            {
-                @foreach(var user in Model.Users)
-                {
-                    <option value="@user.Id">@user.FirstName @user.LastName</option>
-                }
-            }
-            else
-            {
-                <option disabled>No users found</option>
-            }
-        </select>
+            <div class="p-3 mb-3 rounded shadow bg-white text-center w-100">
+                <h5>Welcome Mentor!</h5>
+            </div>
+
+            <!-- Chat -->
+            <div class="p-3 mb-3 rounded shadow bg-white text-center w-100">
+                <h5>Get Connected!</h5>
+                <a asp-controller="Mentor" asp-action="Chat" class="btn btn-outline-success w-100">
+                    Open Chat
+                </a>
+            </div>
+
+            <div class="mt-auto p-3 w-100">
+                <a asp-action="SignOut" class="btn btn-outline-danger w-100">Sign Out</a>
+            </div>
+
+        </div>
+
+        <div class="col-9 box rounded border bg-body-secondary h-100 overflow-auto p-4"
+             style="background-image: url('@Url.Content("~/bgGreen.png")'); background-size: cover; background-position: left;">
+
+            <div class="bg-white p-4 rounded shadow">
+                <h3>Mentor Dashboard</h3>
+                <p class="text-muted">Use the left menu to navigate.</p>
+            </div>
+
+        </div>
+
     </div>
-
-    <div class="mb-2">
-        <label for="badgeName" class="form-label">Badge Label:</label>
-        <input id="badgeName" type="text" class="form-control" placeholder="Ex: Star Performer">
-    </div>
-
-    <div class="mb-2">
-        <label for="badgeImage" class="form-label">Select Badge Image:</label>
-        <select id="badgeImage" class="form-select">
-            <option value="/images/badge1.png">Gold Star</option>
-            <option value="/images/badge2.png">Silver Star</option>
-            <option value="/images/badge3.png">Bronze Star</option>
-        </select>
-    </div>
-
-    <button id="awardBadgeBtn" class="btn btn-success">Award Badge</button>
-
-    <div id="badgeAlert" class="mt-2"></div>
 </div>
-
-<script>
-document.getElementById("awardBadgeBtn").addEventListener("click", async () => {
-    const userId = document.getElementById("userSelect").value;
-    const badgeName = document.getElementById("badgeName").value;
-    const imageUrl = document.getElementById("badgeImage").value;
-
-    if (!badgeName) {
-        document.getElementById("badgeAlert").innerHTML = '<div class="text-danger">Please enter a badge label.</div>';
-        return;
-    }
-
-    const res = await fetch('/Mentor/AwardBadge', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ userId, badgeName, imageUrl })
-    });
-
-    if (res.ok) {
-        document.getElementById("badgeAlert").innerHTML = '<div class="text-success">Badge awarded!</div>';
-    } else {
-        document.getElementById("badgeAlert").innerHTML = '<div class="text-danger">Failed to award badge.</div>';
-    }
-});
-</script>

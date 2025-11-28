@@ -7,6 +7,7 @@ using Shifu.Models;
 
 namespace Shifu.Controllers;
 
+// Created  by Laiba Ahmed 991691793
 public class AccountController : Controller
 {
     private readonly AppDbContext _db;
@@ -52,7 +53,7 @@ public class AccountController : Controller
         var claims = new List<Claim>
         {
             new Claim(ClaimTypes.NameIdentifier, user.Id.ToString()),
-            new Claim(ClaimTypes.Name, user.Email ?? $"{user.FirstName} {user.LastName}"), // check this ***
+            new Claim(ClaimTypes.Name, user.Email ?? $"{user.FirstName} {user.LastName}"), 
             new Claim(ClaimTypes.Role, user.IsAdmin ? "Admin" : user.IsMentor ? "Mentor" : "User")
 
         };

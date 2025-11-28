@@ -12,6 +12,8 @@ using Shifu.Services;
 using System.Linq;
 using System.Threading.Tasks;
 
+// Created by Laiba Ahmed 991691793
+
 [Authorize(Roles = "Mentor")]
 public class MentorController : Controller
 {
@@ -65,6 +67,9 @@ public class MentorController : Controller
     public async Task<IActionResult> MentorDashboard()
     { 
         var mentorId = int.Parse(User.FindFirst(ClaimTypes.NameIdentifier).Value);
+        
+       
+
 
         // Get assigned users asynchronously
         var users = await _service.GetUsersAssignedToMentor(mentorId);
@@ -76,13 +81,6 @@ public class MentorController : Controller
     
         return View(model);
     }
-    
-    // [Authorize]
-    // [HttpGet("MentorDashboard")]
-    // public IActionResult Dashboard()
-    // {
-    //     return View();
-    // }
 
 
     [HttpGet]

@@ -1,8 +1,25 @@
 @{
     ViewData["Title"] = "Mentor Application Pending";
+    Layout = "_Layout";
 }
 
-<div class="container mt-5">
-    <h3>Your mentor application is under review.</h3>
-    <p>Please wait for the admin to approve you before accessing the mentor dashboard.</p>
+@* Laiba Ahmed - 991691793 *@
+
+<div class="container mt-5" style="max-width: 700px;">
+
+    <!-- Card -->
+    <div class="p-4 bg-white rounded shadow text-center">
+
+        <h3 class="mb-3">Your Mentor Application Is Under Review</h3>
+
+        <p class="mb-4">
+            Please wait for the admin to approve your application before you can access the mentor dashboard.
+        </p>
+
+        <a asp-controller="Home" asp-action="Dashboard" class="btn btn-outline-secondary">
+            Back to Dashboard
+        </a>
+
+    </div>
+
 </div>

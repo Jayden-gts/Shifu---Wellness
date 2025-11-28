@@ -1,5 +1,7 @@
 namespace Shifu.Models;
 
+// Created by Laiba Ahmed 991691793
+
 public class Badge
 {
     public int Id { get; set; }

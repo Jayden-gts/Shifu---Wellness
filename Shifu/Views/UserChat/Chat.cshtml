@@ -3,116 +3,162 @@
     Layout = "_Layout";
 }
 
+@* Laiba Ahmed - 991691793 *@
+
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" />
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
 
 <input id="currentUserId" type="hidden" value="@User.FindFirst(System.Security.Claims.ClaimTypes.NameIdentifier)?.Value" />
 
-<div class="container mt-4">
-    <h3>Pick a Mentor</h3>
+<div class="container-fluid mt-4">
+
+    <!-- Back button -->
+    <a asp-controller="Home" asp-action="Dashboard" class="btn btn-outline-secondary mb-3">
+        ← Back
+    </a>
+
     <div class="row">
-        <!-- Left column: quote + mentor list -->
+
+        <!-- LEFT COLUMN -->
         <div class="col-4">
-            <!-- Sticky quote card -->
-            <div id="quoteSection" class="card mb-3" style="position: sticky; top: 20px;">
-                <div class="card-body p-2 bg-light border">
+
+            <!-- Quote card -->
+            <div class="card shadow-sm mb-3" style="position: sticky; top: 20px;">
+                <div class="card-body bg-light border">
                     <p class="mb-0" id="quoteText">Loading quote...</p>
                 </div>
             </div>
 
-            <!-- Mentor list -->
-            <ul class="list-group" style="max-height: 70vh; overflow-y: auto;">
-                @foreach (var m in Model)
-                {
-                    <li class="list-group-item d-flex justify-content-between align-items-start">
-                        <div>
-                            <h5>@m.FirstName @m.LastName</h5>
-                            <p>@m.Qualifications</p>
-                            <p><strong>Specialties:</strong> @m.Specialities</p>
-                            <p>@m.Bio</p>
-                            <button class="btn btn-sm btn-primary assignBtn" data-id="@m.Id">Select Mentor</button>
-                            <a class="btn btn-sm btn-outline-secondary ms-2" asp-controller="UserChat" asp-action="Chat">Open Chat</a>
-                        </div>
-                        <div>
-                            <button class="btn btn-sm btn-warning badgeBtn" data-user="@m.Id">View Badges</button>
-                        </div>
-                    </li>
-                }
-            </ul>
+            <div class="card shadow-sm">
+                <div class="card-body">
+                    <h5 class="mb-3">Pick a Mentor</h5>
+
+                    <ul class="list-group" style="max-height: 70vh; overflow-y: auto;">
+                        @foreach (var m in Model)
+                        {
+                            <li class="list-group-item">
+
+                                <h5>@m.FirstName @m.LastName</h5>
+
+                                <p class="mb-1"><strong>Qualifications:</strong> @m.Qualifications</p>
+                                <p class="mb-1"><strong>Specialties:</strong> @m.Specialities</p>
+                                <p>@m.Bio</p>
+
+                                <div class="d-flex gap-2 mt-2">
+                                    <button class="btn btn-sm btn-primary assignBtn" data-id="@m.Id">
+                                        Select Mentor
+                                    </button>
+
+                                    <a class="btn btn-sm btn-outline-secondary"
+                                       asp-controller="UserChat"
+                                       asp-action="Chat">
+                                        Open Chat
+                                    </a>
+                                </div>
+
+                            </li>
+                        }
+                    </ul>
+                </div>
+            </div>
+
         </div>
 
-        <!-- Right column: chat -->
+        <!-- RIGHT COLUMN -->
         <div class="col-8">
-            <h4>Chat</h4>
-            <div id="messages" class="border p-3 mb-2" style="height:350px; overflow-y:auto;"></div>
-            <textarea id="messageInput" class="form-control mb-2"></textarea>
-            <button id="sendBtn" class="btn btn-primary">Send</button>
-        </div>
-    </div>
-</div>
 
-<!-- Badges Modal -->
-<div class="modal fade" id="badgesModal" tabindex="-1" aria-labelledby="badgesModalLabel" aria-hidden="true">
-    <div class="modal-dialog">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title" id="badgesModalLabel">Mentor Badges</h5>
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            <div class="card shadow-sm">
+                <div class="card-body">
+                    <h4 class="mb-3">Chat</h4>
+
+                    <!-- Chat messages -->
+                    <div id="messages" class="border p-3 mb-2 rounded"
+                         style="height:350px; overflow-y:auto; background:#fafafa;"></div>
+
+                    <textarea id="messageInput" class="form-control mb-2" placeholder="Type a message..."></textarea>
+                    <button id="sendBtn" class="btn btn-success w-100">Send</button>
+
+                </div>
             </div>
-            <div class="modal-body" id="badgesList">
-                Loading badges...
-            </div>
+
         </div>
+
     </div>
 </div>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/microsoft-signalr/7.0.5/signalr.min.js"></script>
+
 <script>
 const currentUserId = document.getElementById("currentUserId").value;
 let selectedMentorId = 0;
 
-// Fetch assigned mentor from server
+// Fetch assigned mentor
 fetch(`/UserChat/GetAssignedMentor?userId=${currentUserId}`)
     .then(res => res.json())
     .then(data => {
-        if(data.mentorId) {
+        if (data.mentorId) {
             selectedMentorId = data.mentorId;
+            // Hide others if already assigned
+            document.querySelectorAll(".list-group-item").forEach(li => {
+                if (!li.querySelector(`.assignBtn[data-id='${selectedMentorId}']`)) li.style.display = "none";
+            });
             loadMessages();
         }
     });
 
+// Load chat history
 function loadMessages() {
     fetch(`/UserChat/LoadMessages?userId=${currentUserId}&mentorId=${selectedMentorId}`)
         .then(res => res.json())
         .then(data => {
             const msgs = document.getElementById("messages");
             msgs.innerHTML = "";
-            data.forEach(m => msgs.innerHTML += `<div><b>${m.sentByMentor ? "Mentor" : "You"}:</b> ${m.content}</div>`);
+            data.forEach(m =>
+                msgs.innerHTML += `<div><b>${m.sentByMentor ? "Mentor" : "You"}:</b> ${m.content}</div>`
+            );
+            msgs.scrollTop = msgs.scrollHeight;
         });
 }
 
-// Assign mentor button
+// Assign mentor
 document.querySelectorAll(".assignBtn").forEach(b => b.addEventListener("click", async () => {
     selectedMentorId = b.dataset.id;
+
+    // Hide all other mentors except this one
+    document.querySelectorAll(".list-group-item").forEach(li => {
+        if (li.contains(b)) {
+            li.style.display = "block"; // keep selected
+        } else {
+            li.style.display = "none";  // hide others
+        }
+    });
+
     const res = await fetch('/UserChat/AssignMentor?mentorId=' + selectedMentorId, { method: 'POST' });
     if (res.ok) alert('Mentor assigned. Chat loaded.');
     loadMessages();
 }));
 
-// Send message button
+// Sending message
 document.getElementById("sendBtn").addEventListener("click", async () => {
     const content = document.getElementById("messageInput").value;
     if (!content.trim()) return;
-    if (!selectedMentorId) { alert("Select a mentor first"); return; }
+    if (!selectedMentorId) {
+        alert("Pick a mentor first.");
+        return;
+    }
 
-    await fetch(`/UserChat/SendMessages?mentorId=${selectedMentorId}&message=${encodeURIComponent(content)}`, { method: 'POST' });
+    await fetch(`/UserChat/SendMessages?mentorId=${selectedMentorId}&message=${encodeURIComponent(content)}`, {
+        method: 'POST'
+    });
+
     const msgs = document.getElementById("messages");
     msgs.innerHTML += `<div><b>You:</b> ${content}</div>`;
     document.getElementById("messageInput").value = "";
 });
 
-// Quote fetch
+// Quotes
 window.addEventListener('DOMContentLoaded', () => {
+
     const quoteText = document.getElementById("quoteText");
 
     async function loadQuote() {
@@ -123,36 +169,10 @@ window.addEventListener('DOMContentLoaded', () => {
             quoteText.innerText = data.text;
         } catch (err) {
             quoteText.innerText = "Could not load quote.";
-            console.error(err);
         }
     }
 
     loadQuote();
     setInterval(loadQuote, 30000);
 });
-
-// Badge button click
-document.querySelectorAll(".badgeBtn").forEach(b => b.addEventListener("click", async () => {
-    const userId = b.dataset.user; // get the user ID, not mentor
-    const res = await fetch(`/UserChat/GetBadges?userId=${userId}`);
-    const badges = await res.json();
-
-    const badgesList = document.getElementById("badgesList");
-    if(badges.length === 0) {
-        badgesList.innerHTML = "<p>No badges awarded yet.</p>";
-    } else {
-        badgesList.innerHTML = badges.map(b => `
-            <div class="text-center mb-2">
-                <img src="${b.imageUrl}" alt="${b.name}" style="width:50px;height:50px;" />
-                <div>${b.name}</div>
-                <small>${new Date(b.awardedOn).toLocaleDateString()}</small>
-            </div>
-        `).join('');
-    }
-
-    // Show the modal
-    var badgesModal = new bootstrap.Modal(document.getElementById('badgesModal'));
-    badgesModal.show();
-}));
-
 </script>
