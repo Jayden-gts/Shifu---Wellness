@@ -17,7 +17,7 @@
                         <p><strong>Specialties:</strong> @m.Specialities</p>
                         <p>@m.Bio</p>
                         <button class="btn btn-sm btn-primary assignBtn" data-id="@m.Id">Select Mentor</button>
-                        <a class="btn btn-sm btn-outline-secondary ms-2" href="/UserChat/LoadMessages?userId=@User.FindFirst(System.Security.Claims.ClaimTypes.NameIdentifier)?.Value">Open Chat</a>
+                        <a class="btn btn-sm btn-outline-secondary ms-2" asp-controller="UserChat" asp-action="Chat">Open Chat</a>
                     </li>
                 }
             </ul>
@@ -34,34 +34,54 @@
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/microsoft-signalr/7.0.5/signalr.min.js"></script>
 <script>
-    const connection = new signalR.HubConnectionBuilder().withUrl("/mentorUserHub").build();
     const currentUserId = document.getElementById("currentUserId").value;
     let selectedMentorId = 0;
 
-    connection.start().then(async () => {
-        await connection.invoke("JoinUserGroup", parseInt(currentUserId));
-    }).catch(e => console.error(e));
+    // fetch assigned mentor from server
+    fetch(`/UserChat/GetAssignedMentor?userId=${currentUserId}`)
+        .then(res => res.json())
+        .then(data => {
+            if(data.mentorId) {
+                selectedMentorId = data.mentorId;
+                loadMessages();
+            }
+        });
 
-    connection.on("ReceiveMessage", (userId, message, sentByMentor, mentorId) => {
-        const msgs = document.getElementById("messages");
-        const who = sentByMentor ? "Mentor" : "You";
-        msgs.innerHTML += `<div><b>${who}:</b> ${message}</div>`;
-        msgs.scrollTop = msgs.scrollHeight;
-    });
-
+    function loadMessages() {
+        fetch(`/UserChat/LoadMessages?userId=${currentUserId}&mentorId=${selectedMentorId}`)
+            .then(res => res.json())
+            .then(data => {
+                const msgs = document.getElementById("messages");
+                msgs.innerHTML = "";
+                data.forEach(m => msgs.innerHTML += `<div><b>${m.sentByMentor ? "Mentor" : "You"}:</b> ${m.content}</div>`);
+            });
+    }
+    
+    // Assign mentor button
     document.querySelectorAll(".assignBtn").forEach(b => b.addEventListener("click", async () => {
         selectedMentorId = b.dataset.id;
         const res = await fetch('/UserChat/AssignMentor?mentorId=' + selectedMentorId, { method: 'POST' });
-        if (res.ok) alert('Mentor assigned. Open chat to message.');
+        if (res.ok) alert('Mentor assigned. Chat loaded.');
+        
+        // Reload messages after assignment
+        fetch(`/UserChat/LoadMessages?userId=${currentUserId}&mentorId=${selectedMentorId}`)
+            .then(res => res.json())
+            .then(data => {
+                const msgs = document.getElementById("messages");
+                msgs.innerHTML = "";
+                data.forEach(m => msgs.innerHTML += `<div><b>${m.sentByMentor ? "Mentor" : "You"}:</b> ${m.content}</div>`);
+            });
     }));
 
+    // Send message button
     document.getElementById("sendBtn").addEventListener("click", async () => {
         const content = document.getElementById("messageInput").value;
         if (!content.trim()) return;
         if (!selectedMentorId) { alert("Select a mentor first"); return; }
 
-        await fetch(`/UserChat/SendMessage?mentorId=${selectedMentorId}&message=${encodeURIComponent(content)}`, { method: 'POST' });
-        document.getElementById("messages").innerHTML += `<div><b>You:</b> ${content}</div>`;
+        await fetch(`/UserChat/SendMessages?mentorId=${selectedMentorId}&message=${encodeURIComponent(content)}`, { method: 'POST' });
+        const msgs = document.getElementById("messages");
+        msgs.innerHTML += `<div><b>You:</b> ${content}</div>`;
         document.getElementById("messageInput").value = "";
     });
 </script>
