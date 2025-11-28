@@ -9,3 +9,5 @@ obj/
 # SQLite database (optional, if auto-generated)
 *.db
 *.sqlite
+
+.DS_Store
