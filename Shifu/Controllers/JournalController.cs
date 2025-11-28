@@ -4,6 +4,7 @@ using Shifu.Services;
 
 namespace Shifu.Controllers
 {
+    // created by Jonathan Ghattas  #991703952
     public class JournalController : Controller
     {
         private readonly JournalManager _journalManager;

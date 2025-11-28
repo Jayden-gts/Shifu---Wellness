@@ -3,6 +3,7 @@ using Microsoft.EntityFrameworkCore;
 
 namespace Shifu.Services
 {
+    // created by Jonathan Ghattas  #991703952
     public class ResourceManager
     {
         private readonly AppDbContext _context;

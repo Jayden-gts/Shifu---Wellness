@@ -3,6 +3,7 @@ using Shifu.Models;
 
 namespace Shifu.Services
 {
+    // created by Jonathan Ghattas  #991703952
     public class JournalManager
     {
         private readonly AppDbContext _context;
@@ -20,7 +21,7 @@ namespace Shifu.Services
             await _context.SaveChangesAsync();
         }
 
-        public async Task<int> GetJournalStreakAsync(int userId)
+        public async Task<int> GetJournalStreakAsync(int userId) // for counting the days that u write in ur journal
         {
             var entries = await _context.JournalEntries
                                         .Where(j => j.UserId == userId)

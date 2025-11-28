@@ -2,6 +2,7 @@
 
 namespace Shifu.Models
 {
+    // created by Jonathan Ghattas  #991703952
     public class Resource
     {
 

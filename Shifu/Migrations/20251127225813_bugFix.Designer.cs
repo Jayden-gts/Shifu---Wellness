@@ -11,8 +11,13 @@ using Shifu.Models;
 namespace Shifu.Migrations
 {
     [DbContext(typeof(AppDbContext))]
+<<<<<<<< HEAD:Shifu/Migrations/20251127225813_bugFix.Designer.cs
     [Migration("20251127225813_bugFix")]
     partial class bugFix
+========
+    [Migration("20251127222745_Updated")]
+    partial class Updated
+>>>>>>>> 51bedb1dafd52f18132f959002146a7447fc872e:Shifu/Migrations/20251127222745_Updated.Designer.cs
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)

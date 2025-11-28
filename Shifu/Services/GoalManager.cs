@@ -3,6 +3,7 @@ using Shifu.Models;
 
 namespace Shifu.Services
 {
+    // created by Jonathan Ghattas  #991703952
     public class GoalManager
     {
         private readonly AppDbContext _context;

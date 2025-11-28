@@ -3,6 +3,7 @@ using System.ComponentModel.DataAnnotations;
 
 namespace Shifu.Models
 {
+    // created by Jonathan Ghattas  #991703952
     public class Goal
     {
         [Key]

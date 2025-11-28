@@ -16,6 +16,10 @@
     }
 </ul>
 
+<div class="container text-center">
+    <a asp-action="SignOut" asp-controller="Home" class="btn btn-outline-danger">Sign Out</a>
+</div>
+
 <script>
     document.querySelectorAll(".approve").forEach(b => b.addEventListener("click", async () => {
         const id = b.dataset.id;

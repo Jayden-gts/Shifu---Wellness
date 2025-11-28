@@ -6,7 +6,11 @@ using Microsoft.EntityFrameworkCore.Migrations;
 namespace Shifu.Migrations
 {
     /// <inheritdoc />
+<<<<<<<< HEAD:Shifu/Migrations/20251127225813_bugFix.cs
     public partial class bugFix : Migration
+========
+    public partial class Updated : Migration
+>>>>>>>> 51bedb1dafd52f18132f959002146a7447fc872e:Shifu/Migrations/20251127222745_Updated.cs
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)

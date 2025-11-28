@@ -4,6 +4,7 @@ using Shifu.Services;
 
 namespace Shifu.Controllers
 {
+    // created by Jonathan Ghattas  #991703952
     public class GoalsController : Controller
     {
         private readonly GoalManager _goalManager;
@@ -20,7 +21,7 @@ namespace Shifu.Controllers
             return View(goals);
         }
 
-        [HttpPost]
+        [HttpPost] // adding goals
         public async Task<IActionResult> AddGoal(string title, string? description, DateTime? targetDate)
         {
             if (_currentUser == null) return RedirectToAction("Login", "Home");
@@ -38,7 +39,7 @@ namespace Shifu.Controllers
         }
 
 
-        [HttpPost]
+        [HttpPost] // used ot be able to make any footenote turn into a goal
         public async Task<IActionResult> AddGoalFromFootnote(string title, string description, DateTime? targetDate)
         {
             if (_currentUser == null)
@@ -62,7 +63,7 @@ namespace Shifu.Controllers
 
 
         [HttpPost]
-        public async Task<IActionResult> MarkCompleted(int id)
+        public async Task<IActionResult> MarkCompleted(int id) // used to make sure completed goals can be marked and put away
         {
             var goal = (await _goalManager.GetUserGoalsAsync(_currentUser.Id)).FirstOrDefault(g => g.Id == id);
             if (goal != null)

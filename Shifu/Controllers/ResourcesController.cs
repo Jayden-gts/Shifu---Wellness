@@ -4,6 +4,7 @@ using Shifu.Services;
 
 namespace Shifu.Controllers
 {
+    // created by Jonathan Ghattas  #991703952
     public class ResourcesController : Controller
     {
         private readonly ResourceManager _resourceManager;
@@ -16,6 +17,7 @@ namespace Shifu.Controllers
             
             var resources = new List<Resource>
             {
+                // list of resources I found that can be for generalized addiction recovery
                 new Resource
                 {
                     Title = "Mindfulness for Beginners",
