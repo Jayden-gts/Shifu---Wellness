@@ -2,6 +2,8 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace Shifu.Controllers;
 
+// Created by Laiba Ahmed 991691793
+
 [Route("api/quotes")]
 [ApiController]
 public class QuotesController : ControllerBase

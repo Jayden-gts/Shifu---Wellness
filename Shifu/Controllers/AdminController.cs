@@ -6,6 +6,8 @@ using Shifu.Models;
 
 namespace Shifu.Controllers;
 
+// Created by Laiba Ahmed 991691793
+
 [Authorize (Roles = "Admin")]
 public class AdminController : Controller 
 {
@@ -31,17 +33,11 @@ public class AdminController : Controller
         
         user.IsMentorApplicant = false;
         user.IsMentor = true;
-        user.MentorStatus = "Approved"; // marks them as approved
+        user.MentorStatus = "Approved"; 
         user.IsAvailable = true;
         
-        
-        
-        //user.IsMentorApplicant = true;
-        //user.IsAvailable = true;
         await _db.SaveChangesAsync();
-        
-        
-        // Debug logging
+
         Console.WriteLine($"User after approval: Id={user.Id}, IsMentor={user.IsMentor}, MentorStatus={user.MentorStatus}");
 
         // Log current HTTP context user claims
@@ -51,8 +47,6 @@ public class AdminController : Controller
         {
             Console.WriteLine($"Claim: {claim.Type} = {claim.Value}");
         }
-
-        
         
         // Sign in the user immediately as a mentor
         var claims = new List<Claim>
@@ -67,9 +61,7 @@ public class AdminController : Controller
 
         // Redirect directly to mentor dashboard
         return RedirectToAction("Login", "Home");
-        
-        
-        //return RedirectToAction("Login", "Home");
+
     }
     
     

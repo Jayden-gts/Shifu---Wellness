@@ -3,6 +3,7 @@
     Layout = "_Layout";
     ViewBag.Title = "Mentor Dashboard";
 }
+@* Laiba Ahmed - 991691793 *@
 
 <div class="container-fluid vh-100 p-0">
     <div class="row column-gap-1 flex-nowrap vh-100 box">
@@ -11,7 +12,6 @@
         <div class="col-3 box rounded d-flex flex-column align-items-center overflow-y-auto border p-2"
              style="background-image: url('@Url.Content("~/bgGreen.png")'); background-size: cover; background-position: left; max-height: 100vh">
 
-            <!-- Welcome Section -->
             <div class="p-3 mb-3 rounded shadow bg-white text-center w-100">
                 <h5>Welcome Mentor!</h5>
             </div>
@@ -24,14 +24,12 @@
                 </a>
             </div>
 
-            <!-- Spacer to push logout to bottom -->
             <div class="mt-auto p-3 w-100">
                 <a asp-action="SignOut" class="btn btn-outline-danger w-100">Sign Out</a>
             </div>
 
         </div>
 
-        <!-- RIGHT CONTENT PANEL (keeps layout balanced) -->
         <div class="col-9 box rounded border bg-body-secondary h-100 overflow-auto p-4"
              style="background-image: url('@Url.Content("~/bgGreen.png")'); background-size: cover; background-position: left;">
 

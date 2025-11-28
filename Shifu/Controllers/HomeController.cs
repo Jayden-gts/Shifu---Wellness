@@ -10,6 +10,7 @@ namespace Shifu.Controllers;
 // Created by Jayden Seto - 991746683 
 // Controller for handling user authentication during sign up and log in, and profile management 
 
+
 public class HomeController : Controller
 {
     private readonly ILogger<HomeController> _logger;
@@ -27,23 +28,19 @@ public class HomeController : Controller
         _goalManager = goal;
     }
     
-    // Displays main landing page
     [HttpGet]
     public IActionResult Index()
     {
         return View();
     }
     
-    //Displays SignUp page
     [HttpGet]
     public IActionResult SignUp()
     {
         return View();
     }
-    //Current logged in user
     public static UserData? LoggedInUser;
     
-    //Redirects to log in on successful signup, otherwise re-displays the form.
     [HttpPost]
     public async Task<IActionResult> SignUp(UserData user)
     {
@@ -71,10 +68,7 @@ public class HomeController : Controller
         
         await _repository.AddUserDataAsync(user);
         
-        // After saving the new user
-        //await _repository.AddUserDataAsync(user);
-
-// Sign in the user
+        
         var claims = new List<Claim>
         {
             new Claim(ClaimTypes.NameIdentifier, user.Id.ToString()),
@@ -84,14 +78,7 @@ public class HomeController : Controller
         var identity = new ClaimsIdentity(claims, "MyCookieAuth");
         await HttpContext.SignInAsync("MyCookieAuth", new ClaimsPrincipal(identity));
         LoggedInUser = user;
-
-// Redirect to Mentor Application
-        //return RedirectToAction("Apply", "MentorApplication");
-
         
-        
-        
-        /// If signing up as mentor, mark as applicant and Pending
         if (user.IsMentorApplicant == true)
         {
             user.MentorStatus = "Pending";
@@ -133,11 +120,6 @@ public class HomeController : Controller
             // Redirect directly to admin dashboard
             return RedirectToAction("PendingMentors", "Admin");
         } 
-        // Hardcoded admin credentials
-        
-        
-        // ------------------------------------------------
-
         
         var user = await _repository.GetUserAsync(email, password);
         if (user == null)
@@ -168,26 +150,6 @@ public class HomeController : Controller
         await HttpContext.SignInAsync("MyCookieAuth", principal);
 
         LoggedInUser = user;
-        
-        // make an admin dashboard 
-        // case checks 
-        //if (user.IsAdmin)
-            //return RedirectToAction("PendingMentors", "Admin");
-
-        //if (user.IsMentorApplicant == true)
-        //{
-        //if (user.MentorStatus == "Pending")
-                //return RedirectToAction("Pending", "MentorApplication");
-            
-            //if (user.MentorStatus == "Approved")
-            //return RedirectToAction("Chat", "Mentor");
-            
-            //if (user.IsMentorApplicant && user.MentorStatus == "Pending")
-                //return RedirectToAction("Pending", "MentorApplication");
-            
-            // if rejected ****** make a page for this 
-            //return RedirectToAction("Rejected");
-        //}
         
         // Redirect based on role and mentor status
         if (user.IsAdmin)
@@ -226,7 +188,6 @@ public class HomeController : Controller
             .FirstOrDefault();
 
 
-        // this is to track the "age" of a goal in order to be able to send the oldest goal to the dashboard via ViewBag
         ViewBag.OldestGoal = oldestGoal;
 
         // load journal entries
@@ -237,7 +198,6 @@ public class HomeController : Controller
         return View(LoggedInUser);
     }
 
-    //Edit Profile Page, if no current logged-in user, redirect to log-in page
     [HttpGet]
     public IActionResult EditProfile()
     {
@@ -246,7 +206,6 @@ public class HomeController : Controller
         return View(LoggedInUser);
     }
 
-    //Edit Profile Page POST, if no current logged-in user, redirect to log-in page, if valid, info updates the user.
     [HttpPost]
     public async Task<IActionResult> EditProfile(UserData user)
     {
@@ -292,12 +251,11 @@ public class HomeController : Controller
         return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
     }
     
-    //  check thiss after ******
     [Authorize(Roles="Mentor")]
-    public IActionResult Pending() => View(); // shows "Your application is under review"
+    public IActionResult Pending() => View(); 
 
     [Authorize(Roles="Mentor")]
-    public IActionResult Rejected() => View(); // shows "Your application was rejected"
+    public IActionResult Rejected() => View(); 
 
     
 }
