@@ -2,35 +2,58 @@
 @{
     Layout = "_Layout";
 }
+
 <input id="mentorId" type="hidden" value="@User.FindFirst(System.Security.Claims.ClaimTypes.NameIdentifier)?.Value" />
 
-<div class="container mt-4">
-    <h3>Your Assigned Users</h3>
-    <div class="row">
-        <div class="col-4">
-            <ul id="userList" class="list-group">
-                @foreach(var u in Model)
-                {
-                    <li class="list-group-item user-item" data-id="@u.Id">
-                        <h5>@u.FirstName @u.LastName</h5>
-                        <p><strong>Goal:</strong> @u.CurrentGoal</p>
-                        <p><strong>Streak:</strong> @(u.JournalStreak ?? 0)</p>
-                        <button class="btn btn-sm btn-outline-primary openChat" data-id="@u.Id">Open Chat</button>
-                    </li>
-                }
-            </ul>
+<div class="container-fluid mt-4">
+
+    <!-- Back Button -->
+    <div class="mb-3">
+        <a asp-controller="Mentor" asp-action="MentorDashboard" class="btn btn-outline-secondary">
+            ← Back to Dashboard
+        </a>
+    </div>
+
+    <div class="row g-4">
+
+        <!-- LEFT: User List -->
+        <div class="col-md-4">
+            <div class="p-3 rounded shadow bg-white">
+                <h3 class="mb-3">Your Assigned Users</h3>
+                <ul id="userList" class="list-group">
+                    @foreach (var u in Model)
+                    {
+                        <li class="list-group-item user-item d-flex flex-column" data-id="@u.Id">
+                            <h5>@u.FirstName @u.LastName</h5>
+                            <p><strong>Goal:</strong> @u.CurrentGoal</p>
+                            <p><strong>Streak:</strong> @(u.JournalStreak ?? 0)</p>
+                            <button class="btn btn-sm btn-outline-primary openChat mt-auto" data-id="@u.Id">Open Chat</button>
+                        </li>
+                    }
+                </ul>
+            </div>
         </div>
 
-        <div class="col-8">
-            <h4 id="chatWith">Select a user</h4>
-            <div id="messages" class="border p-3 mb-2" style="height:350px; overflow-y:auto;"></div>
-            <textarea id="messageInput" class="form-control mb-2"></textarea>
-            <button id="sendBtn" class="btn btn-primary">Send</button>
+        <!-- RIGHT: Chat Panel -->
+        <div class="col-md-8">
+            <div class="p-3 rounded shadow bg-white">
+                <h4 id="chatWith" class="mb-3">Select a user</h4>
+
+                <div id="messages"
+                     class="border rounded p-3 mb-3"
+                     style="height: 350px; overflow-y: auto; background: #fafafa;">
+                </div>
+
+                <textarea id="messageInput" class="form-control mb-2" placeholder="Type your message..."></textarea>
+                <button id="sendBtn" class="btn btn-success w-100">Send</button>
+            </div>
         </div>
+
     </div>
 </div>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/microsoft-signalr/7.0.5/signalr.min.js"></script>
+
 <script>
     const connection = new signalR.HubConnectionBuilder().withUrl("/mentorUserHub").build();
     let selectedUserId = 0;
@@ -38,33 +61,46 @@
 
     connection.start().catch(e => console.error(e));
 
-    connection.on("ReceiveMessage", (userId, message, sentByMentor, mid) => {
+    connection.on("ReceiveMessage", (userId, message, sentByMentor) => {
         if (parseInt(userId) !== parseInt(selectedUserId)) return;
+
         const msgs = document.getElementById("messages");
         const who = sentByMentor ? "Mentor" : "User";
+
         msgs.innerHTML += `<div><b>${who}:</b> ${message}</div>`;
         msgs.scrollTop = msgs.scrollHeight;
     });
 
-    document.querySelectorAll(".openChat").forEach(b => b.addEventListener("click", async () => {
-        selectedUserId = b.dataset.id;
-        document.getElementById("chatWith").innerText = "Chat with user " + b.parentElement.querySelector('h5').innerText;
+    document.querySelectorAll(".openChat").forEach(btn => btn.addEventListener("click", async () => {
+        selectedUserId = btn.dataset.id;
+
+        document.getElementById("chatWith").innerText =
+            "Chat with " + btn.parentElement.querySelector("h5").innerText;
+
         await connection.invoke("JoinUserGroup", parseInt(selectedUserId));
 
         const res = await fetch(`/Mentor/LoadMessages?userId=${selectedUserId}`);
         const data = await res.json();
+
         const msgs = document.getElementById("messages");
         msgs.innerHTML = "";
-        data.forEach(m => msgs.innerHTML += `<div><b>${m.sentByMentor ? "Mentor" : "User"}:</b> ${m.content}</div>`);
+
+        data.forEach(m =>
+            msgs.innerHTML += `<div><b>${m.sentByMentor ? "Mentor" : "User"}:</b> ${m.content}</div>`
+        );
+
+        msgs.scrollTop = msgs.scrollHeight;
     }));
 
     document.getElementById("sendBtn").addEventListener("click", async () => {
         const content = document.getElementById("messageInput").value;
         if (!content.trim() || !selectedUserId) return;
-        await fetch(`/Mentor/SendMessages?userId=${selectedUserId}&message=${encodeURIComponent(content)}`, { method: 'POST' });
+
+        await fetch(`/Mentor/SendMessages?userId=${selectedUserId}&message=${encodeURIComponent(content)}`,
+            { method: "POST" });
+
         document.getElementById("messages").innerHTML += `<div><b>Mentor:</b> ${content}</div>`;
         document.getElementById("messageInput").value = "";
     });
 </script>
-
 

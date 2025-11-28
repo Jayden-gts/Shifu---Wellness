@@ -28,10 +28,6 @@ public class UserChatController : Controller
     // show the avaliable mentors with the qualifications 
     public async Task<IActionResult> Chat()
     {
-        //var mentors = await _service.GetMentorsAvailable();
-        //return View(mentors);
-        
-        
         var userId = int.Parse(User.FindFirst(ClaimTypes.NameIdentifier).Value);
         var assigned = await _service.GetAssignmentForUser(userId);
         int? assignedMentorId = assigned?.MentorId;
@@ -68,12 +64,7 @@ public class UserChatController : Controller
         return Ok();
     }
 
-    //public IActionResult Chat()
-    //{
-        //var users = _db.Users.ToList();
-        //return View();
-    //}
-
+   
 
     [HttpGet]
     public async Task<IActionResult> LoadMessages(int userId)
@@ -137,22 +128,5 @@ public class UserChatController : Controller
 
         return View(model);
     }
-    
-    [HttpGet]
-    public async Task<IActionResult> GetBadges(int userId)
-    {
-        var badges = await _db.Badges
-            .Where(b => b.AwardedToId == userId.ToString()) // now querying users
-            .OrderByDescending(b => b.AwardedOn)
-            .Select(b => new {
-                b.Name,
-                b.ImageUrl,
-                b.AwardedOn
-            })
-            .ToListAsync();
-
-        return Json(badges);
-    }
-
 
 }
