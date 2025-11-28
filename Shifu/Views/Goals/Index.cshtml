@@ -31,11 +31,11 @@
     @foreach (var goal in Model.Where(g => !g.Completed))
     {
         <li>
-                <strong>@goal.Title</strong>
-                @if (goal.TargetDate != null)
-                {
-                    <span>(@goal.TargetDate?.ToString("dd MMM yyyy"))</span>
-                }
+            <strong>@goal.Title</strong>
+            @if (goal.TargetDate != null)
+            {
+                <span>(@goal.TargetDate?.ToString("dd MMM yyyy"))</span>
+            }
             <p>@goal.Description</p>
 
              
@@ -46,7 +46,9 @@
                 <button type="submit" class="btn btn-sm btn-success">Mark Completed</button>
             </form>
         </li>
+        
     }
+    </div>
 </ul>
 
 
