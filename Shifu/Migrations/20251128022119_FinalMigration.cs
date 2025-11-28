@@ -6,15 +6,28 @@ using Microsoft.EntityFrameworkCore.Migrations;
 namespace Shifu.Migrations
 {
     /// <inheritdoc />
-<<<<<<<< HEAD:Shifu/Migrations/20251127225813_bugFix.cs
-    public partial class bugFix : Migration
-========
-    public partial class Updated : Migration
->>>>>>>> 51bedb1dafd52f18132f959002146a7447fc872e:Shifu/Migrations/20251127222745_Updated.cs
+    public partial class FinalMigration : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
         {
+            migrationBuilder.CreateTable(
+                name: "Badges",
+                columns: table => new
+                {
+                    Id = table.Column<int>(type: "INTEGER", nullable: false)
+                        .Annotation("Sqlite:Autoincrement", true),
+                    Name = table.Column<string>(type: "TEXT", nullable: false),
+                    ImageUrl = table.Column<string>(type: "TEXT", nullable: false),
+                    AwardedOn = table.Column<DateTime>(type: "TEXT", nullable: false),
+                    AwardedById = table.Column<string>(type: "TEXT", nullable: false),
+                    AwardedToId = table.Column<string>(type: "TEXT", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Badges", x => x.Id);
+                });
+
             migrationBuilder.CreateTable(
                 name: "Messages",
                 columns: table => new
@@ -153,6 +166,9 @@ namespace Shifu.Migrations
         /// <inheritdoc />
         protected override void Down(MigrationBuilder migrationBuilder)
         {
+            migrationBuilder.DropTable(
+                name: "Badges");
+
             migrationBuilder.DropTable(
                 name: "Goals");
 

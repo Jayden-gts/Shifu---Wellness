@@ -11,8 +11,8 @@ using Shifu.Models;
 namespace Shifu.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    [Migration("20251128010330_BugFix2")]
-    partial class BugFix2
+    [Migration("20251128022119_FinalMigration")]
+    partial class FinalMigration
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
