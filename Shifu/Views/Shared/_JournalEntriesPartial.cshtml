@@ -1,0 +1,19 @@
+﻿@model UserData
+
+<div class="journal-entries">
+    @foreach (var entry in Model.JournalEntries.OrderByDescending(e => e.CreatedAt))
+    {
+        <div class="card mb-2">
+            <div class="card-body">
+                <small class="text-muted">@entry.CreatedAt.ToString("dd MMM yyyy")</small>
+                <p>
+                    @entry.Content
+                    @if (!string.IsNullOrWhiteSpace(entry.Mood))
+                    {
+                        <span class="ms-2">@entry.Mood</span>
+                    }
+                </p>
+            </div>
+        </div>
+    }
+</div>

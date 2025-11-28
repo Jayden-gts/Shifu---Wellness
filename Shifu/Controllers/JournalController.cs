@@ -31,10 +31,11 @@ namespace Shifu.Controllers
 
             HomeController.LoggedInUser.JournalEntries = await _journalManager.GetUserEntriesAsync(userId);
 
-
             HomeController.LoggedInUser.JournalStreak = await _journalManager.GetJournalStreakAsync(userId);
 
-            return PartialView("_JournalPartial", HomeController.LoggedInUser);
+            // Only return the updated entries, NOT the form
+            return PartialView("_JournalEntriesPartial", HomeController.LoggedInUser);
         }
     }
-}
+
+    }

@@ -5,14 +5,15 @@
 @* created by Jonathan Ghattas  #991703952 *@
 
 
-<div class="journal-container w-100">
-    <h4>Your Journal</h4>
+<div class="w-100 p-3 rounded bg-white shadow">
+    <div class="journal-container w-100">
+        <h4>Your Journal</h4>
 
-    <form id="journalForm" method="post">
-        <textarea class="form-control mb-2" name="content" placeholder="Write your thoughts here..." rows="4"></textarea>
+        <!-- Journal Form -->
+        <form id="journalForm" method="post" asp-controller="Journal" asp-action="AddEntry">
+            <textarea class="form-control mb-2" name="content" placeholder="Write your thoughts here..." rows="4"></textarea>
 
-        <div class="input-group mb-2">
-            <select class="form-select" name="mood">
+            <select class="form-select mb-2" name="mood">
                 <option value="">How are you feeling?</option>
                 <option value="😊">😊 Happy</option>
                 <option value="😢">😢 Sad</option>
@@ -24,33 +25,30 @@
                 <option value="👍">👍 Good</option>
                 <option value="💪">💪 Strong</option>
             </select>
-        </div>
 
-     
-        <input type="hidden" name="userId" value="@Model.Id" />
-        <button type="submit" class="btn btn-success mt-2">Add Entry</button>
-    </form>
+            <input type="hidden" name="userId" value="@Model.Id" />
+            <button type="submit" class="btn btn-success mt-2">Add Entry</button>
+        </form>
 
-    <hr />
+        <hr />
 
-    <div class="journal-entries mt-3">
-        @foreach (var entry in Model.JournalEntries.OrderByDescending(e => e.CreatedAt))
-        {
-            <div class="card mb-2">
-                <div class="card-body">
-                    <small class="text-muted">@entry.CreatedAt.ToString("dd MMM yyyy")</small>
-
-                    <p>
-                        @entry.Content
-                        @if (!string.IsNullOrWhiteSpace(entry.Mood))
-                        {
-                            <span class="ms-2">@entry.Mood</span> 
-                        }
-                    </p>
-
-                   
+      
+        <div class="journal-entries mt-3">
+            @foreach (var entry in Model.JournalEntries.OrderByDescending(e => e.CreatedAt))
+            {
+                <div class="card mb-2">
+                    <div class="card-body">
+                        <small class="text-muted">@entry.CreatedAt.ToString("dd MMM yyyy")</small>
+                        <p>
+                            @entry.Content
+                            @if (!string.IsNullOrWhiteSpace(entry.Mood))
+                            {
+                                <span class="ms-2">@entry.Mood</span>
+                            }
+                        </p>
+                    </div>
                 </div>
-            </div>
-        }
+            }
+        </div>
     </div>
 </div>

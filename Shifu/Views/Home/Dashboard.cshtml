@@ -12,9 +12,10 @@
 
 <div class="container-fluid vh-100 p-0">
     <div class="row column-gap-1 flex-nowrap vh-100 box">
+       
         <div class="col-3 box rounded d-flex flex-column align-items-center overflow-y-auto border p-2"
              style="background-image: url('@Url.Content("~/bgGreen.png")'); background-size: cover; background-position: left; max-height: 100vh">
-            
+
             <div class="p-3 mb-3 rounded shadow bg-white text-center" style="width: 90%;">
                 <h5>Welcome!</h5>
                 <p>@(char.ToUpper(@Model.FirstName[0]) + Model.FirstName.Substring(1).ToLower())
@@ -23,39 +24,27 @@
                 <a asp-action="EditProfile" class="btn btn-outline-secondary">Edit Profile</a>
             </div>
 
-
             <div class="p-3 mb-3 rounded shadow bg-white text-center" style="width: 90%;">
             @if (ViewBag.OldestGoal != null)
             {
                 <h5>Your Current Goal:</h5>
                 <p><strong>@ViewBag.OldestGoal.Title</strong></p>
-
                 @if (ViewBag.OldestGoal.TargetDate != null)
                 {
                     <p>Target date: @ViewBag.OldestGoal.TargetDate.ToString("dd MMM yyyy")</p>
-                   
                 }
-
-                <a asp-controller="Goals" asp-action="Index" class="btn btn-outline-primary">
-                    View All Goals
-                </a>
+                <a asp-controller="Goals" asp-action="Index" class="btn btn-outline-primary">View All Goals</a>
             }
             else
             {
                 <h5>How's your goals coming along?</h5>
-                <a asp-controller="Goals" asp-action="Index" class="btn btn-outline-success">
-                    Try setting a goal!
-                </a>
+                <a asp-controller="Goals" asp-action="Index" class="btn btn-outline-success">Try setting a goal!</a>
             }
             </div>
 
-            
-
             <div class="p-3 mb-3 rounded shadow bg-white text-center" style="width: 90%;">
                 <h5>Resources for you</h5>
-                <a asp-controller="Resources" asp-action="Index" class="btn btn-outline-success">
-                    View Resources
-                </a>
+                <a asp-controller="Resources" asp-action="Index" class="btn btn-outline-success">View Resources</a>
             </div>
 
             <div class="p-3 mb-3 rounded shadow bg-white text-center" style="width: 90%;">
@@ -68,29 +57,28 @@
                 {
                     <p>Try writing in your journal!</p>
                 }
-
             </div>
-            
+
             <div class="p-3 mb-3 rounded shadow bg-white text-center" style="width: 90%;">
                 <h5>Get Connected!</h5>
                 <a asp-controller="Events" asp-action="Index" class="btn btn-outline-success">Find local events near you</a>
             </div>
-            
-            
+
             <div class="p-3 mb-3 rounded shadow bg-white text-center" style="width: 90%;">
                 <h5>Talk to a Mentor</h5>
-                <a asp-controller="UserChat" asp-action="Chat" class="btn btn-outline-success">
-                    Open Chat 
-                </a>
+                <a asp-controller="UserChat" asp-action="Chat" class="btn btn-outline-success">Open Chat</a>
             </div>
 
             <div class="container text-center">
                 <a asp-action="SignOut" class="btn btn-outline-danger">Sign Out</a>
             </div>
-           
         </div>
+
+  
         <div class="col-9 box rounded d-flex flex-column align-items-start border bg-body-secondary h-100 overflow-auto p-3" id="journalPanel"
-             style="background-image: url('@Url.Content("~/bgGreen.png")'); overflow-y: auto; padding: 1rem; background-size: cover; background-position: left;">
+             style="background-image: url('@Url.Content("~/bgGreen.png")'); background-size: cover; background-position: left;">
+
+      
             @await Html.PartialAsync("_JournalPartial", Model)
 
            
@@ -98,35 +86,39 @@
                 <h5>Add a Goal for today!</h5>
                 <form asp-controller="Goals" asp-action="AddGoalFromFootnote" method="post">
                     <input type="text" name="Title" class="form-control mb-2" placeholder="Set your goal..." required />
-                    <input type="date" name="TargetDate" class="form-control mb-2" /> 
+                    <input type="date" name="TargetDate" class="form-control mb-2" />
                     <button type="submit" class="btn btn-success">Create Goal</button>
                 </form>
             </div>
 
         </div>
-
-        @section Scripts {
-            <script>
-                $(document).ready(function () {
-                    $("#journalPanel").on("submit", "#journalForm", function (e) {
-                        e.preventDefault();
-                        var form = $(this);
-                        $.ajax({
-                            type: "POST",
-                            url: "/Journal/AddEntry",
-                            data: form.serialize(),
-                            success: function (result) {
-
-                                $("#journalPanel").html(result);
-                            },
-                            error: function () {
-                                alert("Failed to add entry.");
-                            }
-                        });
-                    });
-                });
-            </script>
-        }
-        </div>
-        
     </div>
+</div>
+
+@section Scripts {
+<script>
+$(document).ready(function () {
+    $("#journalPanel").off("submit", "#journalForm").on("submit", "#journalForm", function (e) {
+        e.preventDefault(); 
+        var form = $(this);
+
+        $.ajax({
+            type: "POST",
+            url: form.attr("action") || "/Journal/AddEntry",
+            data: form.serialize(),
+            success: function (result) {
+             
+                $(".journal-entries").html(result);
+
+            
+                form.find('textarea[name="content"]').val('');
+                form.find('select[name="mood"]').val('');
+            },
+            error: function () {
+                alert("Failed to add entry.");
+            }
+        });
+    });
+});
+</script>
+}
