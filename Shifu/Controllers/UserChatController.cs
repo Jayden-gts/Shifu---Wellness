@@ -6,10 +6,12 @@ using Shifu.Services;
 using System.Linq;
 using System.Security.Claims;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.EntityFrameworkCore;
 
 namespace Shifu.Controllers;
 
+[Authorize]
 public class UserChatController : Controller
 {
     private readonly AppDbContext _db; 
@@ -26,9 +28,31 @@ public class UserChatController : Controller
     // show the avaliable mentors with the qualifications 
     public async Task<IActionResult> Chat()
     {
-        var mentors = await _service.GetMentorsAvailable();
+        //var mentors = await _service.GetMentorsAvailable();
+        //return View(mentors);
+        
+        
+        var userId = int.Parse(User.FindFirst(ClaimTypes.NameIdentifier).Value);
+        var assigned = await _service.GetAssignmentForUser(userId);
+        int? assignedMentorId = assigned?.MentorId;
+
+        List<UserData> mentors;
+        if (assignedMentorId != null)
+            mentors = await _service.GetMentorsAllApproved(); // or just the assigned one
+        else
+            mentors = await _service.GetMentorsAvailable();
+
+        ViewBag.AssignedMentorId = assignedMentorId;
         return View(mentors);
     }
+    
+    [HttpGet]
+    public async Task<IActionResult> GetAssignedMentor(int userId)
+    {
+        var assigned = await _service.GetAssignmentForUser(userId);
+        return Json(new { mentorId = assigned?.MentorId });
+    }
+
     
     
     [HttpPost]

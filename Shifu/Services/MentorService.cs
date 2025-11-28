@@ -31,7 +31,7 @@ public class MentorService
         {
             UserId = userId,
             MentorId = mentorId,
-            SentByMentor = true,
+            SentByMentor = sentByMentor,
             Content = content,
             Timestamp = DateTime.UtcNow
         };
