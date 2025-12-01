@@ -209,13 +209,19 @@ public class HomeController : Controller
     [HttpPost]
     public async Task<IActionResult> EditProfile(UserData user)
     {
+        ModelState.Remove("IsMentorApplicant");
+
         if (!ModelState.IsValid)
         {
             return View(user);
         }
-
         if (LoggedInUser == null)
             return View("Login");
+        
+        user.IsMentorApplicant = LoggedInUser.IsMentorApplicant;
+        user.IsMentor = LoggedInUser.IsMentor;
+        user.IsAdmin = LoggedInUser.IsAdmin;
+
         
         LoggedInUser.FirstName = user.FirstName;
         LoggedInUser.LastName = user.LastName;
